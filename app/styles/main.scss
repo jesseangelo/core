@@ -2,9 +2,12 @@
 @import "../../bower_components/font-awesome/css/font-awesome.css";
 
 
+$font-family-base: 'Raleo';
+body { font-family: $font-family-base; }
+
 $ipreo-blue: #0079bd;
 $offset: 250px;
-$sidebar-margin-top: 50px;
+$sidebar-margin-top: 55px;
 $topbar-margin-top: 45px;
 $bar-content-margin-top: 75px;
 $sidebar-minimized: 60px;
@@ -86,22 +89,25 @@ nav a {
 
 .navbar-custom {
   background-color: white;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 2px #bbb;
   border-radius: 0;
   padding-top: .5em;
-  .ipreo-debtdomain-logo { 
-  margin-left: 11px;
-  a .navbar-brand { 
-    display: block;
-    background-size: contain;
-    max-width: 230px;
-    background-repeat: no-repeat;
-    width: 230px;
-    background-image: url('../images/logohorizontal.png');
-    margin: 4px auto -11px;
-    background-position: -2px 0;
+  &.scrolling {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   }
-}
+  .ipreo-debtdomain-logo { 
+    margin-left: 11px;
+    a .navbar-brand { 
+      display: block;
+      background-size: contain;
+      max-width: 230px;
+      background-repeat: no-repeat;
+      width: 230px;
+      background-image: url('../images/logohorizontal.png');
+      margin: 4px auto -11px;
+      background-position: -2px 0;
+    }
+  }
 }
 
 .navbar-left,
