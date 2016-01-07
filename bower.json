@@ -1,6 +1,6 @@
 {
   "name": "dd-core",
-  "private": true,
+  "private": false,
   "dependencies": {
     "bootstrap-sass": "~3.3.5",
     "modernizr": "~2.8.1",
