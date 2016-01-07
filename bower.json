@@ -7,6 +7,14 @@
     "font-awesome": "latest",
     "jquery": "~1.9.1"
   },
+  "main": "styles/main.css",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "overrides": {
     "bootstrap-sass": {
       "main": [
