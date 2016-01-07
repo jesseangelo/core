@@ -1,3 +1,13 @@
 {
-  "directory": "bower_components"
+	"directory": "bower_components",
+    "strict-ssl": false,
+    "registry": { 
+    	"search": [    		
+    		"https://www.myget.org/F/mypreo/bower/"
+      		
+    	],
+    	"register": "https://jesseangelo:shinobi9@www.myget.org/F/mypreo/bower/"
+    },
+    "proxy": "http://webguest:Internet1@nyproxy.ideal.corp.local:8080/",
+	"https-proxy": "http://webguest:Internet1@nyproxy.ideal.corp.local:8080/"
 }
