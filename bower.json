@@ -9,9 +9,7 @@
   },
   "main": [
     "dist/styles/main.css",
-    "dist/scripts/main.js",
-    "dist/scripts/plugins.js",
-    "dist/scripts/vendor.js"
+    "dist/scripts/main.js"
   ],
   "ignore": [
     "**/.*",
