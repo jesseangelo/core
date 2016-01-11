@@ -7,7 +7,12 @@
     "font-awesome": "latest",
     "jquery": "~1.9.1"
   },
-  "main": "styles/main.css",
+  "main": [
+    "dist/styles/main.css",
+    "dist/scripts/main.js",
+    "dist/scripts/plugins.js",
+    "dist/scripts/vendor.js"
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
