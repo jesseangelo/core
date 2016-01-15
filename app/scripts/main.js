@@ -34,12 +34,16 @@ $('.maximize-sidebar').click(function(){
 });
 
 $('.minimize-topbar').click(function(){
+  minimizeTopbar();
+});
+
+var minimizeTopbar = function() {
   $('#topbar').addClass('minimized');
-  $(this).hide();
+  $('.minimize-topbar').hide();
   $('.maximize-topbar').show();
   $('#topbar .content-minimized').show();
   $('#topbar .content-maximized').hide();
-});
+};
 
 $('.maximize-topbar').click(function(){
   $('#topbar').removeClass('minimized');  
@@ -137,22 +141,14 @@ $(document).on('click', function () {
 });
 
 
-
-$(document).ready(function() {
-    // run test on initial page load
-    checkSize();
-
-    // run test on resize of the window
-    $(window).resize(checkSize);
-});
-
 //Function to the css rule
 function checkSize(){
-    if ($(".mediaTest").css("float") == "none" ){
-
+    //mobile
+    if ($(".mediaTest").css("float") == "none" ) {
+        
         $('.actionbar-fixed-bottom').removeClass('maximized');
         $('#mainWindow').removeClass('maximized');
-
+    //desktop
     } else if ($(".mediaTest").css("float") == "left" ) {
       
       if ($('#sidebar').hasClass('minimized')) {
@@ -176,7 +172,12 @@ $(window).scroll(function(){
 
 /* Actionbar scripts */
 $(document).ready(function () {
-   
+    // run test on initial page load
+    checkSize();
+    minimizeTopbar();
+
+    // run test on resize of the window
+    $(window).resize(checkSize);
     
     $('.toggleActionbar').click(function(){
       $('.actionbar-fixed-bottom').toggle();
