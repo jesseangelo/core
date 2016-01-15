@@ -1,0 +1,29 @@
+/* card */
+.panel .list-unstyled {
+    margin-bottom: 0;
+    li:last-child { margin-bottom: 10px; }
+}
+
+.button-login { 
+    background-color: $ipreo-blue
+}
+
+.card {        
+    border-radius: 2px; 
+    .button-group { 
+        margin-top: 30px;
+    }
+    form { margin-bottom: 0; }
+    .panel-body {
+        padding: 0 24px 24px; 
+    }
+    padding: 20px;
+    margin: auto;
+}
+
+.shadow-card { box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); }
+.card-login {
+    margin: 0 auto;
+}
+
+/* end card */

@@ -1,0 +1,6 @@
+.mediaTest { float: left; }
+@media only screen and (max-width: 992px) {
+  .mediaTest { float: none; }
+}
+
+.show-mobile { display: none; }

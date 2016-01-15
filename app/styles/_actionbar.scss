@@ -1,0 +1,17 @@
+.actionbar {
+  min-height: 50px;  
+  color: black;
+  padding-top: 0.5em;
+}
+.actionbar-fixed-bottom {
+  bottom: 0px;
+  position: fixed;
+  z-index: 1030;
+  margin-bottom: 0px;
+  background-color: #c0c0c0;
+  color: white;
+  &.maximized {
+    width: 100%;
+    margin-left: 60px;
+  }
+}

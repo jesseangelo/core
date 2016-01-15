@@ -3,7 +3,7 @@
 
 @import "../bower_components/font-awesome/less/font-awesome.less";
 @fa-font-path: "../fonts/font-awesome";
-
+@font-family-base: 'OpenSans';
 @ipreo-blue: #0079bd;
 @offset: 250px;
 @sidebar-margin-top: 50px;
@@ -91,19 +91,22 @@ nav a {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   border-radius: 0;
   padding-top: .5em;
-  .ipreo-debtdomain-logo { 
-  margin-left: 11px;
-  a .navbar-brand { 
-    display: block;
-    background-size: contain;
-    max-width: 230px;
-    background-repeat: no-repeat;
-    width: 230px;
-    background-image: url('../images/logohorizontal.png');
-    margin: 4px auto -11px;
-    background-position: -2px 0;
+  &.scrolling {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   }
-}
+  .ipreo-debtdomain-logo { 
+    margin-left: 11px;
+    a .navbar-brand { 
+      display: block;
+      background-size: contain;
+      max-width: 230px;
+      background-repeat: no-repeat;
+      width: 230px;
+      background-image: url('../images/logohorizontal.png');
+      margin: 4px auto -11px;
+      background-position: -2px 0;
+    }
+  }
 }
 
 .navbar-left,
@@ -281,4 +284,13 @@ code { color: #1960B0; }
   margin-bottom: 0px;
   background-color: #c0c0c0;
   color: white;
+  &.maximized {
+    width: 100%;
+    margin-left: 60px;
+  }
+}
+
+.mediaTest { float: left; }
+@media only screen and (max-width: 992px) {
+  .mediaTest { float: none; }
 }
