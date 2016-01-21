@@ -3,4 +3,10 @@
   .mediaTest { float: none; }
 }
 
+@media only screen and (max-width: $grid-float-breakpoint) {
+  .show-mobile { display: inline; }
+}
+
+
+
 .show-mobile { display: none; }

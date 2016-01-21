@@ -93,7 +93,7 @@ gulp.task('serve', ['styles', 'fonts'], () => {
   browserSync({
     notify: false,
     port: 9000,
-    reloadDelay: 500,
+    reloadDelay: 400,
     server: {
       baseDir: ['.tmp', 'app'],
       routes: {
