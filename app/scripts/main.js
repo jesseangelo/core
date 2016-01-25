@@ -178,10 +178,6 @@ $(document).ready(function () {
 
     // run test on resize of the window
     $(window).resize(checkSize);
-    
-    $('.toggleActionbar').click(function(){
-      $('.actionbar-fixed-bottom').toggle();
-    });
 
     //$('.minimize-topbar').click();
 
