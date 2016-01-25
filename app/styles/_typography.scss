@@ -1,12 +1,12 @@
 @import "../../bower_components/font-awesome/css/font-awesome.css";
 @font-face {
   font-family: 'OpenSans';
-  src: url('../../fonts/OpenSans/OpenSans-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+  src: url('../fonts/OpenSans/OpenSans-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
 }
 
 @font-face {
   font-family: 'Raleo';
-  src: url('../../fonts/Raleo/Raleo-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+  src: url('../fonts/Raleo/Raleo-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
 }
 
 * { font-family: $font-family-base; }
