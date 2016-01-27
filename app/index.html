@@ -1,30 +1,27 @@
 <!doctype html>
-<html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>dd core</title>
-
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/fonts.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
-  </head>
-  <body>
-    <div class="mediaTest"></div>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>Burnside test</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="../bower_components/Font-Awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="../bower_components/dd-core/dist/styles/main.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="mediaTest"></div>
     <nav class="nav navbar navbar-fixed-top navbar-custom">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -228,11 +225,9 @@
 
       <section id="mainWindow" class='col-lg-10 col-md-9 col-sm-12 clearfix pull-right'>
         <div class='body-content'>
-          <h1>Page Title - CORE</h1>
+          <h1>Page Title</h1>
           <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Bread</a></li>
-            <li class="active">Crumb</li>
+            <li><a href="#">Deal Name - November 2016</a></li>
           </ol>
           <div class="fab"><h2><i class="fa fa-plus"></i></h2></div>
           <div class="container-fluid row">
@@ -272,7 +267,287 @@
           <hr>
 
           <div class="container-fluid row">
-            <h2 class="section-title">Todo: Tables</h2>
+            <h2 class="section-title">Tables</h2>
+
+            <div class="samplePage col-sm-offset-1 col-sm-10">  
+              <div class="container-fluid row">
+                <table class="table table-condensed table-striped">
+
+                    <thead>
+                      <tr data-bind="template: { name: 'grid-header-template', foreach: columns}">
+                            <th class="site"></th>
+                        <th style="width: 40%;" data-bind="style: { width: Width + '%' }">
+                            <a class="sortable" href="">Deal &nbsp;<i class="fa fa-sort-asc"></i></a> 
+                        </th>
+                    
+                        <th style="width: 20%;" data-bind="style: { width: Width + '%' }">
+                            <a class="sortable" href="#" data-bind="text: Name, click: sort.bind($data, $data.SortColumn)">Type</a> <i class="icon-chevron-down" data-bind="visible: $root.SortColumn() == SortColumn, css: { 'icon-chevron-up' : $root.SortDirection() == 'ASC', 'icon-chevron-down' : $root.SortDirection() == 'DESC'}"></i>
+                        </th>                    
+                    
+                        <th style="width: 20%;" data-bind="style: { width: Width + '%' }">
+                            <a class="sortable" href="#" data-bind="text: Name, click: sort.bind($data, $data.SortColumn)">Last Accessed</a> <i class="icon-chevron-down" style="display: none;" data-bind="visible: $root.SortColumn() == SortColumn, css: { 'icon-chevron-up' : $root.SortDirection() == 'ASC', 'icon-chevron-down' : $root.SortDirection() == 'DESC'}"></i>
+                        </th>
+                    
+                        <th style="width: 20%;" data-bind="style: { width: Width + '%' }">
+                            <a class="sortable" href="#" data-bind="text: Name, click: sort.bind($data, $data.SortColumn)">Arranger / Agent</a> <i class="icon-chevron-down" style="display: none;" data-bind="visible: $root.SortColumn() == SortColumn, css: { 'icon-chevron-up' : $root.SortDirection() == 'ASC', 'icon-chevron-down' : $root.SortDirection() == 'DESC'}"></i>
+                        </th>
+                    
+                      </tr>
+                    </thead>
+                    <tbody style="display: none;" data-bind="visible: isLoading()">
+                          <tr>
+                              <td colspan="8">Loading...</td>
+                          </tr>
+                    </tbody>
+                <tbody style="" data-bind="visible: hasLoans() &amp;&amp; !isLoading(), template: { name: 'deallist-template',  foreach: filteredLoans}">
+              <tr class="deals-row">
+            
+                          <td class="site site-live"><div title="" data-original-title="" style="height: 27px;">&nbsp;</div></td>
+            
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3430343839" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">ABN AMRO Implements Debtdomain Syndication and Agency</a></td>
+            
+                <td data-bind="text: DealStage">Syndication</td>            
+                <td data-bind="text: LastAccessed">22 Jan 2016</td>
+            
+            
+                <td data-bind="text: Arranger">Debtdomain</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+            
+                          <td class="site site-inactive">&nbsp;</td>
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3736363233" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Citiband - Feb 2016</a></td>
+            
+                <td data-bind="text: DealStage">Syndication</td>            
+                <td data-bind="text: LastAccessed">21 Jan 2016</td>
+            
+            
+                <td data-bind="text: Arranger">Debtdomain</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+                          <td class="site site-live"><div title="" data-original-title="" style="height: 26px;">&nbsp;</div></td>
+            
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D32313433" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">DD Syndication Sales Pipeline</a></td>
+            
+                <td data-bind="text: DealStage">Syndication</td>            
+                <td data-bind="text: LastAccessed">4 Jan 2016</td>
+            
+            
+                <td data-bind="text: Arranger">Debtdomain</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+            
+                          <td class="site site-inactive">&nbsp;</td>
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3336353732" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Debtdomain Client Due Diligence Site - 2010</a></td>
+            
+                <td data-bind="text: DealStage">Syndication</td>            
+                <td data-bind="text: LastAccessed">19 Jan 2016</td>
+            
+            
+                <td data-bind="text: Arranger">DD</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+            
+                          <td class="site site-inactive">&nbsp;</td>
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3233353733" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Hard core investing - Aug 2009</a></td>
+            
+                <td data-bind="text: DealStage">Syndication</td>            
+                <td data-bind="text: LastAccessed">13 Nov 2015</td>
+            
+            
+                <td data-bind="text: Arranger">Debtdomain ("test")</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+            
+                          <td class="site site-inactive">&nbsp;</td>
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3234363836" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Loan Trading - Sentry</a></td>
+            
+                <td data-bind="text: DealStage">Syndication</td>            
+                <td data-bind="text: LastAccessed">4 Nov 2015</td>
+            
+            
+                <td data-bind="text: Arranger">Debtdomain</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+                          <td class="site site-live"><div title="" data-original-title="" style="height: 26px;">&nbsp;</div></td>
+            
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3734383039" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">My Deal - Nov 2015</a></td>
+            
+                <td data-bind="text: DealStage">Syndication</td>            
+                <td data-bind="text: LastAccessed">21 Dec 2015</td>
+            
+            
+                <td data-bind="text: Arranger">Debtdomain</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+            
+                          <td class="site site-inactive">&nbsp;</td>
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3736333834" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">PrimaryUploadFrame-create-test - Feb 2016</a></td>
+            
+                <td data-bind="text: DealStage">Syndication</td>            
+                <td data-bind="text: LastAccessed">12 Jan 2016</td>
+            
+            
+                <td data-bind="text: Arranger">Debtdomain</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+            
+                          <td class="site site-inactive">&nbsp;</td>
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3636373734" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">SIM - CoArranged ShareNone - Aug 2012</a></td>
+            
+                <td data-bind="text: DealStage">Syndication</td>            
+                <td data-bind="text: LastAccessed">18 Nov 2015</td>
+            
+            
+                <td data-bind="text: Arranger">Debtdomain</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+            
+                          <td class="site site-inactive">&nbsp;</td>
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3734343130" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Test Syndication - Nov 2015</a></td>
+            
+                <td data-bind="text: DealStage">Syndication</td>            
+                <td data-bind="text: LastAccessed">24 Nov 2015</td>
+            
+            
+                <td data-bind="text: Arranger">Debtdomain</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+            
+                          <td class="site site-inactive">&nbsp;</td>
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3736363135" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Trache Custom Fields - Feb 2016</a></td>
+            
+                <td data-bind="text: DealStage">Syndication</td>            
+                <td data-bind="text: LastAccessed">20 Jan 2016</td>
+            
+            
+                <td data-bind="text: Arranger">Debtdomain</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+            
+                          <td class="site site-inactive">&nbsp;</td>
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3734393435" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Debtdomain Press Release - Jul 2010 - Secondary</a></td>
+            
+                <td data-bind="text: DealStage">Secondary Trading</td>            
+                <td data-bind="text: LastAccessed">5 Nov 2015</td>
+            
+            
+                <td data-bind="text: Arranger">Debtdomain</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+            
+                          <td class="site site-inactive">&nbsp;</td>
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3734323635" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Test SSD Template - Nov 2015</a></td>
+            
+                <td data-bind="text: DealStage">Secondary Sell Down</td>            
+                <td data-bind="text: LastAccessed"></td>            
+                <td data-bind="text: Arranger">Debtdomain</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+            
+                          <td class="site site-inactive">&nbsp;</td>
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3734343932" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">AE - Nov 2015</a></td>
+            
+                <td data-bind="text: DealStage">Agency</td>            
+                <td data-bind="text: LastAccessed">19 Jan 2016</td>            
+                <td data-bind="text: Arranger">Debtdomain</td>
+            
+              </tr>
+              
+              <tr class="deals-row">
+            
+            
+                          <td class="site site-inactive">&nbsp;</td>
+            
+                <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3638333434" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">GWB TEST Agency - Jun 2012</a></td>
+            
+                <td data-bind="text: DealStage">Agency</td>
+                <td data-bind="text: LastAccessed">22 Jan 2016</td>
+                <td data-bind="text: Arranger"></td>
+            
+              </tr>
+              
+                </tbody>
+                <tbody style="display: none;" data-bind="visible: !hasLoans() &amp;&amp; !isLoading(), template: { name: 'deallist-norows-template' }">
+                  <tr>
+                      <td colspan="8">No deals found.</td>
+                  </tr>
+              </tbody>
+    
+
+            </table>
+          </div>
+        </div>
+          </div>
+
+          <hr>
+
+          <div class="container-fluid row">
+            <h2 class="section-title">Todo: List groups/Lists</h2>
+          </div>
+
+          <hr>
+
+          <div class="container-fluid row">
+            <h2 class="section-title">Todo: Multi-select</h2>
+          </div>
+
+          <hr>
+
+          <div class="container-fluid row">
+            <h2 class="section-title">Todo: Select2</h2>
           </div>
 
           <hr>
@@ -358,7 +633,7 @@
           <div class="container-fluid row">          
             <h2 class="section-title">Workflows</h2>
             <h5 class="title-description">This is just a desc</h5>
-            <div class="samplePage col-sm-offset-1 col-sm-10">  
+            <div class="samplePage col-sm-offset-1 col-sm-10">
               <div class="container-fluid row">
                 <div class="workflow workflow-sample">
                   <section class="workflow-start">
@@ -397,7 +672,7 @@
           <hr>
 
           <div class="container-fluid row">
-            <h2>Modal</h2>
+            <h2 class="section-title">Modal</h2>
             <div class="samplePage col-sm-offset-1 col-sm-10">  
               <div class="container-fluid row">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
@@ -559,14 +834,8 @@
 
           <hr>
 
-          <div class="container-fluid row">
-            <h2 class="section-title">Todo: List groups/Lists</h2>
-          </div>
-
-          <hr>
-
           <div class="container-fluid row section-demo-buttons">            
-            <h2 class="section-title">Panel/Card</h2>
+            <h2 class="section-title">Card</h2>
             <div class="samplePage col-sm-offset-1 col-sm-10">  
               <div class="container-fluid row">
                 <div class="panel panel-default card card-login shadow-card">
@@ -578,7 +847,7 @@
               <br>
               <div class="container-fluid row">
                 <div class="container-fluid row col-sm-6">
-                  <div class=" panel panel-default card card-login shadow-card">
+                  <div class="panel panel-default card card-login shadow-card">
                     <div class="panel-body">
                       <h4 class=text-center>This is a smaller card</h4>
                     </div>
@@ -594,6 +863,53 @@
             </div>
           </div>          
         </div>
+          <hr>
+
+          <div class="container-fluid row">
+            <h2 class="section-title">Panels</h2>
+              <div class="samplePage col-sm-offset-1 col-sm-10">  
+                <div class="container-fluid row">
+                  <div class="panel">
+                    <header class="panel--header clearfix">
+                        <div class="panel--header--control panel--collapse pull-left">
+                          <h2><i class="hidden fa fa-plus"></i><i class="fa fa-minus"></i></h2>
+                        </div>
+                        <div class="panel--header--divider pull-left">&nbsp;</div>
+                        <div class="panel--header--title pull-left">
+                          <h2 class="ng-binding">Rite Aid Corporation</h2>
+                        </div>
+                    </header>
+                    <div class="panel--divider"></div>
+                    <div class="panel--content">
+                        <table class="attribute-table" ng-show="true">
+                            <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <tbody><tr>
+                                <td>Borrower</td>
+                                <td class="ng-binding">Rite Aid Corporation</td>
+                                <td>Borrower Country</td>
+                                <td class="ng-binding">United States</td>
+                            </tr>
+                            <tr>
+                                <td>Industry</td>
+                                <td class="ng-binding">Consumer Services - Retail - Drug Retail</td>
+                            
+                                <td>S&amp;P Rating</td>
+                                <td class="ng-binding">B/NM/NR</td>
+                            </tr>
+                        </tbody></table>   
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
           <hr>
 
           <div class="container-fluid row">
@@ -667,13 +983,10 @@
               <div class="col-lg-1">col-lg-1</div>
             </div>
           </div>
-          <!--<footer id="actionBarFooter">
-            <div id="actionBarFooter-inner" class="scrolling">    
-                I am the actionbar    
-                <span id="actionBarFooterNotification" class="help-inline"></span>
-            </div>                                
-        </footer>-->
-        
+          <br>
+          <br>
+          <br>
+          <br>       
         </div>
 
       </section>
@@ -706,29 +1019,32 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-    
-    <!-- build:js scripts/plugins.js -->
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
-    <!-- endbuild -->
-    
-    <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <!-- endbuild -->
-  </body>
+
+        
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="../bower_components/modernizr/modernizr.js"></script>
+        <script src="../bower_components/jquery/jquery.js"></script>
+        <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+        <script src="../bower_components/dd-core/dist/scripts/main.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+       
+        <script src="scripts/main.js"></script>
+
+        <!-- endbuild -->
+</body>
 </html>
