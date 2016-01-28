@@ -185,7 +185,12 @@ $(document).ready(function () {
 
     $('.toggleActionbar').click();
 
-    //$('.minimize-topbar').click();
+    $('.toggleAlertBanner').click(function(){
+      $('.alert--banner').toggle();
+    });
+
+    $('.toggleAlertBanner').click();
+
 
 });
 /* End Actionbar scripts */
