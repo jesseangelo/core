@@ -194,25 +194,18 @@ $(document).ready(function () {
 
     //Info Toast
     $('.toggleInfoToast').click(function(){
-      $('.alert--toast--info').toggle();
+      $('.alert--toast--info').toggleClass("alert--toast__open");
     });
-
-    $('.toggleInfoToast').click();
 
     //Success Toast
     $('.toggleSuccessToast').click(function(){
       $('.alert--toast--success').toggleClass("alert--toast__open");
     });
 
-    $('.toggleSuccessToast').click();
-
     //Action Toast
     $('.toggleActionToast').click(function(){
-      $('.alert--toast--action').toggle();
+      $('.alert--toast--action').toggleClass("alert--toast__open");
     });
-
-    $('.toggleActionToast').click();
-
 
 });
 /* End Actionbar scripts */

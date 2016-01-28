@@ -7,14 +7,18 @@
 	}
 }
 
+.alert--toast--info {
+	background-color: #def3ff;
+	.fa { color: #76BCEA; }
+}
+
 .alert--toast--success {
 	background-color: #effae8;
 	.fa { color: #72BC47; }
 }
 
-.alert--toast--info {
-	background-color: #def3ff;
-	.fa { color: #76BCEA; }
+.alert--toast--action {
+	background-color: white;
 }
 
 .alert--toast {
