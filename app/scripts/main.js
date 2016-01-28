@@ -185,11 +185,33 @@ $(document).ready(function () {
 
     $('.toggleActionbar').click();
 
+    //Alert Banner
     $('.toggleAlertBanner').click(function(){
       $('.alert--banner').toggle();
     });
 
     $('.toggleAlertBanner').click();
+
+    //Info Toast
+    $('.toggleInfoToast').click(function(){
+      $('.alert--toast--info').toggle();
+    });
+
+    $('.toggleInfoToast').click();
+
+    //Success Toast
+    $('.toggleSuccessToast').click(function(){
+      $('.alert--toast--success').toggleClass("alert--toast__open");
+    });
+
+    $('.toggleSuccessToast').click();
+
+    //Action Toast
+    $('.toggleActionToast').click(function(){
+      $('.alert--toast--action').toggle();
+    });
+
+    $('.toggleActionToast').click();
 
 
 });

@@ -116,9 +116,25 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid alert--banner">
-    <div class="col-sm-4 col-sm-offset-4">
-      Test Banner
+</nav>
+<nav class="nav navbar navbar-fixed-top navbar-alerts">
+  <div class="alerts">
+    <div class="container-fluid alert--banner">
+      <div class="col-sm-4 col-sm-offset-4"> <i class="fa fa-exclamation-triangle"></i>Test Banner </div>
+    </div>
+    <div class="container-fluid alert--toast alert--toast--success">
+      <div class=""> <i class="fa fa-check-circle"></i>This was successful! </div>
+    </div>
+    <div class="container-fluid alert--toast alert--toast--info">
+      <div class=""> <i class="fa fa-info-circle"></i>This is informational. </div>
+    </div>
+    <div class="container-fluid alert--toast alert--toast--action">
+      <div class=""> Do it
+        <div class="row">
+          <button>Cancel</button>
+          <button>Submit</button>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
@@ -598,11 +614,23 @@
           <h2 class="section-title">Alerts</h2>
           <div class="samplePage col-sm-offset-1 col-sm-10">
             <div class="container-fluid row"> <br>
-              Banners, Modals, Message Center 
-
+              Banners, Modals, Message Center
+              <div class="container-fluid row"> <br>
                 <button class="btn btn-default toggleAlertBanner">Toggle Alert Banner</button>
-              
               </div>
+              <br>
+              <div class="container-fluid row">
+                <button class="btn btn-default toggleInfoToast">Toggle Info Toast</button>
+              </div>
+              <br>
+              <div class="container-fluid row">
+                <button class="btn btn-default toggleSuccessToast">Toggle Success Toast</button>
+              </div>
+              <br>
+              <div class="container-fluid row">
+                <button class="btn btn-default toggleActionToast">Toggle Action Toast</button>
+              </div>
+            </div>
           </div>
         </div>
         <hr>

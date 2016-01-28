@@ -2,4 +2,35 @@
 	background-color: #FEDBD8;
 	margin-bottom: -1px;
 	padding: 1.125em;
+	.fa-exclamation-triangle {
+		color: #FC5945;
+	}
+}
+
+.alert--toast--success {
+	background-color: #effae8;
+	.fa { color: #72BC47; }
+}
+
+.alert--toast--info {
+	background-color: #def3ff;
+	.fa { color: #76BCEA; }
+}
+
+.alert--toast {
+	box-shadow: 0px 4px 5px #ccc; /* clean this up! */
+	max-width: 40.625em;
+	margin: 0.6em auto;
+	margin-top: -8em;
+	width: 100%;
+	padding: 1.125em;
+	color: #666;
+	transition: all .5s;
+	.fa { 
+		font-size: 1.25em; 
+		margin-right: 1.125em
+	}
+	&__open {
+		margin-top: .6em;
+	}
 }
