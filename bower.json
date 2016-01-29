@@ -17,14 +17,7 @@
     "test",
     "tests"
   ],
-  "overrides": {
-    "bootstrap-sass": {
-      "main": [
-        "assets/stylesheets/_bootstrap.scss",
-        "assets/fonts/bootstrap/*",
-        "assets/javascripts/bootstrap.js"
-      ]
-    }
+  "overrides": {    
   },
   "devDependencies": {
     "chai": "~3.4.2",
