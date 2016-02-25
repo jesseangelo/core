@@ -2,8 +2,8 @@
   "name": "Ipreo-Burnside",
   "private": false,
   "dependencies": {
+    "angular-bootstrap": "latest",  
     "bootstrap-sass": "~3.3.5",
-    "modernizr": "~2.8.1",
     "font-awesome": "latest",
     "jquery": "~1.9.1"
   },
@@ -18,14 +18,7 @@
     "test",
     "tests"
   ],
-  "overrides": {
-    "bootstrap-sass": {
-      "main": [
-        "assets/stylesheets/_bootstrap.scss",
-        "assets/fonts/bootstrap/*",
-        "assets/javascripts/bootstrap.js"
-      ]
-    }
+  "overrides": {    
   },
   "devDependencies": {
     "chai": "~3.4.2",
