@@ -2,7 +2,8 @@
   "name": "Ipreo-Burnside",
   "private": false,
   "dependencies": {
-    "angular-bootstrap": "latest",
+    "angular-bootstrap": "latest",  
+    "bootstrap-sass": "~3.3.5",
     "font-awesome": "latest",
     "jquery": "~1.9.1"
   },
