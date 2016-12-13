@@ -1,11 +1,12 @@
 {
-  "name": "Ipreo-Burnside",
+  "name": "DD-core",
   "private": false,
   "dependencies": {
-    "angular-bootstrap": "latest",  
+    "angular-bootstrap": "latest",
     "bootstrap-sass": "~3.3.5",
     "font-awesome": "latest",
-    "jquery": "~1.9.1"
+    "jquery": "~1.9.1",
+    "angular": "bower-angular#1.5.8"
   },
   "main": [
     "dist/styles/main.css",
@@ -18,8 +19,7 @@
     "test",
     "tests"
   ],
-  "overrides": {    
-  },
+  "overrides": {},
   "devDependencies": {
     "chai": "~3.4.2",
     "mocha": "~2.3.4"
