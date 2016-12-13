@@ -53,7 +53,7 @@ $('.maximize-topbar').click(function(){
   $('#topbar .content-maximized').show();
 });
 
-$('.fa-search').click(function(){
+$('.search').click(function(){
   $('.global-search').toggle();
 });
 
