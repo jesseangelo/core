@@ -111,6 +111,11 @@
         </div>
       </div>
     </div>
+    <div>
+      <div uib-alert ng-repeat="alert in ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="ctrl.closeAlert($index)">{{alert.msg}}</div>
+  
+      
+    </div>
   </div>
 </nav>
 <div id="main" class="container-fluid">
@@ -200,7 +205,7 @@
           <!-- TODO: add warnings, disclaimers, etc --> 
           <!-- TODO: alerts debug-true could give toasts -->
           
-          <div class="samplePage col-sm-offset-1 col-sm-10">
+          <div class="samplePage col-sm-12">
             <div class="container-fluid row">
               <h1><code>&lt;h1&gt;</code> Page Title</h1>
               <h2><code>&lt;h2&gt;</code> Section Title</h2>
@@ -225,7 +230,7 @@
         <hr>
         <div class="container-fluid row">
           <h2 class="section-title">Tables</h2>
-          <div class="samplePage col-sm-offset-1 col-sm-10">
+          <div class="samplePage col-sm-12">
             <div class="container-fluid row">
               <table class="table table-condensed table-striped">
                 <thead>
@@ -373,7 +378,7 @@
         <hr>
         <div class="container-fluid row">
           <h2 class="section-title">Actionbar</h2>
-          <div class="samplePage col-sm-offset-1 col-sm-10">
+          <div class="samplePage col-sm-12">
             <div class="container-fluid row">
               <p> The Actionbar contains the main action of the page.
                 On short pages (ones without scroll bars) it will display directly below the form. However on a longer page, the actionbar will stick to the bottom of the browser window. </p>
@@ -395,7 +400,7 @@
         <hr>
         <div class="container-fluid row">
           <h2 class="section-title">Forms</h2>
-          <div class="samplePage col-sm-offset-1 col-sm-10">
+          <div class="samplePage col-sm-12">
             <div class="container-fluid row"> </div>
             <div class="container-fluid row">
               <form class="form-horizontal">
@@ -439,7 +444,7 @@
         <div class="container-fluid row">
           <h2 class="section-title">Workflows</h2>
           <h5 class="title-description">This is just a desc</h5>
-          <div class="samplePage col-sm-offset-1 col-sm-10">
+          <div class="samplePage col-sm-12">
             <div class="container-fluid row">
               <div class="workflow workflow-sample">
                 <section class="workflow-start">
@@ -477,7 +482,7 @@
         <hr>
         <div class="container-fluid row">
           <h2 class="section-title">Modal</h2>
-          <div class="samplePage col-sm-offset-1 col-sm-10">
+          <div class="samplePage col-sm-12">
             <div class="container-fluid row">
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"> Launch demo modal </button>
             </div>
@@ -486,7 +491,7 @@
         <hr>
         <div class="container-fluid row">
           <h2 class="section-title">Dropdowns</h2>
-          <div class="samplePage col-sm-offset-1 col-sm-10">
+          <div class="samplePage col-sm-12">
             <div class="container-fluid row">
               <h4>Dropdown</h4>
               <div class="dropdown">
@@ -529,7 +534,7 @@
         <hr>
         <div class="container-fluid row section-demo-buttons">
           <h2 class="section-title">Buttons</h2>
-          <div class="samplePage col-sm-offset-1 col-sm-10">
+          <div class="samplePage col-sm-12">
             <div class="container-fluid row"> 
               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
               <h4>Primary Page Action</h4>
@@ -563,7 +568,7 @@
         <hr>
         <div class="container-fluid row section-demo-buttons">
           <h2 class="section-title">Breadcrumbs</h2>
-          <div class="samplePage col-sm-offset-1 col-sm-10">
+          <div class="samplePage col-sm-12">
             <div class="container-fluid row">
               <h1>Page Title</h1>
               <ol class="breadcrumb">
@@ -586,15 +591,18 @@
         <hr>
         <div class="container-fluid row">
           <h2 class="section-title">Alerts</h2>
-          <div class="samplePage col-sm-offset-1 col-sm-10">
-            <div class="container-fluid row"> <br>
+          <div class="samplePage col-sm-12">
+            <div class="container-fluid row">
+              <button type="button" class='btn btn-default' ng-click="ctrl.addAlert()">Add Alert</button>
+            </div>
+            <br>
               Banners, Message Center, Notifications </div>
           </div>
         </div>
         <hr>
         <div class="container-fluid row section-demo-buttons">
           <h2 class="section-title">Progress bars</h2>
-          <div class="samplePage col-sm-offset-1 col-sm-10">
+          <div class="samplePage col-sm-12">
             <div class="container-fluid row"> <br>
               <h4>Static</h4>
               <div class="progress">
@@ -611,7 +619,7 @@
         <hr>
         <div class="container-fluid row section-demo-buttons">
           <h2 class="section-title">Card</h2>
-          <div class="samplePage col-sm-offset-1 col-sm-10"> <br>
+          <div class="samplePage col-sm-12"> <br>
             <br>
             <div class="container-fluid row">
               <div class="card card-login shadow-card">
@@ -665,7 +673,7 @@
         <hr>
         <div class="container-fluid row">
           <h2 class="section-title">Panels</h2>
-          <div class="samplePage col-sm-offset-1 col-sm-10"> <br>
+          <div class="samplePage col-sm-12"> <br>
             <br>
             <div class="container-fluid row">
               <div class="panel">
@@ -712,7 +720,7 @@
         <hr>
         <div class="container-fluid row">
           <h2 class="section-title">Wells</h2>
-          <div class="samplePage col-sm-offset-1 col-sm-10"> <br>
+          <div class="samplePage col-sm-12"> <br>
             <br>
             <div class="container-fluid row">
               <div class="well well-lg"> I'm a well! </div>
