@@ -111,11 +111,7 @@
         </div>
       </div>
     </div>
-    <div>
-      <div uib-alert ng-repeat="alert in ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="ctrl.closeAlert($index)">{{alert.msg}}</div>
-  
-      
-    </div>
+    <div uib-alert ng-repeat="alert in ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="ctrl.closeAlert($index)">{{alert.msg}}</div>
   </div>
 </nav>
 <div id="main" class="container-fluid">
@@ -593,7 +589,8 @@
           <h2 class="section-title">Alerts</h2>
           <div class="samplePage col-sm-12">
             <div class="container-fluid row">
-              <button type="button" class='btn btn-default' ng-click="ctrl.addAlert()">Add Alert</button>
+              <button type="button" class='btn btn-default' ng-click="ctrl.addAlert(0)">Add Danger Alert</button>
+              <button type="button" class='btn btn-default' ng-click="ctrl.addAlert(1)">Add Success Alert</button>
             </div>
             <br>
               Banners, Message Center, Notifications </div>

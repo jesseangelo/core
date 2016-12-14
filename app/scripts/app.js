@@ -9,13 +9,19 @@
       var ctrl = this;
       ctrl.addAlert = addAlert;
       ctrl.closeAlert = closeAlert;
-      ctrl.alerts = [
-            //{ type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' },
-            //{ type: 'success', msg: 'Well done! You successfully read this important alert message.' }
-        ];
+      ctrl.alerts = [];
 
-      function addAlert() {
-          ctrl.alerts.push({msg: 'Yellow alert!'});
+      function addAlert(type) {
+          switch(type) {
+              case 0:
+                ctrl.alerts.push({ type: 'danger', msg: 'There is an error! Change a few things up and try submitting again.' });
+                break;
+              case 1:
+                ctrl.alerts.push({ type: 'success', msg: 'Well done! You successfully read this important alert message.' });
+                break;
+              default:
+                break;
+          }
       }
 
       function closeAlert(index) {
