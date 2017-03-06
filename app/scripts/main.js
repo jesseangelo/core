@@ -210,7 +210,6 @@ $(document).ready(function () {
 
   $("#treelist").kendoTreeList({
       dataSource: dataSource,
-      height: 540,
       columns: [
           { field: "File", title: "File Name, Path, and Description", template: $("#file-template").html(), width: 475},
           { field: "Date", title: "Effective Date" },
