@@ -1,0 +1,243 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<title>Deal Related page</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!-- build:css styles/vendor.css -->
+<!-- bower:css -->
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="/bower_components/kendo/styles/web/kendo.default.min.css">
+<!-- endbuild -->
+</head>
+<body ng-app='app' ng-controller='uiController as ctrl'>
+
+<div class="mediaTest"></div>
+<nav class="nav navbar navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+      <div class="pull-left menu navbar-text">Menu</div>
+      <div class="pull-left icon-bars"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </div>
+      </button>
+      <span class="ipreo-debtdomain-logo"> <a href="/"> <span class="navbar-brand hidden-xs hidden-sm"></span> <img style="width: 60px;" src="images/logohorizontal-short.png" class="hidden-md hidden-lg"/> </a> </span> </div>
+    <div class="collapse navbar-collapse" id="main-menu">
+      <nav class="navbar-left">
+        <ul class="nav nav-pills">
+          <li>&nbsp;&nbsp;</li>
+          <li class="dropdown"> <a class="dropdown-toggle btn " id="" data-toggle="dropdown" aria-haspopup="true"><i class="fa fa-industry"></i><span class=''>&nbsp;Deals</span></a>
+            <ul class="dropdown-menu" aria-labelledby="menu-deals">
+              <li><a href="#">Deal List</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Recent Deals</li>
+              <li><a href="#">Some Deal - 2015</a></li>
+              <li><a href="#">Another Deal </a></li>
+              <li><a href="#">Deal</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Create Deal</a></li>
+            </ul>
+          </li>
+          <li><a><i class='fa fa-list'></i><span class=''>&nbsp;Notes</span></a></li>
+          <li><a><i class='fa fa-calendar-o'></i><span class=''>&nbsp;Calendar</span></a></li>
+          <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-line-chart'></i><span class=''>&nbsp;Reports</span> </a>
+            <ul class="dropdown-menu" aria-labelledby="menu-Reports">
+              <li><a href="#">Compliance</a></li>
+              <li><a href="#">Pipeline</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Investor Activity</li>
+              <li><a href="#">Syndication</a></li>
+              <li><a href="#">Agency</a></li>
+              <li><a href="#">Investor Coverage</a></li>
+              <li><a href="#">Investors by City</a></li>
+              <li><a href="#">Sales Prospects</a></li>
+              <li><a href="#">Expiring Sales Prospects</a></li>
+              <li><a href="#">Expiring Investors</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-leaf'></i><span class=''>&nbsp;Resources</span> </a>
+            <ul class="dropdown-menu" aria-labelledby="menu-Resources">
+              <li><a href="#">Loan Owndership</a></li>
+              <li><a href="#">Contact Database</a></li>
+            </ul>
+          </li>
+          <li><a class='search'><i class='fa fa-search'></i>&nbsp;Search</a></li>
+        </ul>
+      </nav>
+      <nav class="navbar-right">
+        <ul class="nav nav-pills">
+          <li><a><i class='fa fa-bell'></i><span class='show-mobile'>&nbsp;Notifications</span></a></li>
+          <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-user'></i><span class='hidden-sm'>&nbsp; Lewis Hamilton</span> </a>
+            <ul class="dropdown-menu" aria-labelledby="menu-user">
+              <li><a href="#">Last Login: 20-Nov-2015 09:00</a></li>
+              <li><a href="#">My Profile</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">My Preferences</li>
+              <li><a href="#">Email</a></li>
+              <li><a href="#">Notes</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </li>
+          <li> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-gear'></i><span class='show-mobile'>&nbsp;Settings</span> </a>
+            <ul class="dropdown-menu" aria-labelledby="menu-Settings">
+              <li><a href="#">Access Control Manager</a></li>
+              <li><a href="#">Firm Setup</a></li>
+              <li><a href="#">Super User</a></li>
+              <li><a href="#">Reporting Fields</a></li>
+              <li><a href="#">Cross Reference Materials</a></li>
+              <li><a href="#">Transfer Contacts</a></li>
+              <li><a href="#">Export Data</a></li>
+            </ul>
+          </li>
+          <li><a><i class='fa fa-question'></i><span class='show-mobile'>&nbsp;Help</span></a></li>
+        </ul>
+      </nav>
+      <div class="row">
+        <div class="container-fluid">
+          <div class="global-search col-xs-10 col-xs-offset-1">
+            <input class="form-control" type=text>
+            <ul class="nav nav-stacked">
+              <li><a><i class='fa fa-history'></i> Search history</a></li>
+              <li><a><i class='fa fa-history'></i> Search history</a></li>
+              <li><a><i class='fa fa-history'></i> Search history</a></li>
+              <li><a><i class='fa fa-history'></i> Search history</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <div uib-alert ng-repeat="alert in ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="ctrl.closeAlert($index)">{{alert.msg}}</div>
+  </div>
+</nav>
+<div id="main" class="container-fluid">
+  <div class="row">
+    <section id="sidebar" class="col-lg-2 col-md-3 col-sm-3 hidden-xs hidden-sm">
+      <div class="container-fluid">
+        <nav class="row">
+          <h2 class="text-right"> <i class="fa fa-angle-double-left minimize-sidebar"></i> </h2>
+          <h2 class=text-center> <i class='fa fa-angle-double-right maximize-sidebar'></i> </h2>
+        </nav>
+        <div class='content-maximized row'>
+          
+          <!-- Content goes here -->
+         
+          <!-- End Content --> 
+        </div>
+          <!-- Content goes here -->
+         
+          <!-- End Content --> 
+        </div>
+      </div>
+    </section>
+    <section id="topbar" class='hidden-md hidden-lg minimized'>
+      <div class='container-fluid'>
+        <nav>
+          <h3 class='pull-right min-top'> <i class='fa fa-angle-double-up minimize-topbar'></i> </h3>
+          <h3 class=pull-right> <i class='fa fa-angle-double-down maximize-topbar'></i> </h3>
+        </nav>
+        <div class='content-maximized'>
+          <h4>Topbar Title</h4>
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Filter 1</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="filter">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Filter 2</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="filter">
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox">
+                I want data </label>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+        <div class='content-minimized'> <i class='fa fa-filter'></i> </div>
+      </div>
+    </section>
+    <section id="mainWindow" class='col-lg-10 col-md-9 col-sm-12 clearfix pull-right'>
+      <div class='body-content'>
+        <h1>Manage Documents</h1>
+        <ol class="breadcrumb">
+          <li><a href="#">Deal Name - November 2016</a></li>
+        </ol>
+        <div class="fab">
+          <h2><i class="fa fa-plus"></i></h2>
+        </div>
+        <div class="container-fluid row">
+          <div class="breakbar"></div>
+        </div>
+        <div class="container-fluid row">
+          <button class=btn>Add New Folder</button> 
+          <button class=btn>Browse</button>
+        </div>
+        <div class="container-fluid row">
+          <form>
+            <div class="col-md-3">
+              <div class='row'>Folder Name</div>
+               <div kendo-tree-view="tree" k-data-source="ctrl.treeData" data-role="treeview"></div>
+            </div>
+            <div class="col-md-9">
+              <div class='row'>File Name, Path, and Description</div>
+              <kendo-tree-list></kendo-tree-list> 
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<nav class="actionbar actionbar-fixed-bottom container-fluid col-lg-offset-2 col-md-offset-3 col-lg-10 col-md-9 col-sm-12">
+  <div class="container-fluid row">
+    <button type="button" class="btn btn-primary">Upload</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+  </div>
+</nav>
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>Body content&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+
+<!-- build:js scripts/vendor.js --> 
+<!-- bower:js -->
+<script src="/bower_components/jquery/jquery.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="/bower_components/kendo/js/kendo.all.min.js"></script>
+<!-- endbower --> 
+<!-- endbuild --> 
+
+<!-- build:js({app,.tmp}) scripts/main.js --> 
+
+<script src="scripts/main.js"></script>
+<script src="scripts/app.js"></script> 
+
+<!-- endbuild -->
+</body>
+</html>

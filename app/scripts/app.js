@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   
-  var app = angular.module('app', ['ui.bootstrap']);
+  var app = angular.module('app', ['ui.bootstrap', 'kendo.directives']);
 
   app.controller('uiController', uiController);
 
@@ -10,6 +10,19 @@
       ctrl.addAlert = addAlert;
       ctrl.closeAlert = closeAlert;
       ctrl.alerts = [];
+      ctrl.treeData = new kendo.data.HierarchicalDataSource({
+            data: [
+                  { text: "Executed Credit Docs" },
+                  { text: "Amendment Docs" },
+                  { text: "Financials & Compliance", 
+                    items: [
+                      { text: "2015 Financials" },
+                      { text: "2016 Financials" },
+                      { text: "2017 Financials" }
+                      ]
+                  }
+            ]
+        })
 
       function addAlert(type) {
           switch(type) {
