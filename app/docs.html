@@ -192,9 +192,11 @@
           </form>
         </div>
       </div>
-      <h3>Permissions</h3>
-      <label><input type="radio"> Manually set permissions and optionally send notifications after upload</label>
-      <label><input type="radio"> Skip permission and notify steps (all documents will inherit the default permissions of their target folders)</label>
+      <form>
+        <h3>Permissions</h3>
+        <label><input type="radio" name="permissions" checked> Manually set permissions and optionally send notifications after upload</label>
+        <label><input type="radio" name="permissions"> Skip permission and notify steps (all documents will inherit the default permissions of their target folders)</label>
+      </form>
     </section>
   </div>
 
