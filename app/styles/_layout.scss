@@ -20,7 +20,6 @@ html, body, #main {
   &.maximized { 
     width: 100%;
     z-index: 1000;
-    position: absolute;
     padding-left: ($sidebar-minimized + 15px) 
   }
   @media screen and (max-width: 992px) {

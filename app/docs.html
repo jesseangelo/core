@@ -187,19 +187,37 @@
                <div kendo-tree-view="tree" k-data-source="ctrl.treeData" data-role="treeview"></div>
             </div>
             <div class="col-md-9">
-              <div class='row'>File Name, Path, and Description</div>
-              <kendo-tree-list></kendo-tree-list> 
+              <div id="treelist"></div> 
             </div>
           </form>
         </div>
       </div>
+      <h3>Permissions</h3>
+      <label><input type="radio"> Manually set permissions and optionally send notifications after upload</label>
+      <label><input type="radio"> Skip permission and notify steps (all documents will inherit the default permissions of their target folders)</label>
     </section>
   </div>
-</div>
+
+<script id="file-template" type="text/x-kendo-template">
+ 
+    <div class="col-sm-5">
+      <i class="fa fa-file-pdf-o"></i>&nbsp;#: File #
+      <br/>
+      <i class="fa fa-folder-o"></i>&nbsp;#: FilePath #
+    </div>
+    <div class="pull-right">
+      <textarea placeholder="Enter file description"></textarea>
+    </div>
+  
+</script>
+
+<script id="file-remove-template" type="text/x-kendo-template">
+  <i class="fa fa-trash">
+</script>
 
 <nav class="actionbar actionbar-fixed-bottom container-fluid col-lg-offset-2 col-md-offset-3 col-lg-10 col-md-9 col-sm-12">
   <div class="container-fluid row">
-    <button type="button" class="btn btn-primary">Upload</button>
+    <button type="button" class="btn btn-warning">Upload</button>
     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
   </div>
 </nav>

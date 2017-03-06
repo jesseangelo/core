@@ -186,6 +186,37 @@ $(document).ready(function () {
     $('.toggleActionbar').click();
 
     //$('.minimize-topbar').click();
+    $('.minimize-sidebar').click();
 
 });
 /* End Actionbar scripts */
+$(document).ready(function () {
+  var dataSource = new kendo.data.TreeListDataSource({
+      data: [
+        { id: 1, File: "Cashflow Statement Q1 2017", FilePath: "2017 Financials", Date: "28-Feb-2017", Declaration: "Public", Status: "", Remove: "", parentId: null },
+        { id: 2, File: "Balance Sheet Q1 2017", FilePath: "2017 Financials", Date: "28-Feb-2017", Declaration: "Public", Status: "", Remove: "", parentId: null },
+        { id: 3, File: "Income Statement Q1 2017", FilePath: "2017 Financials", Date: "28-Feb-2017", Declaration: "Public", Status: "", Remove: "", parentId: null },
+        { id: 4, File: "Cashflow Statement Q4 2016", FilePath: "2016 Financials", Date: "28-Feb-2017", Declaration: "Public", Status: "", Remove: "", parentId: null },
+        
+      ],
+
+      schema: {
+          model: {
+              id: "id",
+              expanded: true
+          }
+      }
+  });
+
+  $("#treelist").kendoTreeList({
+      dataSource: dataSource,
+      height: 540,
+      columns: [
+          { field: "File", title: "File Name, Path, and Description", template: $("#file-template").html(), width: 475},
+          { field: "Date", title: "Effective Date" },
+          { field: "Declaration", title: "Public/Private" },
+          { field: "Status",  title: "Upload Status"},
+          { field: "Remove", template: $("#file-remove-template").html() }
+      ]
+  });
+});
