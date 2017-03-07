@@ -1,0 +1,67 @@
+@import mixins
+
+body.is-dragover .dragDropTarget
+  opacity: 1
+
+input[type="file"].box__file
+  display: none
+
+.dragDropTarget
+  height: 100%
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 2000 /* need to standarize the depths */
+  pointer-events: none
+  opacity: 0
+  transition: opacity .4s
+
+  .bg
+  	opacity: 0.8
+  	background-color: #2e9ae7
+  	width: 100%
+  	height: 100%
+  	position: absolute
+  	top: 0
+    left: 0
+    
+  .msg
+  	z-index: 1
+  	+vertical-align()
+  	+center-horizontally()
+  	display: table
+  	vertical-align: middle
+
+  p
+    color: white
+    text-align: center
+  p.line1
+  	margin-top: 2em
+  	font-size: 2.5rem
+  	font-weight: bold
+  p.line2
+  	font-size: .8em
+
+  .fa 
+  	opacity: 1.0
+  	color: white
+  	
+  .fa-cloud
+  	font-size: 15em
+  	display: table
+  	+center-horizontally()
+  .fa-arrow-up
+  	color: #47a6eb
+  	font-size: 3em
+  	display: table
+  	+center-horizontally()
+  .fa-files-o
+  	font-size: 5em
+  	color: #47a6eb
+  	display: table
+  	+center-horizontally()
+  	margin-top: -2.25em;
+  	margin-bottom: .1em
+  .under
+  	margin-top: -3em

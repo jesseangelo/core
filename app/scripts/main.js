@@ -190,6 +190,8 @@ $(document).ready(function () {
 
 });
 /* End Actionbar scripts */
+
+/* Docs Prototype stuff */
 $(document).ready(function () {
   var dataSource = new kendo.data.TreeListDataSource({
       data: [
@@ -199,7 +201,6 @@ $(document).ready(function () {
         { id: 4, File: "Cashflow Statement Q4 2016", FilePath: "2016 Financials", Date: "28-Feb-2017", Declaration: "Public", Status: "", Remove: "", parentId: null },
         
       ],
-
       schema: {
           model: {
               id: "id",
@@ -207,9 +208,18 @@ $(document).ready(function () {
           }
       }
   });
+/*
+  dataSource.bind("change", function(e) { 
+    var html = kendo.render(file-template, this.view());
+    $("#todos tbody").html(html);
+  });
+*/
+  
 
   $("#treelist").kendoTreeList({
       dataSource: dataSource,
+      sortable: true,
+      editable: true,
       columns: [
           { field: "File", title: "File Name, Path, and Description", template: $("#file-template").html(), width: 475},
           { field: "Date", title: "Effective Date" },
@@ -218,4 +228,86 @@ $(document).ready(function () {
           { field: "Remove", template: $("#file-remove-template").html() }
       ]
   });
+
+  var folderListData = new kendo.data.HierarchicalDataSource({
+      data: [
+          { text: "Executed Credit Docs" },
+          { text: "Amendment Docs" },
+          { text: "Financials & Compliance", 
+            items: [
+              { text: "2015 Financials" },
+              { text: "2016 Financials" },
+              { text: "2017 Financials" }
+              ]
+          }
+    ]
+  });
+
+
+  $("#folder-list").kendoTreeView({
+      dataSource: folderListData
+  });
+
+  $("#folder-list").data( "kendoTreeView" ).expand(".k-item");
+
+  $(".k-in").each(function(index) {
+    console.log( index + ": " + $( this ).text() );
+     var $form = $(this);
+    $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    })
+    .on('dragover dragenter', function(e) {
+      //$form.addClass('is-dragover');
+      console.log("draag " + $(e.currentTarget).text())
+      $(e.currentTarget).addClass("k-state-focused");
+    })
+    .on('dragleave dragend drop', function(e) {
+      $(e.currentTarget).removeClass("k-state-focused");
+    })
+    .on('drop', function(e) {
+    droppedFiles = e.originalEvent.dataTransfer.files; // the files that were dropped
+    //showFiles( droppedFiles );
+    var node = $(e.dropTarget).closest(".k-item");
+
+    if (node.length && node.parents(".k-treeview").length) {
+        // the dropTarget is within the treeview,
+        // `node` is the closest treeview item
+
+    }
+    console.log(droppedFiles );
+  });
+  })
+
+
+
+  /* DRAG AND DROP STUFF FROM IL */
+
+  var droppedFiles = false;
+  var $form = $("#folder-list");
+  $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  })
+  .on('dragover dragenter', function(e) {
+    //$form.addClass('is-dragover');
+    console.log("draag")
+  })
+  .on('dragleave dragend drop', function(e) {
+    $form.removeClass('is-dragover');
+  })
+  .on('drop', function(e) {
+    droppedFiles = e.originalEvent.dataTransfer.files; // the files that were dropped
+    //showFiles( droppedFiles );
+    var node = $(e.dropTarget).closest(".k-item");
+
+    if (node.length && node.parents(".k-treeview").length) {
+        // the dropTarget is within the treeview,
+        // `node` is the closest treeview item
+
+    }
+    console.log(droppedFiles + " " + e);
+  });
+
+
 });

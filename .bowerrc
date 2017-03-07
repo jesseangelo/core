@@ -2,12 +2,7 @@
 	"directory": "bower_components",
     "strict-ssl": false,
     "registry": { 
-    	"search": [    		
-    		"https://www.myget.org/F/mypreo/bower/",
-            "http://bower.herokuapp.com"
-    	],
+    	"search": "http://bower.herokuapp.com",
     	"register": "https://jesseangelo:shinobi9@www.myget.org/F/mypreo/bower/"
-    },
-    "proxy": "http://webguest:Internet1@nyproxy.ideal.corp.local:8080/",
-	"https-proxy": "http://webguest:Internet1@nyproxy.ideal.corp.local:8080/"
+    }
 }

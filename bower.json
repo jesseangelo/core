@@ -6,7 +6,8 @@
     "bootstrap-sass": "~3.3.5",
     "font-awesome": "latest",
     "jquery": "~1.9.1",
-    "angular": "bower-angular#1.5.8"
+    "angular": "bower-angular#1.5.8",
+    "kendo": "*"
   },
   "main": [
     "dist/styles/main.css",

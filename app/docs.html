@@ -116,8 +116,12 @@
     <div uib-alert ng-repeat="alert in ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="ctrl.closeAlert($index)">{{alert.msg}}</div>
   </div>
 </nav>
+
+
 <div id="main" class="container-fluid">
   <div class="row">
+
+
     <section id="sidebar" class="col-lg-2 col-md-3 col-sm-3 hidden-xs hidden-sm">
       <div class="container-fluid">
         <nav class="row">
@@ -136,6 +140,8 @@
         </div>
       </div>
     </section>
+
+
     <section id="topbar" class='hidden-md hidden-lg minimized'>
       <div class='container-fluid'>
         <nav>
@@ -164,6 +170,8 @@
         <div class='content-minimized'> <i class='fa fa-filter'></i> </div>
       </div>
     </section>
+
+
     <section id="mainWindow" class='col-lg-10 col-md-9 col-sm-12 clearfix pull-right'>
       <div class='body-content'>
         <h1>Manage Documents</h1>
@@ -181,15 +189,21 @@
           <button class=btn>Browse</button>
         </div>
         <div class="container-fluid row">
+
+         <!-- LEFT AND RIGHT COLUMNS FOR UPLOAD -->
           <form>
             <div class="col-md-3">
               <div class='row'>Folder Name</div>
-               <div kendo-tree-view="tree" k-data-source="ctrl.treeData" data-role="treeview"></div>
+               <!-- <div id="folder-list" kendo-tree-view="tree" k-data-source="ctrl.treeData" data-role="treeview"></div> -->
+               <div id="folder-list"></div>
             </div>
             <div class="col-md-9">
-              <div id="treelist"></div> 
+              <!--<kendo-tree-list k-options="ctrl.treelistData" ></kendo-tree-list>-->
+              <div id="treelist"></div>
             </div>
           </form>
+
+
         </div>
       </div>
       <form>
@@ -200,6 +214,7 @@
       </form>
     </section>
   </div>
+
 
 <script id="file-template" type="text/x-kendo-template">
  
@@ -214,9 +229,11 @@
   
 </script>
 
+
 <script id="file-remove-template" type="text/x-kendo-template">
   <i class="fa fa-trash">
 </script>
+
 
 <nav class="actionbar actionbar-fixed-bottom container-fluid col-lg-offset-2 col-md-offset-3 col-lg-10 col-md-9 col-sm-12">
   <div class="container-fluid row">
