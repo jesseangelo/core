@@ -280,6 +280,17 @@ $(document).ready(function () {
     });
   })
 
+  var $form = $("body");
+  $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  })
+  .on('dragover dragenter', function(e) {
+    $(".file-drop-zone").addClass('active');
+  })
+  .on('dragleave dragend drop', function(e) {
+    $(".file-drop-zone").removeClass('active');
+  })
 
 
   /* DRAG AND DROP STUFF FROM IL */
