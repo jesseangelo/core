@@ -222,8 +222,8 @@ $(document).ready(function () {
       sortable: true,
       editable: true,
       columns: [
-          { field: "File", title: "File Name, Path, and Description", template: $("#file-template").html(), width: 475},
-          { field: "Date", title: "Effective Date" },
+          { field: "File", title: "File Name, Path, and Description", template: $("#file-template").html(), width: 400},
+          { field: "Date", title: "Effective Date", template: $("#file-calendar-template").html()  },
           { field: "Declaration", title: "Public/Private" },
           { field: "Status",  title: "Upload Status"},
           { field: "Remove", template: $("#file-remove-template").html() }
@@ -261,12 +261,14 @@ $(document).ready(function () {
     })
     .on('dragover dragenter', function(e) {
       $(e.currentTarget).addClass("k-state-focused");
+      $(".file-drop-zone").addClass('active');
     })
     .on('dragleave dragend drop', function(e) {
       $(e.currentTarget).removeClass("k-state-focused");
     })
     .on('drop', function(e) {
       droppedFiles = e.originalEvent.dataTransfer.files; // the files that were dropped
+      $(".file-drop-zone").removeClass('active');
       var node = $(e.dropTarget).closest(".k-item");
       var folderName = $(e.currentTarget).text();
       var lastIndex = dataSource.data().length;
@@ -277,8 +279,11 @@ $(document).ready(function () {
       }
       
       dataSource.add({ id: lastIndex++, File: droppedFiles[0].name, FilePath: folderName, Date: "", Declaration: "Public", Status: "", Remove: "", parentId: null })
+      $(".calendar").kendoCalendar();
     });
-  })
+  });
+
+
 
   var $form = $("body");
   $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
@@ -291,6 +296,9 @@ $(document).ready(function () {
   .on('dragleave dragend drop', function(e) {
     $(".file-drop-zone").removeClass('active');
   })
+  .on('drop', function(e) {
+    $(".file-drop-zone").removeClass('active');
+  });
 
 
   /* DRAG AND DROP STUFF FROM IL */

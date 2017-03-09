@@ -1,3 +1,9 @@
-.file-drop-zone.active {
-	background: red;
+.file-drop-zone {
+	border: 3px dotted rgba(0,0,0,0.0);
+	border-width: 3px;
+	margin: -3px 0 1em -3px;
+
+	&.active {
+		border: 3px dotted rgba(0,0,0,0.5);
+	}
 }
