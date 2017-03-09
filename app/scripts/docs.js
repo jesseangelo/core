@@ -15,9 +15,12 @@ $(document).ready(function () {
               id: "id",
               expanded: true
           }
+      },
+      change: function (e) {
+        var data = this.data();
+        //console.log(data.length);
       }
   });
-  
 
   $("#treelist").kendoTreeList({
       dataSource: dataSource,
@@ -27,7 +30,7 @@ $(document).ready(function () {
           { field: "File", title: "File Name, Path, and Description", template: $("#file-template").html(), width: 400},
           { field: "Date", title: "Effective Date", template: $("#file-calendar-template").html() },
           { field: "Declaration", title: "Public/Private", template: $("#file-declaration-template").html() },
-          { field: "Status",  title: "Upload Status"},
+          { field: "Status",  title: "Upload Status", template: $("#file-upload-progress-template").html() },
           { field: "Remove", template: $("#file-remove-template").html() }
       ]
   });
@@ -82,8 +85,11 @@ $(document).ready(function () {
           // `node` is the closest treeview item
       }
       
-      dataSource.add({ id: lastIndex++, File: droppedFiles[0].name, FilePath: folderName, Date: "", Declaration: "", Status: "", Remove: "", parentId: null })
+      var myItem = dataSource.add({ id: lastIndex++, File: droppedFiles[0].name, FilePath: folderName, Date: "", Declaration: "", Status: "", Remove: "", parentId: null })
+      console.log(myItem.id)
       $(".calendar").kendoCalendar();
+      $(".progressbar").kendoProgressBar();
+
     });
   });
 
