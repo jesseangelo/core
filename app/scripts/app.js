@@ -10,6 +10,7 @@
       ctrl.addAlert = addAlert;
       ctrl.closeAlert = closeAlert;
       ctrl.alerts = [];
+      /*
       ctrl.treeData = new kendo.data.HierarchicalDataSource({
             data: [
                   { text: "Executed Credit Docs" },
@@ -38,6 +39,7 @@
               }
           }
       });
+      */
 
 
       function addAlert(type) {
