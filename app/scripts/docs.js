@@ -28,7 +28,7 @@ $(document).ready(function () {
       editable: true,
       columns: [
           { field: "File", title: "File Name, Path, and Description", template: $("#file-template").html(), width: 400},
-          { field: "Date", title: "Effective Date", template: $("#file-calendar-template").html() },
+          { field: "Date", title: "Effective Date", template: $("#file-datepicker-template").html() },
           { field: "Declaration", title: "Public/Private", template: $("#file-declaration-template").html() },
           { field: "Status",  title: "Upload Status", template: $("#file-upload-progress-template").html() },
           { field: "Remove", template: $("#file-remove-template").html(), width: 75 }
@@ -87,7 +87,7 @@ $(document).ready(function () {
       
       var myItem = dataSource.add({ id: lastIndex++, File: droppedFiles[0].name, FilePath: folderName, Date: "", Declaration: "", Status: "", Remove: "", parentId: null })
       console.log(myItem.id)
-      $(".calendar").kendoCalendar();
+      $(".datePicker").kendoDatePicker();
       $(".progressbar").kendoProgressBar();
 
     });
