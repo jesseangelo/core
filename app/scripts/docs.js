@@ -76,19 +76,22 @@ $(document).ready(function () {
     .on('drop', function(e) {
       droppedFiles = e.originalEvent.dataTransfer.files; // the files that were dropped
       $(".file-drop-zone").removeClass('active');
-      var node = $(e.dropTarget).closest(".k-item");
+      //var node = $(e.dropTarget).closest("tr");
       var folderName = $(e.currentTarget).text();
       var lastIndex = dataSource.data().length;
-
-      if (node.length && node.parents(".k-treeview").length) {
-          // the dropTarget is within the treeview,
-          // `node` is the closest treeview item
-      }
       
       var myItem = dataSource.add({ id: lastIndex++, File: droppedFiles[0].name, FilePath: folderName, Date: "", Declaration: "", Status: "", Remove: "", parentId: null })
       console.log(myItem.id)
-      $(".datePicker").kendoDatePicker();
-      $(".progressbar").kendoProgressBar();
+
+      //init only on the last table row
+      var scope = $("#treelist tbody>tr:last");
+      console.log(scope)
+      $(".datePicker", scope).kendoDatePicker();
+      $(".progressbar", scope).kendoProgressBar();
+      $(".fa-trash", scope).click(function (e) {
+        var treeList = $("#treelist").data("kendoTreeList");
+        treeList.removeRow($("#treelist tbody>tr:first"));
+      })
 
     });
   });
