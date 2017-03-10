@@ -90,7 +90,7 @@ $(document).ready(function () {
       $(".progressbar", scope).kendoProgressBar();
       $(".fa-trash", scope).click(function (e) {
         var treeList = $("#treelist").data("kendoTreeList");
-        treeList.removeRow($("#treelist tbody>tr:first"));
+        treeList.removeRow($(this).closest("tr"));
       })
 
     });
