@@ -31,7 +31,7 @@ $(document).ready(function () {
           { field: "Date", title: "Effective Date", template: $("#file-calendar-template").html() },
           { field: "Declaration", title: "Public/Private", template: $("#file-declaration-template").html() },
           { field: "Status",  title: "Upload Status", template: $("#file-upload-progress-template").html() },
-          { field: "Remove", template: $("#file-remove-template").html() }
+          { field: "Remove", template: $("#file-remove-template").html(), width: 75 }
       ]
   });
 
