@@ -10,8 +10,18 @@
   margin-bottom: 0px;
   background-color: #c0c0c0;
   color: white;
+  width: 100%;
   &.maximized {
     width: 100%;
-    margin-left: 60px;
+    margin-left: 0px;
   }
 }
+
+@media screen and (min-width: 992px) {
+  .actionbar-fixed-bottom {
+
+    &.maximized {
+      margin-left: 60px;
+    }
+  }
+}  

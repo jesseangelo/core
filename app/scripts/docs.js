@@ -57,6 +57,7 @@ $(document).ready(function () {
   //EXPAND ALL THE FOLDER ITEMS
   $("#folder-list").data( "kendoTreeView" ).expand(".k-item");
 
+  var myPB;
   //DRAG N DROP
   $(".k-in").each(function(index) {
     //console.log( index + ": " + $( this ).text() );
@@ -87,7 +88,23 @@ $(document).ready(function () {
       var scope = $("#treelist tbody>tr:last");
       console.log(scope)
       $(".datePicker", scope).kendoDatePicker();
-      $(".progressbar", scope).kendoProgressBar();
+      myPB = $(".progressbar", scope).kendoProgressBar({
+        type: "value",
+        min: 0,
+        max: 100,
+        value: false
+      }).data("kendoProgressBar");
+      
+      var val = 0;
+  
+      
+      PEREZOSO.addInfinite(450, function () {
+        val += Math.floor(Math.random() * 6) + 0;
+        if(myPB != undefined) {
+          myPB.value(val)
+        }
+      })
+
       $(".fa-trash", scope).click(function (e) {
         var treeList = $("#treelist").data("kendoTreeList");
         treeList.removeRow($(this).closest("tr"));
@@ -96,6 +113,8 @@ $(document).ready(function () {
     });
   });
 
+  
+  
 
   var $form = $("body");
   $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
