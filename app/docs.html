@@ -158,32 +158,33 @@
 
     <section id="mainWindow" class='col-lg-10 col-md-9 col-sm-12 clearfix pull-right'>
       <div class='body-content'>
+        <!--  -->
         <h1>Manage Documents</h1>
         <ol class="breadcrumb">
           <li><a href="#">Deal Name - November 2016</a></li>
         </ol>
+        <!--  -->
         <div class="fab">
           <h2><i class="fa fa-plus"></i></h2>
         </div>
+        <!--  -->
         <div class="container-fluid row">
           <div class="breakbar"></div>
         </div>
-        <div class="container-fluid row">
-          <button class=btn>Add New Folder</button> 
-          <button class="btn browse">Browse</button>
-          <input type="file" class="box__file">
-        </div>
-        <div class="container-fluid row">
-          <h4>To upload - Drop files on to folders</h4>
-          <br>
 
+        <!--  -->
+        <div class="container-fluid row">
+          <h3>Documents</h3>
+          <h5>To upload, drop documents on to folders or <a class=browse>browse</a></h5>
+          <input type="file" class="box__file">
+          <hr>
+          
          <!-- LEFT AND RIGHT COLUMNS FOR UPLOAD -->
           <form>
             <div class="col-md-3 ">
               <div class='row'>Folder Name</div>
                 <div class="file-drop-zone">
-                <!-- <div id="folder-list" kendo-tree-view="tree" k-data-source="ctrl.treeData" data-role="treeview"></div> -->
-               
+                <!-- <div id="folder-list" kendo-tree-view="tree" k-data-source="ctrl.treeData" data-role="treeview"></div> -->               
                 <div id="folder-list"></div>
               </div>
             </div>
@@ -196,12 +197,17 @@
 
         </div>
       </div>
-      <form>
-        <h3>Permissions</h3>
-        <label><input type="radio" name="permissions" checked> Manually set permissions and optionally send notifications after upload</label>
-        <br/>
-        <label><input type="radio" name="permissions"> Skip permission and notify steps (all documents will inherit the default permissions of their target folders)</label>
-      </form>
+      <div class="container-fluid row">
+        <form>
+          <h3>Permissions</h3>
+          <hr>
+          <label><input type="radio" name="permissions" checked> Manually set permissions and optionally send notifications after upload</label>
+          <br/>
+          <label><input type="radio" name="permissions"> Skip permission and notify steps (all documents will inherit the default permissions of their target folders)</label>
+          <br />
+          <label><input type="radio" name="permissions"> Permission everyone</label>
+        </form>
+      </div>
     </section>
   </div>
 
@@ -226,6 +232,7 @@
 </script>
 
 <script id="file-upload-progress-template" type="text/x-kendo-template">
+  <div class="msg-queued">Queued</div>
   <div class="progressbar" style="width: 100%;"></div>
   <div class="msg-complete">Complete</div>
 </script>

@@ -67,7 +67,6 @@ $(document).ready(function () {
       var treeList = $("#treelist").data("kendoTreeList");
       var scope = $("#treelist tbody>tr:last");
       var val = 0;
-      var myPB;
 
       //enable remove/trash
       $(".fa-trash", scope).click(function (e) {
@@ -79,14 +78,7 @@ $(document).ready(function () {
       
       //make it a date picker
       $(".datePicker", scope).kendoDatePicker();
-      
-      //init progress bar
-      myPB = $(".progressbar", scope).kendoProgressBar({
-        type: "value",
-        min: 0,
-        max: 100
-      }).data("kendoProgressBar");
-      
+            
   }
 
   //DRAG N DROP
@@ -120,16 +112,24 @@ $(document).ready(function () {
   $(".btn-upload").click(function () {
     $("#treelist tbody tr").each(function(index) {
       var scope = this;
-      console.log(scope)
 
-      var myPB = $(".progressbar", scope).kendoProgressBar({
-        value: false
-      }).data("kendoProgressBar");
-    
+      $(".msg-queued").fadeOut();
+
+      $(".progressbar", scope).hide();
+
+       var myPB = $(".progressbar", scope).kendoProgressBar({
+          min: 0,
+          max: 100,
+          value: false
+        }).data("kendoProgressBar");
+            
+      PEREZOSO.addTimed(350, function () {
+         $(".progressbar", scope).fadeIn();
+      });
       
-      PEREZOSO.addInfinite(450, function () {
-        var val = myPB.value(); 
-        //console.log(myPB.value())
+      
+      PEREZOSO.addInfinite(500, function () {
+        var val = myPB.value();         
         val += Math.floor(Math.random() * 6) + 0;
         if(myPB != undefined) {
           myPB.value(val)
