@@ -57,7 +57,7 @@ $(document).ready(function () {
   //EXPAND ALL THE FOLDER ITEMS
   $("#folder-list").data( "kendoTreeView" ).expand(".k-item");
 
-  var myPB;
+ 
   //DRAG N DROP
   $(".k-in").each(function(index) {
     //console.log( index + ": " + $( this ).text() );
@@ -80,40 +80,57 @@ $(document).ready(function () {
       //var node = $(e.dropTarget).closest("tr");
       var folderName = $(e.currentTarget).text();
       var lastIndex = dataSource.data().length;
-      
       var myItem = dataSource.add({ id: lastIndex++, File: droppedFiles[0].name, FilePath: folderName, Date: "", Declaration: "", Status: "", Remove: "", parentId: null })
-      console.log(myItem.id)
+      //console.log(myItem.id)
 
       //init only on the last table row
+      var treeList = $("#treelist").data("kendoTreeList");
       var scope = $("#treelist tbody>tr:last");
-      console.log(scope)
-      $(".datePicker", scope).kendoDatePicker();
-      myPB = $(".progressbar", scope).kendoProgressBar({
-        type: "value",
-        min: 0,
-        max: 100,
-        value: false
-      }).data("kendoProgressBar");
-      
       var val = 0;
-  
-      
-      PEREZOSO.addInfinite(450, function () {
-        val += Math.floor(Math.random() * 6) + 0;
-        if(myPB != undefined) {
-          myPB.value(val)
-        }
-      })
+      var myPB;
 
+      //enable remove/trash
       $(".fa-trash", scope).click(function (e) {
         var treeList = $("#treelist").data("kendoTreeList");
         treeList.removeRow($(this).closest("tr"));
-      })
+      });
 
+      $(".msg-complete", scope).hide();
+      
+      //make it a date picker
+      $(".datePicker", scope).kendoDatePicker();
+      
+      //init progress bar
+      myPB = $(".progressbar", scope).kendoProgressBar({
+        type: "value",
+        min: 0,
+        max: 100
+      }).data("kendoProgressBar");
+      
     });
   });
 
   
+  $(".btn-upload").click(function () {
+    $("#treelist tbody tr").each(function(index) {
+      var scope = this;
+      console.log(scope)
+
+      var myPB = $(".progressbar", scope).kendoProgressBar({
+        value: false
+      }).data("kendoProgressBar");
+    
+      
+      PEREZOSO.addInfinite(450, function () {
+        var val = myPB.value(); 
+        //console.log(myPB.value())
+        val += Math.floor(Math.random() * 6) + 0;
+        if(myPB != undefined) {
+          myPB.value(val)
+        }
+      });
+    });
+  });
   
 
   var $form = $("body");
