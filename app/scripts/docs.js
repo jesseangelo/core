@@ -49,6 +49,9 @@ $(document).ready(function () {
       ]
   });
 
+  $(".browse").click( function() {
+    $(".box__file").click();
+  });
 
   $("#folder-list").kendoTreeView({
       dataSource: folderListData
@@ -58,32 +61,9 @@ $(document).ready(function () {
   $("#folder-list").data( "kendoTreeView" ).expand(".k-item");
 
  
-  //DRAG N DROP
-  $(".k-in").each(function(index) {
-    //console.log( index + ": " + $( this ).text() );
-     var droppedFiles = false;
-     var $form = $(this);
-    $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-    })
-    .on('dragover dragenter', function(e) {
-      $(e.currentTarget).addClass("k-state-focused");
-      $(".file-drop-zone").addClass('active');
-    })
-    .on('dragleave dragend drop', function(e) {
-      $(e.currentTarget).removeClass("k-state-focused");
-    })
-    .on('drop', function(e) {
-      droppedFiles = e.originalEvent.dataTransfer.files; // the files that were dropped
-      $(".file-drop-zone").removeClass('active');
-      //var node = $(e.dropTarget).closest("tr");
-      var folderName = $(e.currentTarget).text();
-      var lastIndex = dataSource.data().length;
-      var myItem = dataSource.add({ id: lastIndex++, File: droppedFiles[0].name, FilePath: folderName, Date: "", Declaration: "", Status: "", Remove: "", parentId: null })
-      //console.log(myItem.id)
-
-      //init only on the last table row
+  function addFiles(files) {
+    var lastIndex = dataSource.data().length;
+      var myItem = dataSource.add({ id: lastIndex++, File: files[0].name, FilePath: "", Date: "", Declaration: "", Status: "", Remove: "", parentId: null })
       var treeList = $("#treelist").data("kendoTreeList");
       var scope = $("#treelist tbody>tr:last");
       var val = 0;
@@ -106,6 +86,32 @@ $(document).ready(function () {
         min: 0,
         max: 100
       }).data("kendoProgressBar");
+      
+  }
+
+  //DRAG N DROP
+  $(".k-in").each(function(index) {
+    //console.log( index + ": " + $( this ).text() );
+     var droppedFiles = false;
+     var $form = $(this);
+    $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    })
+    .on('dragover dragenter', function(e) {
+      $(e.currentTarget).addClass("k-state-focused");
+      $(".file-drop-zone").addClass('active');
+    })
+    .on('dragleave dragend drop', function(e) {
+      $(e.currentTarget).removeClass("k-state-focused");
+    })
+    .on('drop', function(e) {
+      droppedFiles = e.originalEvent.dataTransfer.files; // the files that were dropped
+      $(".file-drop-zone").removeClass('active');
+      //var node = $(e.dropTarget).closest("tr");
+      var folderName = $(e.currentTarget).text();
+
+      addFiles(droppedFiles)
       
     });
   });
@@ -130,10 +136,16 @@ $(document).ready(function () {
         }
       });
     });
+
   });
   
 
   var $form = $("body");
+  var $input = $form.find('input[type="file"]');
+  $input.on('change', function(e) {
+    addFiles(e.target.files);
+  });
+
   $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
     e.preventDefault();
     e.stopPropagation();
