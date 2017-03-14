@@ -3,20 +3,21 @@
 $(document).ready(function () {
 
   var dataSource = new kendo.data.TreeListDataSource({
-      data: [
-        /*
-        { id: 1, File: "Cashflow Statement Q1 2017", FilePath: "2017 Financials", Date: "28-Feb-2017", Declaration: "Public", Status: "", Remove: "", parentId: null },
-        { id: 2, File: "Balance Sheet Q1 2017", FilePath: "2017 Financials", Date: "28-Feb-2017", Declaration: "Public", Status: "", Remove: "", parentId: null },
-        { id: 3, File: "Income Statement Q1 2017", FilePath: "2017 Financials", Date: "28-Feb-2017", Declaration: "Public", Status: "", Remove: "", parentId: null },
-        { id: 4, File: "Cashflow Statement Q4 2016", FilePath: "2016 Financials", Date: "28-Feb-2017", Declaration: "Public", Status: "", Remove: "", parentId: null }
-        */
-      ],
       schema: {
           model: {
-              id: "id",
-              expanded: true
+              id: "docId",
+              fields: {
+                docId: { editable: true, nullable: false },
+                File: {},
+                FilePath: { editable: false },
+                Date: { editable: false }, 
+                Declaration: { editable: false },
+                Status: { editable: false },
+                Remove: { editable: false }
+              }
           }
       },
+      editable: "inline",
       change: function (e) {
         var data = this.data();
         //console.log(data.length);
@@ -26,9 +27,11 @@ $(document).ready(function () {
   $("#treelist").kendoTreeList({
       dataSource: dataSource,
       sortable: true,
-      editable: true,
+      editable: "inline",
       columns: [
+          { field: "docId", title: "ID", width: "40px" },
           { field: "File", title: "File Name, Path, and Description", template: $("#file-template").html(), width: 400},
+          { command: ["edit"] },          
           { field: "Date", title: "Effective Date", template: $("#file-datepicker-template").html() },
           { field: "Declaration", title: "Public/Private", template: $("#file-declaration-template").html() },
           { field: "Status",  title: "Upload Status", template: $("#file-upload-progress-template").html() },
@@ -68,8 +71,17 @@ $(document).ready(function () {
 
  
   function addFiles(files, folder) {
-    var lastIndex = dataSource.data().length;
-      var myItem = dataSource.add({ id: lastIndex++, File: files[0].name.replace(/\.[^/.]+$/, ""), FilePath: folder, Date: "", Declaration: "", Status: "", Remove: "", parentId: null })
+      var lastIndex = dataSource.data().length;
+      var myItem = dataSource.add({ 
+        docId: lastIndex++,
+        File: files[0].name.replace(/\.[^/.]+$/, ""), 
+        FilePath: folder, 
+        Date: "", 
+        Declaration: "", 
+        Status: "", 
+        Remove: "", 
+        parentId: null 
+      });
       var treeList = $("#treelist").data("kendoTreeList");
       var scope = $("#treelist tbody>tr:last");
       var val = 0;
@@ -128,7 +140,8 @@ $(document).ready(function () {
        var myPB = $(".progressbar", scope).kendoProgressBar({
           min: 0,
           max: 100,
-          value: false
+          value: false,
+          type: "percent"
         }).data("kendoProgressBar");
             
       PEREZOSO.addTimed(350, function () {
