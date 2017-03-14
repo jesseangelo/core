@@ -1,6 +1,7 @@
 
 /* Docs Prototype stuff */
 $(document).ready(function () {
+
   var dataSource = new kendo.data.TreeListDataSource({
       data: [
         /*
@@ -56,6 +57,11 @@ $(document).ready(function () {
   $("#folder-list").kendoTreeView({
       dataSource: folderListData
   });
+
+  //calc height of window for no scroll
+  $("#treelist").height($(window).height() - 600);
+  $("#folder-list").height($(window).height() - 650);
+  
 
   //EXPAND ALL THE FOLDER ITEMS
   $("#folder-list").data( "kendoTreeView" ).expand(".k-item");

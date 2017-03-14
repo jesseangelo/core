@@ -15,6 +15,11 @@
 <!-- build:css(.tmp) styles/main.css -->
 <link rel="stylesheet" href="styles/main.css">
 <link rel="stylesheet" href="/bower_components/kendo/styles/web/kendo.default.min.css">
+<style>
+  #mainWindow.maximized {
+    margin-bottom: 0em;
+  }
+</style>
 <!-- endbuild -->
 </head>
 <body ng-app="app" controllerAs="ctrl">
@@ -33,33 +38,12 @@
         <ul class="nav nav-pills">
           <li>&nbsp;&nbsp;</li>
           <li class="dropdown"> <a class="dropdown-toggle btn " id="" data-toggle="dropdown" aria-haspopup="true"><i class="fa fa-industry"></i><span class=''>&nbsp;Deals</span></a>
-            <ul class="dropdown-menu" aria-labelledby="menu-deals">
-              <li><a href="#">Deal List</a></li>
-              <li role="separator" class="divider"></li>
-              <li class="dropdown-header">Recent Deals</li>
-              <li><a href="#">Some Deal - 2015</a></li>
-              <li><a href="#">Another Deal </a></li>
-              <li><a href="#">Deal</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Create Deal</a></li>
-            </ul>
+            
           </li>
           <li><a><i class='fa fa-list'></i><span class=''>&nbsp;Notes</span></a></li>
           <li><a><i class='fa fa-calendar-o'></i><span class=''>&nbsp;Calendar</span></a></li>
           <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-line-chart'></i><span class=''>&nbsp;Reports</span> </a>
-            <ul class="dropdown-menu" aria-labelledby="menu-Reports">
-              <li><a href="#">Compliance</a></li>
-              <li><a href="#">Pipeline</a></li>
-              <li role="separator" class="divider"></li>
-              <li class="dropdown-header">Investor Activity</li>
-              <li><a href="#">Syndication</a></li>
-              <li><a href="#">Agency</a></li>
-              <li><a href="#">Investor Coverage</a></li>
-              <li><a href="#">Investors by City</a></li>
-              <li><a href="#">Sales Prospects</a></li>
-              <li><a href="#">Expiring Sales Prospects</a></li>
-              <li><a href="#">Expiring Investors</a></li>
-            </ul>
+            
           </li>
           <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-leaf'></i><span class=''>&nbsp;Resources</span> </a>
             <ul class="dropdown-menu" aria-labelledby="menu-Resources">
@@ -74,27 +58,10 @@
         <ul class="nav nav-pills">
           <li><a><i class='fa fa-bell'></i><span class='show-mobile'>&nbsp;Notifications</span></a></li>
           <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-user'></i><span class='hidden-sm'>&nbsp; Lewis Hamilton</span> </a>
-            <ul class="dropdown-menu" aria-labelledby="menu-user">
-              <li><a href="#">Last Login: 20-Nov-2015 09:00</a></li>
-              <li><a href="#">My Profile</a></li>
-              <li role="separator" class="divider"></li>
-              <li class="dropdown-header">My Preferences</li>
-              <li><a href="#">Email</a></li>
-              <li><a href="#">Notes</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Logout</a></li>
-            </ul>
+            
           </li>
           <li> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-gear'></i><span class='show-mobile'>&nbsp;Settings</span> </a>
-            <ul class="dropdown-menu" aria-labelledby="menu-Settings">
-              <li><a href="#">Access Control Manager</a></li>
-              <li><a href="#">Firm Setup</a></li>
-              <li><a href="#">Super User</a></li>
-              <li><a href="#">Reporting Fields</a></li>
-              <li><a href="#">Cross Reference Materials</a></li>
-              <li><a href="#">Transfer Contacts</a></li>
-              <li><a href="#">Export Data</a></li>
-            </ul>
+            
           </li>
           <li><a><i class='fa fa-question'></i><span class='show-mobile'>&nbsp;Help</span></a></li>
         </ul>
@@ -175,14 +142,14 @@
         <!--  -->
         <div class="container-fluid row">
           <h3>Documents</h3>
-          <h5>To upload, drop documents on to folders or <a class=browse>browse</a></h5>
+          <h5>To upload, drop documents on to folders or select a folder first, then <a class=browse>browse</a></h5>
           <input type="file" class="box__file">
           <hr>
           
          <!-- LEFT AND RIGHT COLUMNS FOR UPLOAD -->
           <form>
             <div class="col-md-3 ">
-              <div class='row'>Folder Name</div>
+              <div class='row'><h5 class="pull-left">Folder Name</h5> <button class="btn btn-link pull-right">Add Folder</button></div>
                 <div class="file-drop-zone">
                 <!-- <div id="folder-list" kendo-tree-view="tree" k-data-source="ctrl.treeData" data-role="treeview"></div> -->               
                 <div id="folder-list"></div>
