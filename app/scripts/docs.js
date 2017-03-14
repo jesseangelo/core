@@ -54,12 +54,21 @@ $(document).ready(function () {
   });
 
   $(".browse").click( function() {
+    if(item == undefined) {
+      console.log("select first");
+    }
     $(".box__file").click();
   });
 
+  function getFolderSelected(e) {
+    console.log( this.text(e.node) ); 
+  }
   $("#folder-list").kendoTreeView({
-      dataSource: folderListData
+    dataSource: folderListData,
+    select: getFolderSelected
   });
+
+  
 
   //calc height of window for no scroll
   $("#treelist").height($(window).height() - 600);
