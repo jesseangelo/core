@@ -61,9 +61,9 @@ $(document).ready(function () {
   $("#folder-list").data( "kendoTreeView" ).expand(".k-item");
 
  
-  function addFiles(files) {
+  function addFiles(files, folder) {
     var lastIndex = dataSource.data().length;
-      var myItem = dataSource.add({ id: lastIndex++, File: files[0].name, FilePath: "", Date: "", Declaration: "", Status: "", Remove: "", parentId: null })
+      var myItem = dataSource.add({ id: lastIndex++, File: files[0].name, FilePath: folder, Date: "", Declaration: "", Status: "", Remove: "", parentId: null })
       var treeList = $("#treelist").data("kendoTreeList");
       var scope = $("#treelist tbody>tr:last");
       var val = 0;
@@ -77,7 +77,9 @@ $(document).ready(function () {
       $(".msg-complete", scope).hide();
       
       //make it a date picker
-      $(".datePicker", scope).kendoDatePicker();
+      $(".datePicker", scope).kendoDatePicker({
+        value: new Date()
+      });
             
   }
 
@@ -103,7 +105,7 @@ $(document).ready(function () {
       //var node = $(e.dropTarget).closest("tr");
       var folderName = $(e.currentTarget).text();
 
-      addFiles(droppedFiles)
+      addFiles(droppedFiles, folderName);
       
     });
   });
