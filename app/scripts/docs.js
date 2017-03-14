@@ -63,7 +63,7 @@ $(document).ready(function () {
  
   function addFiles(files, folder) {
     var lastIndex = dataSource.data().length;
-      var myItem = dataSource.add({ id: lastIndex++, File: files[0].name, FilePath: folder, Date: "", Declaration: "", Status: "", Remove: "", parentId: null })
+      var myItem = dataSource.add({ id: lastIndex++, File: files[0].name.replace(/\.[^/.]+$/, ""), FilePath: folder, Date: "", Declaration: "", Status: "", Remove: "", parentId: null })
       var treeList = $("#treelist").data("kendoTreeList");
       var scope = $("#treelist tbody>tr:last");
       var val = 0;
