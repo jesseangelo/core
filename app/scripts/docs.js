@@ -53,20 +53,23 @@ $(document).ready(function () {
       ]
   });
 
+
+
   $(".browse").click( function() {
-    //if(item == undefined) {
-    //  console.log("select first");
-    //}
     $(".box__file").click();
   });
 
+
   function getFolderSelected(e) {
-    console.log( this.text(e.node) ); 
+    var selectedNode = fl.select();
+    var item = fl.dataItem(selectedNode);
+    return item.text; 
   }
   $("#folder-list").kendoTreeView({
     dataSource: folderListData,
     select: getFolderSelected
   });
+  
   
 
   //calc height of window for no scroll
@@ -76,6 +79,11 @@ $(document).ready(function () {
 
   //EXPAND ALL THE FOLDER ITEMS
   $("#folder-list").data( "kendoTreeView" ).expand(".k-item");
+
+  //select first folder by default
+  var fl = $("#folder-list").data("kendoTreeView");
+  fl.select(fl.findByText("Executed Credit Docs"));
+
 
   //Adds files to list
   function addFiles(files, folder) {
@@ -174,7 +182,7 @@ $(document).ready(function () {
   var $form = $("body");
   var $input = $form.find('input[type="file"]');
   $input.on('change', function(e) {
-    addFiles(e.target.files);
+    addFiles(e.target.files, getFolderSelected());
   });
 
   $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
