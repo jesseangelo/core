@@ -54,9 +54,9 @@ $(document).ready(function () {
   });
 
   $(".browse").click( function() {
-    if(item == undefined) {
-      console.log("select first");
-    }
+    //if(item == undefined) {
+    //  console.log("select first");
+    //}
     $(".box__file").click();
   });
 
@@ -67,23 +67,23 @@ $(document).ready(function () {
     dataSource: folderListData,
     select: getFolderSelected
   });
-
   
 
   //calc height of window for no scroll
   $("#treelist").height($(window).height() - 600);
-  $("#folder-list").height($(window).height() - 650);
+  $("#folder-list").height($(window).height() - 671);
   
 
   //EXPAND ALL THE FOLDER ITEMS
   $("#folder-list").data( "kendoTreeView" ).expand(".k-item");
 
- 
+  //Adds files to list
   function addFiles(files, folder) {
+    for(var k = 0; k < files.length; k++) {    
       var lastIndex = dataSource.data().length;
       var myItem = dataSource.add({ 
         docId: lastIndex++,
-        File: files[0].name.replace(/\.[^/.]+$/, ""), 
+        File: files[k].name.replace(/\.[^/.]+$/, ""), 
         FilePath: folder, 
         Date: "", 
         Declaration: "", 
@@ -107,6 +107,8 @@ $(document).ready(function () {
       $(".datePicker", scope).kendoDatePicker({
         value: new Date()
       });
+
+    }
             
   }
 
@@ -137,7 +139,7 @@ $(document).ready(function () {
     });
   });
 
-  
+  //UPLOAD
   $(".btn-upload").click(function () {
     $("#treelist tbody tr").each(function(index) {
       var scope = this;
@@ -166,7 +168,6 @@ $(document).ready(function () {
         }
       });
     });
-
   });
   
 

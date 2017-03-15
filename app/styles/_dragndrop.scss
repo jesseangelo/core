@@ -1,10 +1,16 @@
 .file-drop-zone {
-	border: 3px dotted rgba(0,0,0,0.0);
+	border: 3px dotted rgba(208, 208, 208, 1);
 	border-width: 3px;
 	margin: -3px 0 1em -3px;
+	transition: .3s all;
 
 	&.active {
 		border: 3px dotted rgba(0,0,0,0.5);
+	}
+
+	.file-drop-message {
+		display: block;
+		background-color: #c0c0c0;
 	}
 }
 
