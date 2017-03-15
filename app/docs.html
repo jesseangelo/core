@@ -15,11 +15,7 @@
 <!-- build:css(.tmp) styles/main.css -->
 <link rel="stylesheet" href="styles/main.css">
 <link rel="stylesheet" href="/bower_components/kendo/styles/web/kendo.default.min.css">
-<style>
-  #mainWindow.maximized {
-    margin-bottom: 0em;
-  }
-</style>
+
 <!-- endbuild -->
 </head>
 <body ng-app="app" controllerAs="ctrl">
@@ -81,7 +77,7 @@
       </div>
     </div>
    
-    <div uib-alert ng-repeat="alert in ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="ctrl.closeAlert($index)">{{alert.msg}}</div>
+    <!--<div uib-alert ng-repeat="alert in ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="ctrl.closeAlert($index)">{{alert.msg}}</div>-->
   </div>
 </nav>
 
@@ -153,7 +149,7 @@
                 <div class="file-drop-zone">
                   <!-- <div id="folder-list" kendo-tree-view="tree" k-data-source="ctrl.treeData" data-role="treeview"></div> -->               
                   <div id="folder-list"></div>
-                  <span class="file-drop-message text-center">Drop files here</span>
+                  <span class="file-drop-message text-center">Drop files onto folders</span>
                 </div>
             </div>
             <div class="col-md-9">
@@ -242,7 +238,6 @@
 <!-- build:js scripts/vendor.js --> 
 <!-- bower:js -->
 <script src="/bower_components/jquery/jquery.js"></script>
-<script src="/bower_components/angular/angular.js"></script>
 <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="/bower_components/kendo/js/kendo.all.min.js"></script>
 <!-- endbower --> 

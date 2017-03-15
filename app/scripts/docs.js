@@ -7,7 +7,6 @@ $(document).ready(function () {
           model: {
               id: "docId",
               fields: {
-                docId: { editable: true, nullable: false },
                 File: {},
                 FilePath: { editable: false },
                 Date: { editable: false }, 
@@ -29,9 +28,7 @@ $(document).ready(function () {
       sortable: true,
       editable: "inline",
       columns: [
-          { field: "docId", title: "ID", width: "40px" },
-          { field: "File", title: "File Name, Path, and Description", template: $("#file-template").html(), width: 400},
-          { command: ["edit"] },          
+          { field: "File", title: "File Name, Path, and Description", template: $("#file-template").html(), width: 400},     
           { field: "Date", title: "Effective Date", template: $("#file-datepicker-template").html() },
           { field: "Declaration", title: "Public/Private", template: $("#file-declaration-template").html() },
           { field: "Status",  title: "Upload Status", template: $("#file-upload-progress-template").html() },
