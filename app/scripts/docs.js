@@ -149,9 +149,15 @@ $(document).ready(function () {
       var val = 0;
 
 
-      $(".fa-pencil", scope).click(function (){
+      $(".edit-description", scope).click(function (){
         $(".description", scope).toggle();
         event.stopPropagation()
+        if($(".description", scope).val() != "") {
+          $(".edit-description", scope).addClass("fa-pencil-square").removeClass("fa-pencil-square-o");
+        } else {
+          //default icon
+          $(".edit-description", scope).addClass("fa-pencil-square-o").removeClass("fa-pencil-square"); 
+        }
       });
       $(".description", scope).toggle();
 
@@ -173,7 +179,7 @@ $(document).ready(function () {
   }
 
   $(document).click(function() {
-    $(".description").hide()
+    //$(".description").hide()
   })
 
   //DRAG N DROP
