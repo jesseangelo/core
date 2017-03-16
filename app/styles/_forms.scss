@@ -1,0 +1,6 @@
+.input-borderless {
+	border-color: transparent;
+	&:hover {
+		border-color: gray;
+	}
+}

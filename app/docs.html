@@ -15,7 +15,9 @@
 <!-- build:css(.tmp) styles/main.css -->
 <link rel="stylesheet" href="styles/main.css">
 <link rel="stylesheet" href="/bower_components/kendo/styles/web/kendo.default.min.css">
-
+<style>
+    #treelist .k-i-none { display: none; }
+</style>
 <!-- endbuild -->
 </head>
 <body ng-app="app" controllerAs="ctrl">
@@ -177,14 +179,14 @@
 
 
 <script id="file-template" type="text/x-kendo-template">
-    <div class="col-sm-5">
-      <i class="fa fa-file-pdf-o"></i>&nbsp;#: File #
-      <br/>
-      <i class="fa fa-folder-o"></i>&nbsp;#: FilePath #
-    </div>
-    <div class="pull-right">
-      <textarea placeholder="Enter file description"></textarea>
-    </div>
+  <i class="fa fa-file-pdf-o"></i>&nbsp;<input type=text class=input-borderless value="#: File #">
+  <br/>
+  <i class="fa fa-folder-o"></i>&nbsp;#: FilePath #
+</script>
+
+<script id="file-description-template" type="text/x-kendo-template">
+  <button type="button"><i class="fa fa-pencil"></i></button>
+  <textarea placeholder="Enter file description" class=hide></textarea>
 </script>
 
 <script id="file-datepicker-template" type="text/x-kendo-template">
@@ -192,7 +194,10 @@
 </script>
 
 <script id="file-declaration-template" type="text/x-kendo-template">
-  <label><input type="checkbox"> Public</label> 
+  <select>
+    <option>Public</option>
+    <option>Private</option>
+  </select>
 </script>
 
 <script id="file-upload-progress-template" type="text/x-kendo-template">
@@ -238,6 +243,7 @@
 <!-- build:js scripts/vendor.js --> 
 <!-- bower:js -->
 <script src="/bower_components/jquery/jquery.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
 <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="/bower_components/kendo/js/kendo.all.min.js"></script>
 <!-- endbower --> 

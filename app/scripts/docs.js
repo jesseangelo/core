@@ -28,7 +28,8 @@ $(document).ready(function () {
       sortable: true,
       editable: "inline",
       columns: [
-          { field: "File", title: "File Name, Path, and Description", template: $("#file-template").html(), width: 400},     
+          { field: "File", title: "File Name and Path", template: $("#file-template").html(), width: 400},
+          { field: "Description", title: "Description", template: $("#file-description-template").html() },
           { field: "Date", title: "Effective Date", template: $("#file-datepicker-template").html() },
           { field: "Declaration", title: "Public/Private", template: $("#file-declaration-template").html() },
           { field: "Status",  title: "Upload Status", template: $("#file-upload-progress-template").html() },
