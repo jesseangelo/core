@@ -103,33 +103,22 @@ $(document).ready(function () {
               duration: 500
           },
           select: function(e) {
-              // Do something on select
+            var button = $(e.item);
+            var node = $(e.target);
+            console.log("t: " + e.target);
+
           }
       });
   };
 
   initMenu();
 
-  
-/////
-
-  $("#menu").kendoContextMenu({
-      //orientation: orientation,
-      target: "#treelist",      
-      animation: {
-          open: { effects: "fadeIn" },
-          duration: 500
-      },
-      select: function(e) {
-        var button = $(e.item);
-          var node = $(e.target);
-          alert(kendo.format("'{0}' button clicked on '{1}' node", button.text(), node.text()));
-
-          // you can get the node data (e.g. id) via the TreeView dataItem method:
-          // $("#treeview").data("kendoTreeView").dataItem(node);
-      }
+  /*
+  $(".file-drop-zone").on("contextmenu", function(e) {
+      console.log("target", e.target);
   });
-
+  */
+    
   //Adds files to list
   function addFiles(files, folder) {
     for(var k = 0; k < files.length; k++) {    
@@ -151,6 +140,7 @@ $(document).ready(function () {
 
       $(".edit-description", scope).click(function (){
         $(".description", scope).toggle();
+        //$(this).closest(".description").toggle(); //Maybe?
         event.stopPropagation()
         if($(".description", scope).val() != "") {
           $(".edit-description", scope).addClass("fa-pencil-square").removeClass("fa-pencil-square-o");
