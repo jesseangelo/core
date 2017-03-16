@@ -17,6 +17,11 @@
 <link rel="stylesheet" href="/bower_components/kendo/styles/web/kendo.default.min.css">
 <style>
     #treelist .k-i-none { display: none; }
+    .description {
+      position: absolute;
+      z-index: 1000;
+      margin-top: 3px;
+    }
 </style>
 <!-- endbuild -->
 </head>
@@ -124,7 +129,7 @@
     <section id="mainWindow" class='col-lg-10 col-md-9 col-sm-12 clearfix pull-right'>
       <div class='body-content'>
         <!--  -->
-        <h1>Manage Documents</h1>
+        <h1>Upload Documents</h1>
         <ol class="breadcrumb">
           <li><a href="#">Deal Name - November 2016</a></li>
         </ol>
@@ -139,7 +144,6 @@
 
         <!--  -->
         <div class="container-fluid row">
-          <h3>Documents</h3>
           <h5>To upload, drop documents on to folders or select a folder first, then <a class=browse>browse</a></h5>
           <input type="file" class="box__file">
           <hr>
@@ -175,7 +179,14 @@
         </form>
       </div>
     </section>
+
+    <ul id="menu-folders">
+      <li>Upload here</li>
+      <li>Add Sub Folder</li>
+    </ul>
+
   </div>
+
 
 
 <script id="file-template" type="text/x-kendo-template">
@@ -185,8 +196,9 @@
 </script>
 
 <script id="file-description-template" type="text/x-kendo-template">
-  <button type="button"><i class="fa fa-pencil"></i></button>
-  <textarea placeholder="Enter file description" class=hide></textarea>
+
+  <i class="fa fa-pencil"></i>
+  <textarea placeholder="Enter file description (optional)" class="description"></textarea>
 </script>
 
 <script id="file-datepicker-template" type="text/x-kendo-template">
@@ -219,26 +231,6 @@
     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
   </div>
 </nav>
-<div id="myModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <p>Body content&hellip;</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-    <!-- /.modal-content --> 
-  </div>
-  <!-- /.modal-dialog --> 
-</div>
-<!-- /.modal --> 
 
 <!-- build:js scripts/vendor.js --> 
 <!-- bower:js -->

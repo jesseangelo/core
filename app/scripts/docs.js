@@ -68,7 +68,6 @@ $(document).ready(function () {
     select: getFolderSelected
   });
   
-  
 
   //calc height of window for no scroll
   $("#treelist").height($(window).height() - 600);
@@ -82,6 +81,54 @@ $(document).ready(function () {
   var fl = $("#folder-list").data("kendoTreeView");
   fl.select(fl.findByText("Executed Credit Docs"));
 
+
+  //FUNCTIONS
+
+///// context menu
+
+
+  var menu = $("#menu-folders"),
+      original = menu.clone(true);
+
+  original.find(".k-state-active").removeClass("k-state-active");
+
+  var initMenu = function () {
+      //var orientation = $("#orientation").data("kendoDropDownList").value();
+
+      menu = $("#menu-folders").kendoContextMenu({
+          orientation: "vertical",
+          target: "#folder-list",
+          animation: {
+              open: { effects: "fadeIn" },
+              duration: 500
+          },
+          select: function(e) {
+              // Do something on select
+          }
+      });
+  };
+
+  initMenu();
+
+  
+/////
+
+  $("#menu").kendoContextMenu({
+      //orientation: orientation,
+      target: "#treelist",      
+      animation: {
+          open: { effects: "fadeIn" },
+          duration: 500
+      },
+      select: function(e) {
+        var button = $(e.item);
+          var node = $(e.target);
+          alert(kendo.format("'{0}' button clicked on '{1}' node", button.text(), node.text()));
+
+          // you can get the node data (e.g. id) via the TreeView dataItem method:
+          // $("#treeview").data("kendoTreeView").dataItem(node);
+      }
+  });
 
   //Adds files to list
   function addFiles(files, folder) {
@@ -101,6 +148,13 @@ $(document).ready(function () {
       var scope = $("#treelist tbody>tr:last");
       var val = 0;
 
+
+      $(".fa-pencil", scope).click(function (){
+        $(".description", scope).toggle();
+        event.stopPropagation()
+      });
+      $(".description", scope).toggle();
+
       //enable remove/trash
       $(".fa-trash", scope).click(function (e) {
         var treeList = $("#treelist").data("kendoTreeList");
@@ -117,6 +171,10 @@ $(document).ready(function () {
     }
             
   }
+
+  $(document).click(function() {
+    $(".description").hide()
+  })
 
   //DRAG N DROP
   $(".k-in").each(function(index) {
