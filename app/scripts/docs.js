@@ -28,7 +28,7 @@ $(document).ready(function () {
       sortable: true,
       editable: "inline",
       columns: [
-          { field: "File", title: "File Name and Path", template: $("#file-template").html(), width: 400},
+          { field: "File", title: "File Name and Path", template: $("#file-template").html(), width: 300 },
           { field: "Description", title: "Description", template: $("#file-description-template").html() },
           { field: "Date", title: "Effective Date", template: $("#file-datepicker-template").html() },
           { field: "Declaration", title: "Public/Private", template: $("#file-declaration-template").html() },
@@ -71,7 +71,7 @@ $(document).ready(function () {
 
   //calc height of window for no scroll
   $("#treelist").height($(window).height() - 600);
-  $("#folder-list").height($(window).height() - 671);
+  $("#folder-list").height($(window).height() - 692);
   
 
   //EXPAND ALL THE FOLDER ITEMS
@@ -93,7 +93,6 @@ $(document).ready(function () {
   original.find(".k-state-active").removeClass("k-state-active");
 
   var initMenu = function () {
-      //var orientation = $("#orientation").data("kendoDropDownList").value();
 
       menu = $("#menu-folders").kendoContextMenu({
           orientation: "vertical",
@@ -106,7 +105,6 @@ $(document).ready(function () {
             var button = $(e.item);
             var node = $(e.target);
             console.log("t: " + e.target);
-
           }
       });
   };
@@ -138,8 +136,10 @@ $(document).ready(function () {
       var val = 0;
 
 
-      $(".edit-description", scope).click(function (){
-        $(".description", scope).toggle();
+      $(".description", scope).click(function (){
+        $(this).addClass("active");
+
+        //$(".description", scope).toggle();
         //$(this).closest(".description").toggle(); //Maybe?
         event.stopPropagation()
         if($(".description", scope).val() != "") {
@@ -149,7 +149,7 @@ $(document).ready(function () {
           $(".edit-description", scope).addClass("fa-pencil-square-o").removeClass("fa-pencil-square"); 
         }
       });
-      $(".description", scope).toggle();
+      //$(".description", scope).toggle();
 
       //enable remove/trash
       $(".fa-trash", scope).click(function (e) {
@@ -169,7 +169,7 @@ $(document).ready(function () {
   }
 
   $(document).click(function() {
-    //$(".description").hide()
+    $(".description").removeClass("active");
   })
 
   //DRAG N DROP

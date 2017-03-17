@@ -18,10 +18,14 @@
 <style>
     #treelist .k-i-none { display: none; }
     .description {
-      position: absolute;
-      z-index: 1000;
-      margin-top: 3px;
+      position: relative;
     }
+    .description.active {
+      z-index: 1000;
+      margin-top: -28px;
+      position: absolute;
+    }
+    #treelist tbody tr { height: 66px; }
 </style>
 <!-- endbuild -->
 </head>
@@ -97,7 +101,7 @@
       <div class="container-fluid">
         <nav class="row">
           <h2 class="text-right"> <i class="fa fa-angle-double-left minimize-sidebar"></i> </h2>
-          <h2 class=text-center> <i class='fa fa-angle-double-right maximize-sidebar'></i> </h2>
+          <h2 class=text-center> <i class='fa fa-angle-double-right maximize-sidebar hide'></i> </h2>
         </nav>
         <div class='content-maximized row'>
           
@@ -116,8 +120,10 @@
     <section id="topbar" class='hidden-md hidden-lg minimized'>
       <div class='container-fluid'>
         <nav>
+          <!--
           <h3 class='pull-right min-top'> <i class='fa fa-angle-double-up minimize-topbar'></i> </h3>
           <h3 class=pull-right> <i class='fa fa-angle-double-down maximize-topbar'></i> </h3>
+          -->
         </nav>
         <div class='content-maximized'>
         </div>
@@ -153,9 +159,11 @@
             <div class="col-md-3 ">
               <div class='row'><h5 class="pull-left">Folder Name</h5> <button class="btn btn-link pull-right">Add Folder</button></div>
                 <div class="file-drop-zone">
+                <span class="file-drop-message text-center">Drop files onto folders</span>
+                <br>
                   <!-- <div id="folder-list" kendo-tree-view="tree" k-data-source="ctrl.treeData" data-role="treeview"></div> -->               
                   <div id="folder-list"></div>
-                  <span class="file-drop-message text-center">Drop files onto folders</span>
+                  
                 </div>
             </div>
             <div class="col-md-9">
@@ -192,12 +200,10 @@
 <script id="file-template" type="text/x-kendo-template">
   <i class="fa fa-file-pdf-o"></i>&nbsp;<input type=text class=input-borderless value="#: File #">
   <br/>
-  <i class="fa fa-folder-o"></i>&nbsp;#: FilePath #
+  <i class="fa fa-folder-o"></i>&nbsp;<em>#: FilePath #</em>
 </script>
 
 <script id="file-description-template" type="text/x-kendo-template">
-
-  <i class="fa fa-pencil-square-o edit-description"></i>
   <textarea placeholder="Enter file description (optional)" class="description"></textarea>
 </script>
 
@@ -207,8 +213,8 @@
 
 <script id="file-declaration-template" type="text/x-kendo-template">
   <select>
-    <option>Public</option>
     <option>Private</option>
+    <option>Public</option>
   </select>
 </script>
 
