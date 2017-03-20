@@ -60,6 +60,7 @@
             </ul>
           </li>
           <li><a class='search'><i class='fa fa-search'></i>&nbsp;Search</a></li>
+          <li><a class=''><i class='fa fa-search'></i>&nbsp;Toggle</a></li>
         </ul>
       </nav>
       <nav class="navbar-right">
@@ -88,10 +89,11 @@
         </div>
       </div>
     </div>
-   
     <!--<div uib-alert ng-repeat="alert in ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="ctrl.closeAlert($index)">{{alert.msg}}</div>-->
   </div>
 </nav>
+
+
 
 
 <div id="main" class="container-fluid">
@@ -158,7 +160,6 @@
          <!-- LEFT AND RIGHT COLUMNS FOR UPLOAD -->
           <form>
             <div class="col-md-3 ">
-              <div class='row'><h5 class="pull-left">Folder Name</h5></div>
                 <div class="file-drop-zone">
                 <span class="file-drop-message text-center">Drop files onto folders</span>
                 <br>
@@ -192,6 +193,7 @@
     <ul id="menu-folders">
       <li>Upload here</li>
       <li>Add Sub Folder</li>
+      <li>Delete Folder</li>
     </ul>
 
   </div>

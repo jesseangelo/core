@@ -89,19 +89,24 @@ $(document).ready(function () {
     var scope = this;
     console.log(scope)
     $(scope).append("<span class='pull-right folder-menu'>" 
-      + "<a style='margin-right: 4px;'><i class='fa fa-plus-circle'></i></a>"
-      + "<a style='margin-right: 4px;'><i class='fa fa-minus-circle'></i></a>"
-      + "<a style='margin-right: 4px;'><i class='fa fa-upload'></i></a>"
+      + "<a title='Add Folder' style='margin-right: 4px;'><i class='fa fa-plus-circle'></i></a>"
+      + "<a title='Remove Folder' style='margin-right: 4px;'><i class='fa fa-minus-circle'></i></a>"
+      + "<a title='Upload' style='margin-right: 4px;'><i class='fa fa-upload'></i></a>"
       + "</span>");
 
-    $(".folder-menu", scope).toggle()
-    $(".-menu", scope).toggleClass("k-state-hover")
+    $(".folder-menu", scope).toggle();
+    $(".folder-menu", scope).toggleClass("k-state-hover");
 
     $(scope).hover(function(){
       $(".folder-menu", scope).toggle();
-      $(this).toggleClass("k-state-hover")
-    })
+      $(this).toggleClass("k-state-hover");
+    });
 
+    $(scope).kendoTooltip({
+      filter: "a",
+      width: 120,
+       position: "top"
+    }).data("kendoTooltip");
 
   });
   
