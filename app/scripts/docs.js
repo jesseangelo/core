@@ -2,6 +2,39 @@
 /* Docs Prototype stuff */
 $(document).ready(function () {
 
+  //Browse
+  $(".browse").click( function() {
+    $(".box__file").click();
+  });
+
+  /* Start Folder List */
+  var folderListData = new kendo.data.HierarchicalDataSource({
+      data: [
+          { text: "Executed Credit Docs" },
+          { text: "Amendment Docs" },
+          { text: "Financials & Compliance", 
+            items: [
+              { text: "2015 Financials" },
+              { text: "2016 Financials" },
+              { text: "2017 Financials" }
+              ]
+          }
+      ]
+  });
+
+  function getFolderSelected(e) {
+    var selectedNode = fl.select();
+    var item = fl.dataItem(selectedNode);
+    return item.text; 
+  }
+  $("#folder-list").kendoTreeView({
+    dragAndDrop: true,
+    dataSource: folderListData,
+    select: getFolderSelected
+  });
+  /* End Folder List */
+
+  /* Start File List */
   var dataSource = new kendo.data.TreeListDataSource({
       schema: {
           model: {
@@ -36,42 +69,12 @@ $(document).ready(function () {
           { field: "Remove", template: $("#file-remove-template").html(), width: 75 }
       ]
   });
+  /* End File List */
 
-  var folderListData = new kendo.data.HierarchicalDataSource({
-      data: [
-          { text: "Executed Credit Docs" },
-          { text: "Amendment Docs" },
-          { text: "Financials & Compliance", 
-            items: [
-              { text: "2015 Financials" },
-              { text: "2016 Financials" },
-              { text: "2017 Financials" }
-              ]
-          }
-      ]
-  });
-
-
-
-  $(".browse").click( function() {
-    $(".box__file").click();
-  });
-
-
-  function getFolderSelected(e) {
-    var selectedNode = fl.select();
-    var item = fl.dataItem(selectedNode);
-    return item.text; 
-  }
-  $("#folder-list").kendoTreeView({
-    dataSource: folderListData,
-    select: getFolderSelected
-  });
-  
 
   //calc height of window for no scroll
-  $("#treelist").height($(window).height() - 600);
-  $("#folder-list").height($(window).height() - 692);
+  $("#treelist").height($(window).height() - 500);
+  $("#folder-list").height($(window).height() - 592);
   
 
   //EXPAND ALL THE FOLDER ITEMS
@@ -80,6 +83,28 @@ $(document).ready(function () {
   //select first folder by default
   var fl = $("#folder-list").data("kendoTreeView");
   fl.select(fl.findByText("Executed Credit Docs"));
+
+
+  $("#folder-list .k-item > div:first-child").each(function(item) {
+    var scope = this;
+    console.log(scope)
+    $(scope).append("<span class='pull-right folder-menu'>" 
+      + "<a style='margin-right: 4px;'><i class='fa fa-plus-circle'></i></a>"
+      + "<a style='margin-right: 4px;'><i class='fa fa-minus-circle'></i></a>"
+      + "<a style='margin-right: 4px;'><i class='fa fa-upload'></i></a>"
+      + "</span>");
+
+    $(".folder-menu", scope).toggle()
+    $(".-menu", scope).toggleClass("k-state-hover")
+
+    $(scope).hover(function(){
+      $(".folder-menu", scope).toggle();
+      $(this).toggleClass("k-state-hover")
+    })
+
+
+  });
+  
 
 
   //FUNCTIONS
