@@ -188,6 +188,10 @@ $(document).ready(function () {
     //$('.minimize-topbar').click();
     $('.minimize-sidebar').click();
 
+    $('a.menu-prototype').click(function (){
+      $('#menu-prototype').toggleClass('open');
+    })
+
 });
 /* End Actionbar scripts */
 /* END CORE SCRIPTS */

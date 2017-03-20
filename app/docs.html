@@ -60,7 +60,6 @@
             </ul>
           </li>
           <li><a class='search'><i class='fa fa-search'></i>&nbsp;Search</a></li>
-          <li><a class=''><i class='fa fa-search'></i>&nbsp;Toggle</a></li>
         </ul>
       </nav>
       <nav class="navbar-right">
@@ -73,6 +72,7 @@
             
           </li>
           <li><a><i class='fa fa-question'></i><span class='show-mobile'>&nbsp;Help</span></a></li>
+          <li><a class='menu-prototype'><i class='fa fa-bolt'></i>&nbsp;</a></li>
         </ul>
       </nav>
       <div class="row">
@@ -91,6 +91,9 @@
     </div>
     <!--<div uib-alert ng-repeat="alert in ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="ctrl.closeAlert($index)">{{alert.msg}}</div>-->
   </div>
+  <section id="menu-prototype">
+    <button class=btn>Toggle</button>
+  </section>
 </nav>
 
 
@@ -98,7 +101,6 @@
 
 <div id="main" class="container-fluid">
   <div class="row">
-
 
     <section id="sidebar" class="col-lg-2 col-md-3 col-sm-3 hidden-xs hidden-sm">
       <div class="container-fluid">
@@ -192,8 +194,9 @@
 
     <ul id="menu-folders">
       <li>Upload here</li>
-      <li>Add Sub Folder</li>
-      <li>Delete Folder</li>
+      <hr style="margin: 6px; border-color: #aaa;"/>
+      <li>New Folder</li>
+      <li>Remove Folder</li>
     </ul>
 
   </div>

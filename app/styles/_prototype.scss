@@ -1,0 +1,15 @@
+#menu-prototype {
+	height: 100%;
+	background-color: black;
+	margin-top: 3px;
+	width: 15em;
+	padding: 1em;
+	position: fixed;
+	right: -15em;
+	opacity: .8;
+	transition: all 1s;
+
+	&.open {
+		right: 0;
+	}
+}
