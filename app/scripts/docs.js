@@ -105,15 +105,16 @@ $(document).ready(function () {
           { field: "Date", title: "Effective Date", template: $("#file-datepicker-template").html() },
           { field: "Declaration", title: "Public/Private", template: $("#file-declaration-template").html() },
           { field: "Status",  title: "Upload Status", template: $("#file-upload-progress-template").html() },
-          { field: "Remove", template: $("#file-remove-template").html(), width: 75 }
+          { field: "Encrypt", template: $("#file-encrypt-template").html(), width: 50 },
+          { field: "Remove", template: $("#file-remove-template").html(), width: 50 }
       ]
   });
   /* End File List */
 
 
   //calc height of window for no scroll
-  $("#treelist").height($(window).height() - 500);
-  $("#folder-list").height($(window).height() - 592);
+  $("#treelist").height($(window).height() - 380);
+  $("#folder-list").height($(window).height() - 426);
   
 
   //EXPAND ALL THE FOLDER ITEMS
@@ -191,22 +192,12 @@ $(document).ready(function () {
       var scope = $("#treelist tbody>tr:last");
       var val = 0;
 
-
       $(".description", scope).click(function (){
+        $(".description").removeClass("active");
         $(this).addClass("active");
-
-        //$(".description", scope).toggle();
-        //$(this).closest(".description").toggle(); //Maybe?
-        event.stopPropagation()
-        if($(".description", scope).val() != "") {
-          $(".edit-description", scope).addClass("fa-pencil-square").removeClass("fa-pencil-square-o");
-        } else {
-          //default icon
-          $(".edit-description", scope).addClass("fa-pencil-square-o").removeClass("fa-pencil-square"); 
-        }
+        event.stopPropagation();        
       });
-      //$(".description", scope).toggle();
-
+      
       //enable remove/trash
       $(".fa-trash", scope).click(function (e) {
         var treeList = $("#treelist").data("kendoTreeList");
@@ -219,9 +210,7 @@ $(document).ready(function () {
       $(".datePicker", scope).kendoDatePicker({
         value: new Date()
       });
-
-    }
-            
+    }      
   }
 
   $(document).click(function() {
@@ -262,9 +251,9 @@ $(document).ready(function () {
 
       $(".msg-queued").fadeOut();
 
-      $(".progressbar", scope).hide();
+      $(".msg-progress", scope).hide();
 
-       var myPB = $(".progressbar", scope).kendoProgressBar({
+       var myPB = $(".msg-progress", scope).kendoProgressBar({
           min: 0,
           max: 100,
           value: false,
@@ -272,7 +261,7 @@ $(document).ready(function () {
         }).data("kendoProgressBar");
             
       PEREZOSO.addTimed(350, function () {
-         $(".progressbar", scope).fadeIn();
+         $(".msg-progress", scope).fadeIn();
       });
       
       
@@ -281,6 +270,12 @@ $(document).ready(function () {
         val += Math.floor(Math.random() * 6) + 0;
         if(myPB != undefined) {
           myPB.value(val)
+          if(val >= 100) {
+            $(".msg-progress", scope).fadeOut();
+            PEREZOSO.addTimed(350, function () {
+               $(".msg-complete", scope).fadeIn();
+            });            
+          }
         }
       });
     });

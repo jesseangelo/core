@@ -171,15 +171,7 @@
       </div>
     </section>
 
-    <ul id="menu-folders">
-      <li>Upload here</li>
-      <hr style="margin: 6px; border-color: #aaa;"/>
-      <li>New Folder</li>
-      <li>Remove Folder</li>
-    </ul>
-
   </div>
-
 
 
 <script id="file-template" type="text/x-kendo-template">
@@ -205,8 +197,16 @@
 
 <script id="file-upload-progress-template" type="text/x-kendo-template">
   <div class="msg-queued">Queued</div>
-  <div class="progressbar" style="width: 100%;"></div>
+  <div class="msg-progress" style="width: 100%;">
+    <div class="progressbar"></div>
+  </div>
   <div class="msg-complete">Complete</div>
+</script>
+
+<script id="file-encrypt-template" type="text/x-kendo-template">
+  <div class="text-center">
+    <input type=checkbox />
+  </div>
 </script>
 
 <script id="file-remove-template" type="text/x-kendo-template">
