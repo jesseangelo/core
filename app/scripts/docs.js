@@ -7,11 +7,14 @@ $(document).ready(function () {
     $(".box__file").click();
   });
 
+  /* TEMPLATES */
   var addFolderForm = "<form><div class=form-group>"
           + "<input id=folder-name class=form-control type=text style='width: 90%; margin: auto;'/>"
           + "</div>"
           + "<button class='btn btn-primary' id=appendFolder>Add</button> <button type=submit class=btn>Cancel</button>"
           + "</form>";
+
+  /* END TEMPLATES */
 
   /* Start Folder List */  
   var treeview = $("#folder-list").kendoTreeView({
@@ -19,7 +22,15 @@ $(document).ready(function () {
     animation: false,
     dataSource: { 
       data: [    
-         
+          { text: "Executed Credit Docs" },
+          { text: "Amendment Docs" },
+          { text: "Financials & Compliance", 
+            items: [
+              { text: "2015 Financials" },
+              { text: "2016 Financials" },
+              { text: "2017 Financials" }
+              ]
+          } 
       ]
     },
     select: function preventSelection(e) {
@@ -161,36 +172,7 @@ $(document).ready(function () {
 
 ///// context menu
 
-  var menu = $("#menu-folders"),
-      original = menu.clone(true);
 
-  original.find(".k-state-active").removeClass("k-state-active");
-
-  var initMenu = function () {
-
-      menu = $("#menu-folders").kendoContextMenu({
-          orientation: "vertical",
-          target: "#folder-list",
-          animation: {
-              open: { effects: "fadeIn" },
-              duration: 500
-          },
-          select: function(e) {
-            var button = $(e.item);
-            var node = $(e.target);
-            console.log("t: " + e.target);
-          }
-      });
-  };
-
-  initMenu();
-
-  /*
-  $(".file-drop-zone").on("contextmenu", function(e) {
-      console.log("target", e.target);
-  });
-  */
-    
   //Adds files to list
   function addFiles(files, folder) {
     for(var k = 0; k < files.length; k++) {    
