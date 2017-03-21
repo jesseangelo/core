@@ -1,0 +1,25 @@
+#treelist .k-i-none { display: none; }
+.description {
+  position: relative;
+}
+.description.active {
+  z-index: 1000;
+  margin-top: -28px;
+  position: absolute;
+}
+#treelist tbody tr { height: 66px; }
+.k-menu .k-animation-container .k-menu-group {
+  position: fixed;
+  margin-left: -86px;
+}
+.k-menu .k-item > .k-link {
+  padding: 0.15em 1.1em 0.15em;
+}
+.folder-sub-menu > .k-first {
+  padding-left: 0;
+}
+.k-state-focused { box-shadow: none; }
+
+.k-widget .form-control {
+	box-sizing: border-box;
+}

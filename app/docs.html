@@ -13,32 +13,10 @@
 <!-- endbower -->
 <!-- endbuild -->
 <!-- build:css(.tmp) styles/main.css -->
-<link rel="stylesheet" href="styles/main.css">
+
 <link rel="stylesheet" href="/bower_components/kendo/styles/web/kendo.default.min.css">
 <link rel="stylesheet" href="/bower_components/kendo/styles/web/kendo.bootstrap.min.css">
-<style>
-    #treelist .k-i-none { display: none; }
-    .description {
-      position: relative;
-    }
-    .description.active {
-      z-index: 1000;
-      margin-top: -28px;
-      position: absolute;
-    }
-    #treelist tbody tr { height: 66px; }
-    .k-menu .k-animation-container .k-menu-group {
-      position: fixed;
-      margin-left: -86px;
-    }
-    .k-menu .k-item > .k-link {
-      padding: 0.15em 1.1em 0.15em;
-    }
-    .folder-sub-menu > .k-first {
-      padding-left: 0;
-    }
-
-</style>
+<link rel="stylesheet" href="styles/main.css">
 <!-- endbuild -->
 </head>
 <body ng-app="app" controllerAs="ctrl">
@@ -166,7 +144,7 @@
 
         <!--  -->
         <div class="container-fluid row">
-          <h5>To upload, drop documents on to folders or select a folder first, then <a class=browse>browse</a></h5>
+          <h5>To upload, drag and drop documents on to folders</h5>
           <input type="file" class="box__file">
           <hr>
           
@@ -182,6 +160,7 @@
                 </div>
             </div>
             <div class="col-md-9">
+              <h3 class=m-t-0>Upload queue</h3>
               <!--<kendo-tree-list k-options="ctrl.treelistData" ></kendo-tree-list>-->
               <div id="treelist"></div>
             </div>
@@ -189,17 +168,6 @@
 
 
         </div>
-      </div>
-      <div class="container-fluid row">
-        <form>
-          <h3>Permissions</h3>
-          <hr>
-          <label><input type="radio" name="permissions" checked> Manually set permissions and optionally send notifications after upload</label>
-          <br/>
-          <label><input type="radio" name="permissions"> Skip permission and notify steps (all documents will inherit the default permissions of their target folders)</label>
-          <br />
-          <label><input type="radio" name="permissions"> Permission everyone</label>
-        </form>
       </div>
     </section>
 

@@ -7,31 +7,59 @@ $(document).ready(function () {
     $(".box__file").click();
   });
 
-  /* Start Folder List */
-  var folderListData = new kendo.data.HierarchicalDataSource({
-      data: [
-          { text: "Executed Credit Docs" },
-          { text: "Amendment Docs" },
-          { text: "Financials & Compliance", 
-            items: [
-              { text: "2015 Financials" },
-              { text: "2016 Financials" },
-              { text: "2017 Financials" }
-              ]
-          }
+  var addFolderForm = "<form><div class=form-group>"
+          + "<input id=folder-name class=form-control type=text style='width: 90%; margin: auto;'/>"
+          + "</div>"
+          + "<button class='btn btn-primary' id=appendFolder>Add</button> <button type=submit class=btn>Cancel</button>"
+          + "</form>";
+
+  /* Start Folder List */  
+  var treeview = $("#folder-list").kendoTreeView({
+    dragAndDrop: true,
+    animation: false,
+    dataSource: { 
+      data: [    
+         
       ]
+    },
+    select: function preventSelection(e) {
+      e.preventDefault();
+    },
+    dataBound: function(e) {
+      if (!this.dataSource.data().length) {
+        this.element.append("<div class='no-items text-center'><p>Add a folder to get started</p>"
+          + addFolderForm
+          + "</div>");
+      } else {
+        this.element.find(".no-items").remove();
+      }
+    }
+  }).data("kendoTreeView"),
+  handleTextBox = function(callback) {
+      return function(e) {
+          if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode) {
+              callback(e);
+          }
+      };
+  };
+
+  var append = handleTextBox(function(e) {
+      var selectedNode = treeview.select();
+
+      // passing a falsy value as the second append() parameter
+      // will append the new node to the root group
+      if (selectedNode.length == 0) {
+          selectedNode = null;
+      }
+
+      treeview.append({
+          text: $("#folder-name").val()
+      }, selectedNode);
   });
 
-  function getFolderSelected(e) {
-    var selectedNode = fl.select();
-    var item = fl.dataItem(selectedNode);
-    return item.text; 
-  }
-  $("#folder-list").kendoTreeView({
-    dragAndDrop: true,
-    dataSource: folderListData,
-    select: getFolderSelected
-  });
+  $("#appendFolder").click(append);
+  $("#appendNodeText").keypress(append);
+  
   /* End Folder List */
 
   /* Start File List */
@@ -80,31 +108,25 @@ $(document).ready(function () {
   //EXPAND ALL THE FOLDER ITEMS
   $("#folder-list").data( "kendoTreeView" ).expand(".k-item");
 
-  //select first folder by default
-  var fl = $("#folder-list").data("kendoTreeView");
-  fl.select(fl.findByText("Executed Credit Docs"));
-
 
   $("#folder-list .k-item > div:first-child").each(function(item) {
     var scope = this;
     //console.log(scope)
-    $(scope).append("<span class='pull-right folder-menu '>" 
-      + "<a title='Add Folder' style='margin-right: 4px;'><i class='fa fa-plus-circle'></i></a>"
-      + "<a title='Remove Folder' style='margin-right: 4px;'><i class='fa fa-minus-circle'></i></a>"
+    $(scope).append("<span class='pull-right folder-menu enabled'>" 
+      + "<a title='Add Folder' style='margin-right: 4px;'><i class='fa fa-plus'></i></a>"
       + "<a title='Upload' style='margin-right: 4px;'><i class='fa fa-upload'></i></a>"
       + "</span>"
       //menu 2
-      +"<span class='pull-right folder-menu enabled'>" 
+      +"<span class='pull-right folder-menu '>" 
       //+ "<a style='margin-right: 4px;'><i class='fa fa-ellipsis-h'></i></a>"
       + "<ul class='folder-sub-menu'>"
-      + "<li><i class='fa fa-ellipsis-h'></i>"
-            + "<ul>"
+        + "<li><i class='fa fa-ellipsis-h'></i>"
+      + "<ul>"
       + "<li>Upload Here</li>"
       + "<li>Add Folder</li>"
       + "<li>Remove Folder</li>"
       + "</ul>"
       + "</li>"
-
       + "</ul>"
 
       + "</span>");
@@ -131,7 +153,6 @@ $(document).ready(function () {
 
   $('#toggleFolderMenus').click(function() {
     $('.folder-menu').toggleClass('enabled');
-    console.log('toggled');
   });
   
 
@@ -139,7 +160,6 @@ $(document).ready(function () {
   //FUNCTIONS
 
 ///// context menu
-
 
   var menu = $("#menu-folders"),
       original = menu.clone(true);

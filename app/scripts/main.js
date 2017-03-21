@@ -142,7 +142,7 @@ $(document).on('click', function () {
 
 
 //Function to the css rule
-function checkSize(){
+function checkSize() {
     //mobile
     if ($(".mediaTest").css("float") == "none" ) {
         
@@ -168,6 +168,10 @@ $(window).scroll(function(){
   }
 });
 
+
+$(document).click(function() {
+  //$("#menu-prototype").removeClass("open");
+});
 /* end nav scripts */
 
 /* Actionbar scripts */
@@ -188,10 +192,13 @@ $(document).ready(function () {
     //$('.minimize-topbar').click();
     $('.minimize-sidebar').click();
 
-    $('a.menu-prototype').click(function (){
+    $('a.menu-prototype').click(function (e){
       $('#menu-prototype').toggleClass('open');
+      e.preventDefault()
     })
 
 });
+
+
 /* End Actionbar scripts */
 /* END CORE SCRIPTS */
