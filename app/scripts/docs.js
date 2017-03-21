@@ -101,7 +101,6 @@ $(document).ready(function () {
       editable: "inline",
       columns: [
           { field: "File", title: "File Name and Path", template: $("#file-template").html(), width: 300 },
-          { field: "Description", title: "Description", template: $("#file-description-template").html() },
           { field: "Date", title: "Effective Date", template: $("#file-datepicker-template").html() },
           { field: "Declaration", title: "Public/Private", template: $("#file-declaration-template").html() },
           { field: "Status",  title: "Upload Status", template: $("#file-upload-progress-template").html() },
@@ -192,12 +191,6 @@ $(document).ready(function () {
       var scope = $("#treelist tbody>tr:last");
       var val = 0;
 
-      $(".description", scope).click(function (){
-        $(".description").removeClass("active");
-        $(this).addClass("active");
-        event.stopPropagation();        
-      });
-      
       //enable remove/trash
       $(".fa-trash", scope).click(function (e) {
         var treeList = $("#treelist").data("kendoTreeList");
@@ -212,10 +205,6 @@ $(document).ready(function () {
       });
     }      
   }
-
-  $(document).click(function() {
-    $(".description").removeClass("active");
-  })
 
   //DRAG N DROP
   $(".k-in").each(function(index) {
