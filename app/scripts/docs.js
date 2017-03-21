@@ -87,27 +87,51 @@ $(document).ready(function () {
 
   $("#folder-list .k-item > div:first-child").each(function(item) {
     var scope = this;
-    console.log(scope)
-    $(scope).append("<span class='pull-right folder-menu'>" 
+    //console.log(scope)
+    $(scope).append("<span class='pull-right folder-menu '>" 
       + "<a title='Add Folder' style='margin-right: 4px;'><i class='fa fa-plus-circle'></i></a>"
       + "<a title='Remove Folder' style='margin-right: 4px;'><i class='fa fa-minus-circle'></i></a>"
       + "<a title='Upload' style='margin-right: 4px;'><i class='fa fa-upload'></i></a>"
+      + "</span>"
+      //menu 2
+      +"<span class='pull-right folder-menu enabled'>" 
+      //+ "<a style='margin-right: 4px;'><i class='fa fa-ellipsis-h'></i></a>"
+      + "<ul class='folder-sub-menu'>"
+      + "<li><i class='fa fa-ellipsis-h'></i>"
+            + "<ul>"
+      + "<li>Upload Here</li>"
+      + "<li>Add Folder</li>"
+      + "<li>Remove Folder</li>"
+      + "</ul>"
+      + "</li>"
+
+      + "</ul>"
+
       + "</span>");
 
     $(".folder-menu", scope).toggle();
     $(".folder-menu", scope).toggleClass("k-state-hover");
 
+    $(".folder-sub-menu", scope).kendoMenu();
+
     $(scope).hover(function(){
-      $(".folder-menu", scope).toggle();
-      $(this).toggleClass("k-state-hover");
+      if( $('.folder-menu', scope).hasClass('enabled') ) {
+        $(".folder-menu.enabled", scope).toggle();
+        $(this).toggleClass("k-state-hover");
+      }
     });
 
     $(scope).kendoTooltip({
-      filter: "a",
+      filter: "a[title]",
       width: 120,
        position: "top"
     }).data("kendoTooltip");
 
+  });
+
+  $('#toggleFolderMenus').click(function() {
+    $('.folder-menu').toggleClass('enabled');
+    console.log('toggled');
   });
   
 

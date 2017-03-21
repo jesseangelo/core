@@ -27,6 +27,17 @@
       position: absolute;
     }
     #treelist tbody tr { height: 66px; }
+    .k-menu .k-animation-container .k-menu-group {
+      position: fixed;
+      margin-left: -46px;
+    }
+    .k-menu .k-item > .k-link {
+      padding: 0.19em 1.1em 0.19em;
+    }
+    .folder-sub-menu > .k-first {
+      padding-left: 0;
+    }
+
 </style>
 <!-- endbuild -->
 </head>
@@ -92,7 +103,7 @@
     <!--<div uib-alert ng-repeat="alert in ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="ctrl.closeAlert($index)">{{alert.msg}}</div>-->
   </div>
   <section id="menu-prototype">
-    <button class=btn>Toggle</button>
+    <button class=btn id=toggleFolderMenus>Toggle Folder Menus</button>
   </section>
 </nav>
 
