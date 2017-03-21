@@ -2,11 +2,6 @@
 /* Docs Prototype stuff */
 $(document).ready(function () {
 
-  //Browse
-  $(".browse").click( function() {
-    $(".box__file").click();
-  });
-
   /* TEMPLATES */
   var addFolderForm = "<form><div class=form-group>"
           + "<input id=folder-name class=form-control type=text style='width: 90%; margin: auto;'/>"
@@ -122,22 +117,21 @@ $(document).ready(function () {
 
   $("#folder-list .k-item > div:first-child").each(function(item) {
     var scope = this;
-    //console.log(scope)
     $(scope).append("<span class='pull-right folder-menu enabled'>" 
       + "<a title='Add Folder' style='margin-right: 4px;'><i class='fa fa-plus'></i></a>"
-      + "<a title='Upload' style='margin-right: 4px;'><i class='fa fa-upload'></i></a>"
+      + "<a title='Upload' class='browse' style='margin-right: 4px;'><i class='fa fa-upload'></i></a>"
       + "</span>"
       //menu 2
-      +"<span class='pull-right folder-menu '>" 
+      +"<span class='pull-right folder-menu '>"
       //+ "<a style='margin-right: 4px;'><i class='fa fa-ellipsis-h'></i></a>"
       + "<ul class='folder-sub-menu'>"
         + "<li><i class='fa fa-ellipsis-h'></i>"
-      + "<ul>"
-      + "<li>Upload Here</li>"
-      + "<li>Add Folder</li>"
-      + "<li>Remove Folder</li>"
-      + "</ul>"
-      + "</li>"
+          + "<ul>"
+            + "<li>Upload Here</li>"
+            + "<li>Add Folder</li>"
+            + "<li>Remove Folder</li>"
+          + "</ul>"
+        + "</li>"
       + "</ul>"
 
       + "</span>");
@@ -160,18 +154,28 @@ $(document).ready(function () {
        position: "top"
     }).data("kendoTooltip");
 
+    //Browse
+    $(".browse", scope).click( function() {
+      $(".box__file").click();
+      selectedFolder = $('.k-in', scope).text();
+    });
+
   });
 
   $('#toggleFolderMenus').click(function() {
     $('.folder-menu').toggleClass('enabled');
   });
-  
+
+ 
 
 
   //FUNCTIONS
 
 ///// context menu
-
+  var selectedFolder = "" 
+  function getFolderSelected() {
+    return selectedFolder;
+  }
 
   //Adds files to list
   function addFiles(files, folder) {
@@ -190,7 +194,7 @@ $(document).ready(function () {
       var treeList = $("#treelist").data("kendoTreeList");
       var scope = $("#treelist tbody>tr:last");
       var val = 0;
-
+      
       //enable remove/trash
       $(".fa-trash", scope).click(function (e) {
         var treeList = $("#treelist").data("kendoTreeList");
@@ -263,7 +267,7 @@ $(document).ready(function () {
             $(".msg-progress", scope).fadeOut();
             PEREZOSO.addTimed(350, function () {
                $(".msg-complete", scope).fadeIn();
-            });            
+            });
           }
         }
       });
