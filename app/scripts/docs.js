@@ -95,12 +95,12 @@ $(document).ready(function () {
       sortable: true,
       editable: "inline",
       columns: [
-          { field: "File", title: "File Name and Path", template: $("#file-template").html(), width: 300 },
-          { field: "Date", title: "Effective Date", template: $("#file-datepicker-template").html() },
-          { field: "Declaration", title: "Public/Private", template: $("#file-declaration-template").html() },
-          { field: "Status",  title: "Upload Status", template: $("#file-upload-progress-template").html() },
-          { field: "Encrypt", template: $("#file-encrypt-template").html(), width: 50 },
-          { field: "Remove", template: $("#file-remove-template").html(), width: 50 }
+          { field: "File", title: "File Name and Path", template: $("#file-template").html() },
+          { field: "Date", title: "Effective Date", template: $("#file-datepicker-template").html(), width: 130 },
+          { field: "Declaration", title: "Public/Private", template: $("#file-declaration-template").html(), width: 110 },
+          { field: "Status",  title: "Upload Status", template: $("#file-upload-progress-template").html(), width: 110 },
+          { field: "Encrypt", template: $("#file-encrypt-template").html(), width: 70 },
+          { field: "Remove", template: $("#file-remove-template").html(), width: 70 }
       ]
   });
   /* End File List */
