@@ -93,6 +93,9 @@ $(document).ready(function () {
   $("#treelist").kendoTreeList({
       dataSource: dataSource,
       sortable: true,
+      messages: {
+        noRows: "Drag and drop files on the folders to the left to get started"
+      },
       editable: "inline",
       columns: [
           { field: "File", title: "File Name and Path", template: $("#file-template").html() },
@@ -105,6 +108,9 @@ $(document).ready(function () {
   });
   /* End File List */
 
+  //this need to be re-inited if a file is added then removed
+  $("#treelist .k-status").html("<div class=row><div class=col-xs-1><h3><i class='fa fa-arrow-left'></i></h3></div>"
+    + "<div class=col-xs-10><h3>Drag and drop files on the folders to the left to get started</h3></div></div>")
 
   //calc height of window for no scroll
   $("#treelist").height($(window).height() - 380);
@@ -201,6 +207,12 @@ $(document).ready(function () {
         treeList.removeRow($(this).closest("tr"));
       });
 
+      $(scope).kendoTooltip({
+            filter: "a[title]",
+            width: 120,
+             position: "top"
+          }).data("kendoTooltip");
+      
       $(".msg-complete", scope).hide();
       
       //make it a date picker
@@ -267,6 +279,8 @@ $(document).ready(function () {
             $(".msg-progress", scope).fadeOut();
             PEREZOSO.addTimed(350, function () {
                $(".msg-complete", scope).fadeIn();
+            }).then(1000, function() {
+              //window.location.href = 'docs-upload-complete.html';
             });
           }
         }

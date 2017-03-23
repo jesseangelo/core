@@ -151,13 +151,17 @@
          <!-- LEFT AND RIGHT COLUMNS FOR UPLOAD -->
           <form>
             <div class="col-md-3 ">
-                <div class="file-drop-zone">
-                <span class="file-drop-message text-center">Drop files onto folders</span>
-                <br>
-                  <!-- <div id="folder-list" kendo-tree-view="tree" k-data-source="ctrl.treeData" data-role="treeview"></div> -->               
-                  <div id="folder-list"></div>
-                  
-                </div>
+              
+              <div class="file-drop-zone">
+              <span class="file-drop-message text-center">Drop files onto folders</span>
+              <br>
+              <form>
+                <input class='form-control folder-search' type="text" placeholder="Folder search" />
+              </form>
+                <!-- <div id="folder-list" kendo-tree-view="tree" k-data-source="ctrl.treeData" data-role="treeview"></div> -->               
+                <div id="folder-list"></div>
+                
+              </div>
             </div>
             <div class="col-md-9">
               <h3 class=m-t-0>Upload queue</h3>
@@ -175,9 +179,19 @@
 
 
 <script id="file-template" type="text/x-kendo-template">
-  <i class="fa fa-file-pdf-o"></i>&nbsp;<input type=text class=input-borderless value="#: File #">
-  <br/>
-  <i class="fa fa-folder-o"></i>&nbsp;<em>#: FilePath #</em>
+  <form>
+    <div class=form-group>
+      <i class="fa fa-file"></i>&nbsp;
+        <input type=text class='input-borderless hide' value="#: File #">
+        <span >#: File #</span>
+        <span class=pull-right>
+          <a title='Edit title'><i class='fa fa-edit'></i></a>
+          <a title=View><i class='fa fa-eye'></i></a>
+        </span>         
+      <br/>
+      <i class="fa fa-folder-o"></i>&nbsp;<em>#: FilePath #</em>
+    </div>
+  </form>
 </script>
 
 <script id="file-datepicker-template" type="text/x-kendo-template">

@@ -2,7 +2,7 @@
 	border: 3px dotted rgba(208, 208, 208, 1);
 	border-width: 3px;
 	transition: .3s all;
-	margin-top: 37px;
+	margin-top: 5px;
 
 	&.active {
 		border: 3px dotted rgba(0,0,0,0.5);
@@ -20,3 +20,8 @@ input[type="file"].box__file {
 }
 
 .browse { cursor: pointer; }
+
+.folder-search {
+	width: 97%;
+	margin: -13px 0 8px 4px;
+}
