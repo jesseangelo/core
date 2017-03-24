@@ -18,7 +18,17 @@
 .folder-sub-menu > .k-first {
   padding-left: 0;
 }
-.k-state-focused { box-shadow: none; }
+.k-state-focused { 
+  box-shadow: none; 
+}
+
+.file-drop-zone.active .k-state-focused {
+  border: 1px solid #0079bd;
+  /* box-shadow: -1px -1px 0px #0079bd, 
+  1px 1px 0px #0079bd, 
+  1px -1px 0px #0079bd, 
+  -1px 1px 0px #0079bd */
+}
 
 .k-widget .form-control {
 	box-sizing: border-box;

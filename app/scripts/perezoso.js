@@ -9,7 +9,7 @@ var PEREZOSO = (function() {
       intervalID = null,
       _debug = false,
       getNewTaskId = function() {
-        return currentTaskId++;
+        return ++currentTaskId;
       },
       init = function() {
         if(intervalID === null) {
@@ -146,7 +146,7 @@ var PEREZOSO = (function() {
       return this;
     },
     then: function(w, f, p) {
-      this.addTimed(w, f, p, this.id);
+      this.addTimed(w, f, p, currentTaskId);
       return this;
     },
     addInfinite: function(w, f, p) {
@@ -157,7 +157,7 @@ var PEREZOSO = (function() {
       tasksInfinite.push({id: myId, interval: w, when: myW, func: f, param: p });
       if(_debug) console.log("added Infinite: " + w + " f: " + f);
       init();
-      this.id = myId;
+      //this.id = myId;
       return this;
     },
     addCounted: function(w, c, f, p) {
