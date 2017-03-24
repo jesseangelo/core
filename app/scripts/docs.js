@@ -209,12 +209,19 @@ $(document).ready(function () {
       });
 
       $(scope).kendoTooltip({
-            filter: "a[title]",
-            width: 120,
-             position: "top"
-          }).data("kendoTooltip");
+        filter: ".doc-name[title]",
+        width: 200,
+         position: "top"
+      }).data("kendoTooltip");
+
+      $(scope).kendoTooltip({
+        filter: "a[title]",
+        width: 120,
+         position: "top"
+      }).data("kendoTooltip");
       
       $(".msg-complete", scope).hide();
+      $(".msg-progress", scope).hide();
       
       //make it a date picker
       $(".datePicker", scope).kendoDatePicker({

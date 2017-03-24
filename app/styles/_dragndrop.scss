@@ -25,3 +25,25 @@ input[type="file"].box__file {
 	width: 97%;
 	margin: -13px 0 8px 4px;
 }
+
+.upload-queue-form-group {
+	margin-bottom: 0;
+	.top { 
+	    display: flex; 
+	    .doc-icon { width: 20px; }
+	    .doc-name { 
+	      flex-grow: 1;
+	      text-overflow: ellipsis;
+	      overflow: hidden;
+	      white-space: nowrap;
+	    }
+	    .doc-tools { 
+	      margin-left: 9px;
+	      width: 48px; 
+	      text-align: right;
+	  	}
+	  }
+	.upload-queue-form-group-description {
+		margin-top: 6px;
+	}
+}

@@ -180,16 +180,24 @@
 
 <script id="file-template" type="text/x-kendo-template">
   <form>
-    <div class=form-group>
-      <i class="fa fa-file"></i>&nbsp;
-        <input type=text class='input-borderless hide' value="#: File #">
-        <span >#: File #</span>
-        <span class=pull-right>
+    <div class='form-group upload-queue-form-group'>
+      <div class='top'>
+
+        <div class=doc-icon><i class="fa fa-file"></i></div>
+        
+        <div class='doc-name' title='#: File #'>
+          <!--<input type=text class='input-borderless hide' value="#: File #">-->
+          #: File #
+        </div>
+
+        <div class=doc-tools>
           <a title='Edit file name'><i class='fa fa-edit'></i></a>
           <a title=View><i class='fa fa-eye'></i></a>
-        </span>         
-      <br/>
-      <i class="fa fa-folder-o"></i>&nbsp;<em>#: FilePath #</em>
+        </div>
+
+      </div>       
+      <input type=text class='upload-queue-form-group-description form-control' placeholder="Description" />
+      <!--<i class="fa fa-folder-o"></i>&nbsp;<em>#: FilePath #</em>-->
     </div>
   </form>
 </script>
@@ -208,7 +216,8 @@
 <script id="file-upload-progress-template" type="text/x-kendo-template">
   <div class="text-center msg-queued">Queued</div>
   <div class="msg-progress" style="width: 100%;">
-    <div class="progressbar"></div>
+    <div class="progressbar" style="margin-bottom: 32px;"></div>
+    <div class="text-center"><a>Cancel</a></div>
   </div>
   <div class="text-center msg-complete">Complete</div>
 </script>
