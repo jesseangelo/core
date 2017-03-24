@@ -36,11 +36,13 @@ var PEREZOSO = (function() {
         var myT = d.getTime();
 
         tasksTimed.forEach(function(task, index) {
-          var myW = task.when;
-          if((myW-myT) < 0)
-          {
-            task.func(task.param);
-            tasksTimed[index] = null;
+          if(task != null) {
+            var myW = task.when;
+            if((myW-myT) < 0)
+            {
+              task.func(task.param);
+              tasksTimed[index] = null;
+            }
           }
         });
 

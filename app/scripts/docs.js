@@ -102,7 +102,8 @@ $(document).ready(function () {
           { field: "Date", title: "Effective Date", template: $("#file-datepicker-template").html(), width: 130 },
           { field: "Declaration", title: "Public/Private", template: $("#file-declaration-template").html(), width: 110 },
           { field: "Status",  title: "Upload Status", template: $("#file-upload-progress-template").html(), width: 110 },
-          { field: "Encrypt", template: $("#file-encrypt-template").html(), width: 70 },
+          { field: "Encrypt", template: $("#file-encrypt-template").html(), width: 68 },
+          { field: "Unzip", template: $("#file-unzip-template").html(), width: 55 },
           { field: "Remove", template: $("#file-remove-template").html(), width: 70 }
       ]
   });
@@ -279,9 +280,10 @@ $(document).ready(function () {
             $(".msg-progress", scope).fadeOut();
             PEREZOSO.addTimed(350, function () {
                $(".msg-complete", scope).fadeIn();
-            }).then(1000, function() {
+            })
+            //.then(1000, function() {
               //window.location.href = 'docs-upload-complete.html';
-            });
+            //});
           }
         }
       });
