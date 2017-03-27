@@ -11,12 +11,9 @@ $(document).ready(function () {
 
   /* END TEMPLATES */
 
-  /* Start Folder List */  
-  var treeview = $("#folder-list").kendoTreeView({
-    dragAndDrop: true,
-    animation: false,
-    dataSource: { 
-      data: [    
+  /* Start Folder List */
+  var defaultFolders = new kendo.data.HierarchicalDataSource({
+    data: [    
           { text: "Executed Credit Docs" },
           { text: "Amendment Docs" },
           { text: "Financials & Compliance", 
@@ -27,7 +24,16 @@ $(document).ready(function () {
               ]
           } 
       ]
-    },
+  })
+
+  var blankFolders = new kendo.data.HierarchicalDataSource({
+    data: []
+  })
+
+  var treeview = $("#folder-list").kendoTreeView({
+    dragAndDrop: true,
+    animation: false,
+    dataSource: blankFolders,
     select: function preventSelection(e) {
       e.preventDefault();
     },
@@ -61,6 +67,8 @@ $(document).ready(function () {
       treeview.append({
           text: $("#folder-name").val()
       }, selectedNode);
+
+      createFolderMenu();
   });
 
   $("#appendFolder").click(append);
@@ -122,55 +130,78 @@ $(document).ready(function () {
   $("#folder-list").data( "kendoTreeView" ).expand(".k-item");
 
 
-  $("#folder-list .k-item > div:first-child").each(function(item) {
-    var scope = this;
-    $(scope).append("<span class='pull-right folder-menu enabled'>" 
-      + "<a title='Add Folder' style='margin-right: 4px;'><i class='fa fa-plus'></i></a>"
-      + "<a title='Upload' class='browse' style='margin-right: 4px;'><i class='fa fa-upload'></i></a>"
-      + "</span>"
-      //menu 2
-      +"<span class='pull-right folder-menu '>"
-      //+ "<a style='margin-right: 4px;'><i class='fa fa-ellipsis-h'></i></a>"
-      + "<ul class='folder-sub-menu'>"
-        + "<li><i class='fa fa-ellipsis-h'></i>"
-          + "<ul>"
-            + "<li>Upload Here</li>"
-            + "<li>Add Folder</li>"
-            + "<li>Remove Folder</li>"
-          + "</ul>"
-        + "</li>"
-      + "</ul>"
+  //add the menu to the folders and init
+  function createFolderMenu() {
+    $("#folder-list .k-item > div:first-child").each(function(item) {
+      var scope = this;
+      $(scope).append("<span class='pull-right folder-menu enabled'>" 
+        + "<a title='Add Folder' style='margin-right: 4px;'><i class='fa fa-plus'></i></a>"
+        + "<a title='Upload' class='browse' style='margin-right: 4px;'><i class='fa fa-upload'></i></a>"
+        + "</span>"
+        //menu 2
+        +"<span class='pull-right folder-menu '>"
+        //+ "<a style='margin-right: 4px;'><i class='fa fa-ellipsis-h'></i></a>"
+        + "<ul class='folder-sub-menu'>"
+          + "<li><i class='fa fa-ellipsis-h'></i>"
+            + "<ul>"
+              + "<li>Upload Here</li>"
+              + "<li>Add Folder</li>"
+              + "<li>Remove Folder</li>"
+            + "</ul>"
+          + "</li>"
+        + "</ul>"
 
-      + "</span>");
+        + "</span>");
 
-    $(".folder-menu", scope).toggle();
-    $(".folder-menu", scope).toggleClass("k-state-hover");
 
-    $(".folder-sub-menu", scope).kendoMenu();
+      $(".folder-menu", scope).toggle();
+      $(".folder-menu", scope).toggleClass("k-state-hover");
 
-    $(scope).hover(function(){
-      if( $('.folder-menu', scope).hasClass('enabled') ) {
-        $(".folder-menu.enabled", scope).toggle();
-        $(this).toggleClass("k-state-hover");
-      }
+      $(".folder-sub-menu", scope).kendoMenu();
+
+      $(scope).hover(function(){
+        if( $('.folder-menu', scope).hasClass('enabled') ) {
+          $(".folder-menu.enabled", scope).toggle();
+          $(this).toggleClass("k-state-hover");
+        }
+      });
+
+      $(scope).kendoTooltip({
+        filter: "a[title]",
+        width: 120,
+         position: "top"
+      }).data("kendoTooltip");
+
+      //Browse
+      $(".browse", scope).click( function() {
+        $(".box__file").click();
+        selectedFolder = $('.k-in', scope).text();
+      });
+
     });
+  }
 
-    $(scope).kendoTooltip({
-      filter: "a[title]",
-      width: 120,
-       position: "top"
-    }).data("kendoTooltip");
+  createFolderMenu();
 
-    //Browse
-    $(".browse", scope).click( function() {
-      $(".box__file").click();
-      selectedFolder = $('.k-in', scope).text();
-    });
 
-  });
 
+  /*
+  * PROTOTYP MENU STUFF
+  */
   $('#toggleFolderMenus').click(function() {
     $('.folder-menu').toggleClass('enabled');
+  });
+
+  //
+  var showDefaultFolders = false;
+  $('#toggleFolders').click(function() {
+    showDefaultFolders = !showDefaultFolders;
+    
+    if(showDefaultFolders) {
+      treeview.setDataSource(defaultFolders);
+    } else {
+      treeview.setDataSource(blankFolders);
+    }
   });
 
  
