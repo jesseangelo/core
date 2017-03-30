@@ -1,0 +1,850 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<title>Burnside test</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon">
+<link rel="icon" href="/favicon.ico?v=2" type="image/x-icon">
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!-- build:css styles/vendor.css -->
+<!-- bower:css -->
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+</head>
+<body ng-app='app' ng-controller='uiController as ctrl'>
+
+<div class="mediaTest"></div>
+<nav class="nav navbar navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+      <div class="pull-left menu navbar-text">Menu</div>
+      <div class="pull-left icon-bars"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </div>
+      </button>
+      <span class="ipreo-debtdomain-logo"> <a href="/"> <span class="navbar-brand hidden-xs hidden-sm"></span> <img style="width: 60px;" src="images/logohorizontal-short.png" class="hidden-md hidden-lg"/> </a> </span> </div>
+    <div class="collapse navbar-collapse" id="main-menu">
+      <nav class="navbar-left">
+        <ul class="nav nav-pills">
+          <li>&nbsp;&nbsp;</li>
+          <li class="dropdown"> <a class="dropdown-toggle btn " id="" data-toggle="dropdown" aria-haspopup="true"><i class="fa fa-industry"></i><span class=''>&nbsp;Deals</span></a>
+            <ul class="dropdown-menu" aria-labelledby="menu-deals">
+              <li><a href="#">Deal List</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Recent Deals</li>
+              <li><a href="#">Some Deal - 2015</a></li>
+              <li><a href="#">Another Deal </a></li>
+              <li><a href="#">Deal</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Create Deal</a></li>
+            </ul>
+          </li>
+          <li><a><i class='fa fa-list'></i><span class=''>&nbsp;Notes</span></a></li>
+          <li><a><i class='fa fa-calendar-o'></i><span class=''>&nbsp;Calendar</span></a></li>
+          <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-line-chart'></i><span class=''>&nbsp;Reports</span> </a>
+            <ul class="dropdown-menu" aria-labelledby="menu-Reports">
+              <li><a href="#">Compliance</a></li>
+              <li><a href="#">Pipeline</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Investor Activity</li>
+              <li><a href="#">Syndication</a></li>
+              <li><a href="#">Agency</a></li>
+              <li><a href="#">Investor Coverage</a></li>
+              <li><a href="#">Investors by City</a></li>
+              <li><a href="#">Sales Prospects</a></li>
+              <li><a href="#">Expiring Sales Prospects</a></li>
+              <li><a href="#">Expiring Investors</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-leaf'></i><span class=''>&nbsp;Resources</span> </a>
+            <ul class="dropdown-menu" aria-labelledby="menu-Resources">
+              <li><a href="#">Loan Owndership</a></li>
+              <li><a href="#">Contact Database</a></li>
+            </ul>
+          </li>
+          <li><a class='search'><i class='fa fa-search'></i>&nbsp;Search</a></li>
+        </ul>
+      </nav>
+      <nav class="navbar-right">
+        <ul class="nav nav-pills">
+          <li><a><i class='fa fa-bell'></i><span class='show-mobile'>&nbsp;Notifications</span></a></li>
+          <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-user'></i><span class='hidden-sm'>&nbsp; Lewis Hamilton</span> </a>
+            <ul class="dropdown-menu" aria-labelledby="menu-user">
+              <li><a href="#">Last Login: 20-Nov-2015 09:00</a></li>
+              <li><a href="#">My Profile</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">My Preferences</li>
+              <li><a href="#">Email</a></li>
+              <li><a href="#">Notes</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </li>
+          <li> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-gear'></i><span class='show-mobile'>&nbsp;Settings</span> </a>
+            <ul class="dropdown-menu" aria-labelledby="menu-Settings">
+              <li><a href="#">Access Control Manager</a></li>
+              <li><a href="#">Firm Setup</a></li>
+              <li><a href="#">Super User</a></li>
+              <li><a href="#">Reporting Fields</a></li>
+              <li><a href="#">Cross Reference Materials</a></li>
+              <li><a href="#">Transfer Contacts</a></li>
+              <li><a href="#">Export Data</a></li>
+            </ul>
+          </li>
+          <li><a><i class='fa fa-question'></i><span class='show-mobile'>&nbsp;Help</span></a></li>
+        </ul>
+      </nav>
+      <div class="row">
+        <div class="container-fluid">
+          <div class="global-search col-xs-10 col-xs-offset-1">
+            <input class="form-control" type=text>
+            <ul class="nav nav-stacked">
+              <li><a><i class='fa fa-history'></i> Search history</a></li>
+              <li><a><i class='fa fa-history'></i> Search history</a></li>
+              <li><a><i class='fa fa-history'></i> Search history</a></li>
+              <li><a><i class='fa fa-history'></i> Search history</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div uib-alert ng-repeat="alert in ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="ctrl.closeAlert($index)">{{alert.msg}}</div>
+  </div>
+</nav>
+<div id="main" class="container-fluid">
+  <div class="row">
+    <section id="sidebar" class="col-lg-2 col-md-3 col-sm-3 hidden-xs hidden-sm">
+      <div class="container-fluid">
+        <nav class="row">
+          <h2 class="text-right"> <i class="fa fa-angle-double-left minimize-sidebar"></i> </h2>
+          <h2 class=text-center> <i class='fa fa-angle-double-right maximize-sidebar'></i> </h2>
+        </nav>
+        <div class='content-maximized row'>
+          <h4>Sidebar Title</h4>
+          <!-- Content goes here -->
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Filter 1</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="filter">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Filter 2</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="filter">
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox">
+                I want data </label>
+            </div>
+            <button type="submit" class="btn btn-default">Filter</button>
+          </form>
+          <div class='actions'>
+            <h4><i class='fa fa-file-pdf-o'></i>&nbsp;Shortcut</h4>
+          </div>
+          <!-- End Content --> 
+        </div>
+        <div class='content-minimized text-center'>
+          <div class=row>
+            <h4><i class='fa fa-filter'></i></h4>
+            <div class='actions'>
+              <h4><i class='fa fa-file-pdf-o'></i></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="topbar" class='hidden-md hidden-lg minimized'>
+      <div class='container-fluid'>
+        <nav>
+          <h3 class='pull-right min-top'> <i class='fa fa-angle-double-up minimize-topbar'></i> </h3>
+          <h3 class=pull-right> <i class='fa fa-angle-double-down maximize-topbar'></i> </h3>
+        </nav>
+        <div class='content-maximized'>
+          <h4>Topbar Title</h4>
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Filter 1</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="filter">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Filter 2</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="filter">
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox">
+                I want data </label>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+        <div class='content-minimized'> <i class='fa fa-filter'></i> </div>
+      </div>
+    </section>
+    <section id="mainWindow" class='col-lg-10 col-md-9 col-sm-12 clearfix pull-right'>
+      <div class='body-content'>
+        <hero-detail hero="ctrl.hero"></hero-detail>
+        <h1>Page Title {{2+2}}</h1>
+        <ol class="breadcrumb">
+          <li><a href="#">Deal Name - November 2016</a></li>
+        </ol>
+        <div class="fab">
+          <h2><i class="fa fa-plus"></i></h2>
+        </div>
+        <div class="container-fluid row">
+          <div class="breakbar"></div>
+        </div>
+        <div class="container-fluid row">
+          <h2 class="section-title">Typography</h2>
+          <!-- TODO: add warnings, disclaimers, etc --> 
+          <!-- TODO: alerts debug-true could give toasts -->
+          
+          <div class="samplePage col-sm-12">
+            <div class="container-fluid row">
+              <h1><code>&lt;h1&gt;</code> Page Title</h1>
+              <h2><code>&lt;h2&gt;</code> Section Title</h2>
+              <h3><code>&lt;h3&gt;</code> Form Title / Workflow Title</h3>
+              <h4><code>&lt;h4&gt;</code> Sidebar / Topbar Title</h4>
+              <h5><code>&lt;h5&gt;</code> Subsection / Page Text </h5>
+              <p><code>&lt;p&gt;</code> Page Text </p>
+              <h6><code>&lt;h6&gt;</code> Small Text / Fine Print</h6>
+              <small><code>&lt;small&gt;</code> Small Text</small> <br>
+              <br>
+              <label><code>&lt;label&gt;</code> Label Text </label>
+              <p><code>&lt;mark&gt;</code> You can use the mark tag to
+                <mark>highlight</mark>
+                text.</p>
+              <p><code>&lt;strong&gt;</code> The following text will be <strong>rendered as bold text.</strong></p>
+              <p><code>&lt;em&gt;</code> The following text will be <em>rendered as italics text.</em> </p>
+              <h2><code>&lt;span class=label&gt;</code> Title with label <span class="label label-default">New</span></h2>
+              <div class="container-fluid row"> </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid row">
+          <h2 class="section-title">Tables</h2>
+          <div class="samplePage col-sm-12">
+            <div class="container-fluid row">
+              <table class="table table-condensed table-striped">
+                <thead>
+                  <tr data-bind="template: { name: 'grid-header-template', foreach: columns}">
+                    <th class="site"></th>
+                    <th style="width: 40%;" data-bind="style: { width: Width + '%' }"> <a class="sortable" href="">Deal &nbsp;<i class="fa fa-sort-asc"></i></a> </th>
+                    <th style="width: 20%;" data-bind="style: { width: Width + '%' }"> <a class="sortable" href="#" data-bind="text: Name, click: sort.bind($data, $data.SortColumn)">Type</a> <i class="icon-chevron-down" data-bind="visible: $root.SortColumn() == SortColumn, css: { 'icon-chevron-up' : $root.SortDirection() == 'ASC', 'icon-chevron-down' : $root.SortDirection() == 'DESC'}"></i> </th>
+                    <th style="width: 20%;" data-bind="style: { width: Width + '%' }"> <a class="sortable" href="#" data-bind="text: Name, click: sort.bind($data, $data.SortColumn)">Last Accessed</a> <i class="icon-chevron-down" style="display: none;" data-bind="visible: $root.SortColumn() == SortColumn, css: { 'icon-chevron-up' : $root.SortDirection() == 'ASC', 'icon-chevron-down' : $root.SortDirection() == 'DESC'}"></i> </th>
+                    <th style="width: 20%;" data-bind="style: { width: Width + '%' }"> <a class="sortable" href="#" data-bind="text: Name, click: sort.bind($data, $data.SortColumn)">Arranger / Agent</a> <i class="icon-chevron-down" style="display: none;" data-bind="visible: $root.SortColumn() == SortColumn, css: { 'icon-chevron-up' : $root.SortDirection() == 'ASC', 'icon-chevron-down' : $root.SortDirection() == 'DESC'}"></i> </th>
+                  </tr>
+                </thead>
+                <tbody style="display: none;" data-bind="visible: isLoading()">
+                  <tr>
+                    <td colspan="8">Loading...</td>
+                  </tr>
+                </tbody>
+                <tbody style="" data-bind="visible: hasLoans() &amp;&amp; !isLoading(), template: { name: 'deallist-template',  foreach: filteredLoans}">
+                  <tr class="deals-row">
+                    <td class="site site-live"><div title="" data-original-title="" style="height: 27px;">&nbsp;</div></td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3430343839" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">ABN AMRO Implements Debtdomain Syndication and Agency</a></td>
+                    <td data-bind="text: DealStage">Syndication</td>
+                    <td data-bind="text: LastAccessed">22 Jan 2016</td>
+                    <td data-bind="text: Arranger">Debtdomain</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-inactive">&nbsp;</td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3736363233" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Citiband - Feb 2016</a></td>
+                    <td data-bind="text: DealStage">Syndication</td>
+                    <td data-bind="text: LastAccessed">21 Jan 2016</td>
+                    <td data-bind="text: Arranger">Debtdomain</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-live"><div title="" data-original-title="" style="height: 26px;">&nbsp;</div></td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D32313433" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">DD Syndication Sales Pipeline</a></td>
+                    <td data-bind="text: DealStage">Syndication</td>
+                    <td data-bind="text: LastAccessed">4 Jan 2016</td>
+                    <td data-bind="text: Arranger">Debtdomain</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-inactive">&nbsp;</td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3336353732" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Debtdomain Client Due Diligence Site - 2010</a></td>
+                    <td data-bind="text: DealStage">Syndication</td>
+                    <td data-bind="text: LastAccessed">19 Jan 2016</td>
+                    <td data-bind="text: Arranger">DD</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-inactive">&nbsp;</td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3233353733" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Hard core investing - Aug 2009</a></td>
+                    <td data-bind="text: DealStage">Syndication</td>
+                    <td data-bind="text: LastAccessed">13 Nov 2015</td>
+                    <td data-bind="text: Arranger">Debtdomain ("test")</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-inactive">&nbsp;</td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3234363836" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Loan Trading - Sentry</a></td>
+                    <td data-bind="text: DealStage">Syndication</td>
+                    <td data-bind="text: LastAccessed">4 Nov 2015</td>
+                    <td data-bind="text: Arranger">Debtdomain</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-live"><div title="" data-original-title="" style="height: 26px;">&nbsp;</div></td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3734383039" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">My Deal - Nov 2015</a></td>
+                    <td data-bind="text: DealStage">Syndication</td>
+                    <td data-bind="text: LastAccessed">21 Dec 2015</td>
+                    <td data-bind="text: Arranger">Debtdomain</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-inactive">&nbsp;</td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3736333834" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">PrimaryUploadFrame-create-test - Feb 2016</a></td>
+                    <td data-bind="text: DealStage">Syndication</td>
+                    <td data-bind="text: LastAccessed">12 Jan 2016</td>
+                    <td data-bind="text: Arranger">Debtdomain</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-inactive">&nbsp;</td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3636373734" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">SIM - CoArranged ShareNone - Aug 2012</a></td>
+                    <td data-bind="text: DealStage">Syndication</td>
+                    <td data-bind="text: LastAccessed">18 Nov 2015</td>
+                    <td data-bind="text: Arranger">Debtdomain</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-inactive">&nbsp;</td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3734343130" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Test Syndication - Nov 2015</a></td>
+                    <td data-bind="text: DealStage">Syndication</td>
+                    <td data-bind="text: LastAccessed">24 Nov 2015</td>
+                    <td data-bind="text: Arranger">Debtdomain</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-inactive">&nbsp;</td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3736363135" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Trache Custom Fields - Feb 2016</a></td>
+                    <td data-bind="text: DealStage">Syndication</td>
+                    <td data-bind="text: LastAccessed">20 Jan 2016</td>
+                    <td data-bind="text: Arranger">Debtdomain</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-inactive">&nbsp;</td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3734393435" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Debtdomain Press Release - Jul 2010 - Secondary</a></td>
+                    <td data-bind="text: DealStage">Secondary Trading</td>
+                    <td data-bind="text: LastAccessed">5 Nov 2015</td>
+                    <td data-bind="text: Arranger">Debtdomain</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-inactive">&nbsp;</td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3734323635" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">Test SSD Template - Nov 2015</a></td>
+                    <td data-bind="text: DealStage">Secondary Sell Down</td>
+                    <td data-bind="text: LastAccessed"></td>
+                    <td data-bind="text: Arranger">Debtdomain</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-inactive">&nbsp;</td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3734343932" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">AE - Nov 2015</a></td>
+                    <td data-bind="text: DealStage">Agency</td>
+                    <td data-bind="text: LastAccessed">19 Jan 2016</td>
+                    <td data-bind="text: Arranger">Debtdomain</td>
+                  </tr>
+                  <tr class="deals-row">
+                    <td class="site site-inactive">&nbsp;</td>
+                    <td><a href="/secure/primary_menu.cfm?Encrypt=1&amp;Pass=4C6F616E49443D3638333434" class="deal-name" data-bind="text: Name, attr: { href: DealMenuUrl }">GWB TEST Agency - Jun 2012</a></td>
+                    <td data-bind="text: DealStage">Agency</td>
+                    <td data-bind="text: LastAccessed">22 Jan 2016</td>
+                    <td data-bind="text: Arranger"></td>
+                  </tr>
+                </tbody>
+                <tbody style="display: none;" data-bind="visible: !hasLoans() &amp;&amp; !isLoading(), template: { name: 'deallist-norows-template' }">
+                  <tr>
+                    <td colspan="8">No deals found.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid row">
+          <h2 class="section-title">Todo: List groups/Lists</h2>
+        </div>
+        <hr>
+        <div class="container-fluid row">
+          <h2 class="section-title">Todo: Multi-select</h2>
+        </div>
+        <hr>
+        <div class="container-fluid row">
+          <h2 class="section-title">Todo: Select2</h2>
+        </div>
+        <hr>
+        <div class="container-fluid row">
+          <h2 class="section-title">Actionbar</h2>
+          <div class="samplePage col-sm-12">
+            <div class="container-fluid row">
+              <p> The Actionbar contains the main action of the page.
+                On short pages (ones without scroll bars) it will display directly below the form. However on a longer page, the actionbar will stick to the bottom of the browser window. </p>
+              <p>
+                <button class="btn btn-default toggleActionbar">Toggle bottom Actionbar</button>
+              </p>
+              <nav class="actionbar">
+                <div id="actionBarFooter-inner">
+                  <div class="container-fluid row">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                    
+                    I am the inline actionbar <span id="actionBarFooterNotification" class="help-inline"></span> </div>
+                </div>
+              </nav>
+              <div class="container-fluid row"> </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid row">
+          <h2 class="section-title">Forms</h2>
+          <div class="samplePage col-sm-12">
+            <div class="container-fluid row"> </div>
+            <div class="container-fluid row">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <h3 class="form-title">Sample Login Form</h3>
+                    <h5>These are the instructions for the form.</h5>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox">
+                        Remember me </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default btn-primary">Sign in</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid row">
+          <h2 class="section-title">Workflows</h2>
+          <h5 class="title-description">This is just a desc</h5>
+          <div class="samplePage col-sm-12">
+            <div class="container-fluid row">
+              <div class="workflow workflow-sample">
+                <section class="workflow-start">
+                  <h4 class="workflow-title">Start the workflow</h4>
+                  <div class='actions'>
+                    <button class="btn btn-start btn-primary">Start</button>
+                  </div>
+                </section>
+                
+                <!--<progress max="100" value="0"></progress>-->
+                <section class="workflow-step">
+                  <h4 class="workflow-title">This is the first step</h4>
+                  <div class='actions'>
+                    <button class="btn btn-default btn-cancel">Cancel</button>
+                    <button class="btn btn-next btn-primary">Next</button>
+                  </div>
+                </section>
+                <section class="workflow-step">
+                  <h4 class="workflow-title">This is the next step</h4>
+                  <div class='actions'>
+                    <button class="btn btn-default btn-cancel">Cancel</button>
+                    <button class="btn btn-next btn-primary">Next</button>
+                  </div>
+                </section>
+                <section class="workflow-end">
+                  <h4 class="workflow-title">This is the final step</h4>
+                  <div class='actions'>
+                    <button class="btn btn-finish btn-primary">Finish</button>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid row">
+          <h2 class="section-title">Modal</h2>
+          <div class="samplePage col-sm-12">
+            <div class="container-fluid row">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"> Launch demo modal </button>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid row">
+          <h2 class="section-title">Dropdowns</h2>
+          <div class="samplePage col-sm-12">
+            <div class="container-fluid row">
+              <h4>Dropdown</h4>
+              <div class="dropdown">
+                <button type="button" class="btn btn-primary" data-toggle="dropdown">Options</button>
+                <ul class="dropdown-menu" aria-labelledby="menu-deals">
+                  <li><a href="#">Action</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Divided</li>
+                  <li><a href="#">Grouped</a></li>
+                  <li><a href="#">Grouped</a></li>
+                  <li><a href="#">Grouped</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Another Action</a></li>
+                </ul>
+              </div>
+              <br>
+              <br>
+              <h4>In a navbar</h4>
+              <nav class="navbar-left">
+                <ul class="nav nav-pills">
+                  <li class="dropdown"> <a class="dropdown-toggle btn " id="" data-toggle="dropdown" aria-haspopup="true"><i class="fa fa-industry"></i><span class="">&nbsp;Deals</span></a>
+                    <ul class="dropdown-menu" aria-labelledby="menu-deals">
+                      <li><a href="#">Deal List</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li class="dropdown-header">Recent Deals</li>
+                      <li><a href="#">Some Deal - 2015</a></li>
+                      <li><a href="#">Another Deal </a></li>
+                      <li><a href="#">Deal</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="#">Create Deal</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+              <br>
+              <br>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid row section-demo-buttons">
+          <h2 class="section-title">Buttons</h2>
+          <div class="samplePage col-sm-12">
+            <div class="container-fluid row"> 
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+              <h4>Primary Page Action</h4>
+              <!-- Indicates caution should be taken with this action -->
+              <button type="button" class="btn btn-warning"><i class="fa fa-spin fa-spinner"></i> <i class="fa fa-check"></i><span class="btn-label">Save</span></button>
+              <br>
+              <br>
+              <h4>Intermediate / Modal Action</h4>
+              <button type="button" class="btn btn-primary">Action</button>
+              <br>
+              <br>
+              <h4>Cancel / Back</h4>
+              <!-- Standard button -->
+              <button type="button" class="btn btn-default">Cancel</button>
+              <br>
+              <br>
+              <h4>Dangerous Action</h4>
+              <!-- Indicates a dangerous or potentially negative action -->
+              <button type="button" class="btn btn-danger">Delete All</button>
+              <br>
+              <br>
+              <!-- Contextual button for informational alert messages -->
+              
+              <h4>Informational</h4>
+              <button type="button" class="btn btn-info">Info</button>
+              <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+              <button type="button" class="btn btn-link">Link</button>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid row section-demo-buttons">
+          <h2 class="section-title">Breadcrumbs</h2>
+          <div class="samplePage col-sm-12">
+            <div class="container-fluid row">
+              <h1>Page Title</h1>
+              <ol class="breadcrumb">
+                <li><a href="#">Deal Name</a></li>
+                <li class="active">Page Name</li>
+              </ol>
+              <div class="fab">
+                <h2><i class="fa fa-plus"></i></h2>
+              </div>
+              <div class="container-fluid row">
+                <div class="breakbar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid row">
+          <h2 class="section-title">Todo: Pagination</h2>
+        </div>
+        <hr>
+        <div class="container-fluid row">
+          <h2 class="section-title">Alerts</h2>
+          <div class="samplePage col-sm-12">
+            <div class="container-fluid row">
+              <button type="button" class='btn btn-default' ng-click="ctrl.addAlert(0)">Add Danger Alert</button>
+              <button type="button" class='btn btn-default' ng-click="ctrl.addAlert(1)">Add Success Alert</button>
+            </div>
+            <br>
+              Message Center, Notifications... </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid row section-demo-buttons">
+          <h2 class="section-title">Progress bars</h2>
+          <div class="samplePage col-sm-12">
+            <div class="container-fluid row"> <br>
+              <h4>Static</h4>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%;"> 65% </div>
+              </div>
+              <br>
+              <h4>Animated</h4>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%"> <span class="sr-only">45% Complete</span> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid row section-demo-buttons">
+          <h2 class="section-title">Card</h2>
+          <div class="samplePage col-sm-12"> <br>
+            <br>
+            <div class="container-fluid row">
+              <div class="card card-login shadow-card">
+                <div class="">
+                  <h4 class=text-center>This is a sample card</h4>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="container-fluid row">
+              <div class="container-fluid row col-sm-6">
+                <div class="card card-login shadow-card"> <br>
+                  <h4 class=text-center>Smaller card</h4>
+                  <br>
+                </div>
+              </div>
+              <div class="container-fluid row col-sm-6 pull-right">
+                <div class="card card-login shadow-card"> <br>
+                  <h4 class=text-center>Smaller card</h4>
+                  <br>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="container-fluid row">
+              <div class="container-fluid row col-sm-6 col-sm-offset-3">
+                <div class="card card-login shadow-card">
+                  <div class="panel-body">
+                    <form name="form" method="post" id="dd-signin-form" action="">
+                      <div class="form-group">
+                        <label for="username"><br>
+                          Debtdomain ID</label>
+                        <input required="" name="username" id="username" type="text" class="form-control" maxlength="100">
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input required="" id="password" name="password" type="password" class="form-control" maxlength="100" autocomplete="off">
+                      </div>
+                      <div class="button-group form-group">
+                        <button class="btn btn-primary width-100p button-login">Sign in</button>
+                      </div>
+                      <div class="small"> <a href="/public/forgotten_password.cfm">Forgot ID/Password?</a> </div>
+                    </form>
+                    <br>
+                    <small>Use of this site constitutes your acceptance of the terms of the Debtdomain Internet <a href="/SiteUserAgreement">Site User Agreement</a></small> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid row">
+          <h2 class="section-title">Panels</h2>
+          <div class="samplePage col-sm-12"> <br>
+            <br>
+            <div class="container-fluid row">
+              <div class="panel">
+                <header class="panel--header clearfix">
+                  <div class="panel--header--control panel--collapse pull-left">
+                    <h3><i class="hidden fa fa-plus"></i><i class="fa fa-minus"></i></h3>
+                  </div>
+                  <div class="panel--header--divider pull-left">&nbsp;</div>
+                  <div class="panel--header--title pull-left">
+                    <h3 class="ng-binding">Rite Aid Corporation</h3>
+                  </div>
+                </header>
+                <div class="panel--divider"></div>
+                <div class="panel--content">
+                  <table class="panel--attribute-table" ng-show="true">
+                    <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <td class="panel--attribute-table--label">Borrower</td>
+                        <td class="panel--attribute-table--td">Rite Aid Corporation</td>
+                        <td class="panel--attribute-table--label">Borrower Country</td>
+                        <td class="panel--attribute-table--td">United States</td>
+                      </tr>
+                      <tr>
+                        <td class="panel--attribute-table--label">Industry</td>
+                        <td class="panel--attribute-table--td">Consumer Services - Retail - Drug Retail</td>
+                        <td class="panel--attribute-table--label">S&amp;P Rating</td>
+                        <td class="panel--attribute-table--td">B/NM/NR</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid row">
+          <h2 class="section-title">Wells</h2>
+          <div class="samplePage col-sm-12"> <br>
+            <br>
+            <div class="container-fluid row">
+              <div class="well well-lg"> I'm a well! </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container-fluid">
+          <div class="row">
+            <h2 class="section-title">Grid Layout</h2>
+          </div>
+          <div class="row highlight-grid">
+            <h4>col-xs</h4>
+            <div class="col-xs-1">xs-1</div>
+            <div class="col-xs-1">xs-1</div>
+            <div class="col-xs-1">xs-1</div>
+            <div class="col-xs-1">xs-1</div>
+            <div class="col-xs-1">xs-1</div>
+            <div class="col-xs-1">xs-1</div>
+            <div class="col-xs-1">xs-1</div>
+            <div class="col-xs-1">xs-1</div>
+            <div class="col-xs-1">xs-1</div>
+            <div class="col-xs-1">xs-1</div>
+            <div class="col-xs-1">xs-1</div>
+            <div class="col-xs-1">xs-1</div>
+          </div>
+          <br>
+          <div class="row highlight-grid">
+            <h4>col-sm</h4>
+            <div class="col-sm-1">sm-1</div>
+            <div class="col-sm-1">sm-1</div>
+            <div class="col-sm-1">sm-1</div>
+            <div class="col-sm-1">sm-1</div>
+            <div class="col-sm-1">sm-1</div>
+            <div class="col-sm-1">sm-1</div>
+            <div class="col-sm-1">sm-1</div>
+            <div class="col-sm-1">sm-1</div>
+            <div class="col-sm-1">sm-1</div>
+            <div class="col-sm-1">sm-1</div>
+            <div class="col-sm-1">sm-1</div>
+            <div class="col-sm-1">sm-1</div>
+          </div>
+          <br>
+          <div class="row highlight-grid">
+            <h4>col-md</h4>
+            <div class="col-md-1">md-1</div>
+            <div class="col-md-1">md-1</div>
+            <div class="col-md-1">md-1</div>
+            <div class="col-md-1">md-1</div>
+            <div class="col-md-1">md-1</div>
+            <div class="col-md-1">md-1</div>
+            <div class="col-md-1">md-1</div>
+            <div class="col-md-1">md-1</div>
+            <div class="col-md-1">md-1</div>
+            <div class="col-md-1">md-1</div>
+            <div class="col-md-1">md-1</div>
+            <div class="col-md-1">md-1</div>
+          </div>
+          <br>
+          <div class="row highlight-grid">
+            <h4>col-lg</h4>
+            <div class="col-lg-1">lg-1</div>
+            <div class="col-lg-1">lg-1</div>
+            <div class="col-lg-1">lg-1</div>
+            <div class="col-lg-1">lg-1</div>
+            <div class="col-lg-1">lg-1</div>
+            <div class="col-lg-1">lg-1</div>
+            <div class="col-lg-1">lg-1</div>
+            <div class="col-lg-1">lg-1</div>
+            <div class="col-lg-1">lg-1</div>
+            <div class="col-lg-1">lg-1</div>
+            <div class="col-lg-1">lg-1</div>
+            <div class="col-lg-1">lg-1</div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+    </section>
+  </div>
+<nav class="actionbar actionbar-fixed-bottom container-fluid col-lg-offset-2 col-md-offset-3 col-lg-10 col-md-9 col-sm-12">
+  <div class="container-fluid row">
+    <button type="button" class="btn btn-primary">Save changes</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    I am the bottom fixed actionbar </div>
+</nav>
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>Body content&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+
+<!-- build:js scripts/vendor.js --> 
+<!-- bower:js -->
+<script src="/bower_components/jquery/jquery.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<!-- endbower --> 
+<!-- endbuild --> 
+
+<!-- build:js({app,.tmp}) scripts/main.js --> 
+
+<script src="scripts/main.js"></script>
+
+<script src="scripts/app.js"></script> 
+<script src="scripts/HeroDetailController.js"></script>
+
+
+<!-- endbuild -->
+</body>
+</html>
