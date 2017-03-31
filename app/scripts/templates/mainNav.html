@@ -1,0 +1,96 @@
+<nav class="nav navbar navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+      <div class="pull-left menu navbar-text">Menu</div>
+      <div class="pull-left icon-bars"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </div>
+      </button>
+      <span class="ipreo-debtdomain-logo"> <a href="/"> <span class="navbar-brand hidden-xs hidden-sm"></span> <img style="width: 60px;" src="images/logohorizontal-short.png" class="hidden-md hidden-lg"/> </a> </span> </div>
+    <div class="collapse navbar-collapse" id="main-menu">
+      <nav class="navbar-left">
+        <ul class="nav nav-pills">
+          <li>&nbsp;&nbsp;</li>
+          <li class="dropdown"> <a class="dropdown-toggle btn " id="" data-toggle="dropdown" aria-haspopup="true"><i class="fa fa-industry"></i><span class=''>&nbsp;Deals</span></a>
+            <ul class="dropdown-menu" aria-labelledby="menu-deals">
+              <li><a href="#">Deal List</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Recent Deals</li>
+              <li><a href="#">Some Deal - 2015</a></li>
+              <li><a href="#">Another Deal </a></li>
+              <li><a href="#">Deal</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Create Deal</a></li>
+            </ul>
+          </li>
+          <li><a><i class='fa fa-list'></i><span class=''>&nbsp;Notes</span></a></li>
+          <li><a><i class='fa fa-calendar-o'></i><span class=''>&nbsp;Calendar</span></a></li>
+          <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-line-chart'></i><span class=''>&nbsp;Reports</span> </a>
+            <ul class="dropdown-menu" aria-labelledby="menu-Reports">
+              <li><a href="#">Compliance</a></li>
+              <li><a href="#">Pipeline</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Investor Activity</li>
+              <li><a href="#">Syndication</a></li>
+              <li><a href="#">Agency</a></li>
+              <li><a href="#">Investor Coverage</a></li>
+              <li><a href="#">Investors by City</a></li>
+              <li><a href="#">Sales Prospects</a></li>
+              <li><a href="#">Expiring Sales Prospects</a></li>
+              <li><a href="#">Expiring Investors</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-leaf'></i><span class=''>&nbsp;Resources</span> </a>
+            <ul class="dropdown-menu" aria-labelledby="menu-Resources">
+              <li><a href="#">Loan Owndership</a></li>
+              <li><a href="#">Contact Database</a></li>
+            </ul>
+          </li>
+          <li><a class='search'><i class='fa fa-search'></i>&nbsp;Search</a></li>
+        </ul>
+      </nav>
+      <nav class="navbar-right">
+        <ul class="nav nav-pills">
+          <li><a><i class='fa fa-bell'></i><span class='show-mobile'>&nbsp;Notifications</span></a></li>
+          <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-user'></i><span class='hidden-sm'>&nbsp; Lewis Hamilton</span> </a>
+            <ul class="dropdown-menu" aria-labelledby="menu-user">
+              <li><a href="#">Last Login: 20-Nov-2015 09:00</a></li>
+              <li><a href="#">My Profile</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">My Preferences</li>
+              <li><a href="#">Email</a></li>
+              <li><a href="#">Notes</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </li>
+          <li> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-gear'></i><span class='show-mobile'>&nbsp;Settings</span> </a>
+            <ul class="dropdown-menu" aria-labelledby="menu-Settings">
+              <li><a href="#">Access Control Manager</a></li>
+              <li><a href="#">Firm Setup</a></li>
+              <li><a href="#">Super User</a></li>
+              <li><a href="#">Reporting Fields</a></li>
+              <li><a href="#">Cross Reference Materials</a></li>
+              <li><a href="#">Transfer Contacts</a></li>
+              <li><a href="#">Export Data</a></li>
+            </ul>
+          </li>
+          <li><a><i class='fa fa-question'></i><span class='show-mobile'>&nbsp;Help</span></a></li>
+        </ul>
+      </nav>
+      <div class="row">
+        <div class="container-fluid">
+          <div class="global-search col-xs-10 col-xs-offset-1">
+            <input class="form-control" type=text>
+            <ul class="nav nav-stacked">
+              <li><a><i class='fa fa-history'></i> Search history</a></li>
+              <li><a><i class='fa fa-history'></i> Search history</a></li>
+              <li><a><i class='fa fa-history'></i> Search history</a></li>
+              <li><a><i class='fa fa-history'></i> Search history</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div uib-alert ng-repeat="alert in ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="ctrl.closeAlert($index)">{{alert.msg}}</div>
+  </div>
+</nav>

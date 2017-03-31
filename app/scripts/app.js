@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   
-  var app = angular.module('app', ['ui.bootstrap', 'kendo.directives']);
+  var app = angular.module('app', ['ui.bootstrap']);
 
   app.controller('uiController', uiController);
 

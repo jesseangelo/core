@@ -12,14 +12,14 @@
 
 // }());
 
-function HeroDetailController() {
+function TopbarController() {
 }
 
 
 
-angular.module('app').component('heroDetail', {
-  templateUrl: '/scripts/templates/heroDetail.html',
-  controller: HeroDetailController,
+angular.module('app').component('topbar', {
+  templateUrl: '/scripts/templates/topbar.html',
+  controller: TopbarController,
   bindings: {
     hero: '='
   }

@@ -12,14 +12,14 @@
 
 // }());
 
-function HeroDetailController() {
+function ActionbarController() {
 }
 
 
 
-angular.module('app').component('heroDetail', {
-  templateUrl: '/scripts/templates/heroDetail.html',
-  controller: HeroDetailController,
+angular.module('app').component('actionbar', {
+  templateUrl: '/scripts/templates/actionbar.html',
+  controller: ActionbarController,
   bindings: {
     hero: '='
   }

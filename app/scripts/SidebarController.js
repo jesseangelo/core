@@ -12,14 +12,14 @@
 
 // }());
 
-function HeroDetailController() {
+function SidebarController() {
 }
 
 
 
-angular.module('app').component('heroDetail', {
-  templateUrl: '/scripts/templates/heroDetail.html',
-  controller: HeroDetailController,
+angular.module('app').component('sidebar', {
+  templateUrl: '/scripts/templates/sidebar.html',
+  controller: SidebarController,
   bindings: {
     hero: '='
   }
