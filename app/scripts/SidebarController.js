@@ -14,6 +14,14 @@
 
 function SidebarController() {
 	var ctrl = this;
+	//ctrl.showDefaultContent = false;
+
+	// ctrl.clickShow = clickShow;
+
+	// function clickShow() {
+	// 	console.log("clickee")
+	// }
+
 }
 
 
@@ -22,7 +30,9 @@ angular.module('app').component('sidebar', {
   templateUrl: '/scripts/templates/sidebar.html',
   controller: SidebarController,
   controllerAs: 'ctrl',
+  transclude: true,
   bindings: {
-  	title: '@'
+  	title: '@',
+  	showDefaultContent: '='
   }
 });

@@ -22,6 +22,7 @@ angular.module('app').component('pageTitle', {
   controller: PageTitleController,
   controllerAs: 'ctrl',
   bindings: {
-  	title: '@'
+  	title: '@',
+  	subtitle: '@'
   }
 });
