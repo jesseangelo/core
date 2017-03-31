@@ -10,37 +10,9 @@
       ctrl.addAlert = addAlert;
       ctrl.closeAlert = closeAlert;
       ctrl.alerts = [];
-      /*
-      ctrl.treeData = new kendo.data.HierarchicalDataSource({
-            data: [
-                  { text: "Executed Credit Docs" },
-                  { text: "Amendment Docs" },
-                  { text: "Financials & Compliance", 
-                    items: [
-                      { text: "2015 Financials" },
-                      { text: "2016 Financials" },
-                      { text: "2017 Financials" }
-                      ]
-                  }
-            ]
-        });
-
-      ctrl.Data = new kendo.data.TreeListDataSource({
-          data: [
-            { id: 1, File: "Cashflow Statement Q1 2017", FilePath: "2017 Financials", Date: "28-Feb-2017", Declaration: "Public", Status: "", Remove: "", parentId: null },
-            { id: 2, File: "Balance Sheet Q1 2017", FilePath: "2017 Financials", Date: "28-Feb-2017", Declaration: "Public", Status: "", Remove: "", parentId: null },
-            { id: 3, File: "Income Statement Q1 2017", FilePath: "2017 Financials", Date: "28-Feb-2017", Declaration: "Public", Status: "", Remove: "", parentId: null },
-            { id: 4, File: "Cashflow Statement Q4 2016", FilePath: "2016 Financials", Date: "28-Feb-2017", Declaration: "Public", Status: "", Remove: "", parentId: null },
-            ],
-          schema: {
-              model: {
-                  id: "id",
-                  expanded: true
-              }
-          }
-      });
-      */
-
+      ctrl.hero = {
+        name: 'Iron Man'
+      };
 
       function addAlert(type) {
           switch(type) {
