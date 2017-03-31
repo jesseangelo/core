@@ -13,6 +13,7 @@
 // }());
 
 function SidebarController() {
+	var ctrl = this;
 }
 
 
@@ -20,7 +21,8 @@ function SidebarController() {
 angular.module('app').component('sidebar', {
   templateUrl: '/scripts/templates/sidebar.html',
   controller: SidebarController,
+  controllerAs: 'ctrl',
   bindings: {
-    hero: '='
+  	title: '@'
   }
 });

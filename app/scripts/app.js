@@ -13,6 +13,7 @@
       ctrl.hero = {
         name: 'Iron Man'
       };
+      ctrl.showDefaultSidebarContent = false;
 
       function addAlert(type) {
           switch(type) {

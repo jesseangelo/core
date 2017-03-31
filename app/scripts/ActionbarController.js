@@ -19,8 +19,5 @@ function ActionbarController() {
 
 angular.module('app').component('actionbar', {
   templateUrl: '/scripts/templates/actionbar.html',
-  controller: ActionbarController,
-  bindings: {
-    hero: '='
-  }
+  controller: ActionbarController
 });

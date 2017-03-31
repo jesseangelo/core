@@ -12,13 +12,16 @@
 
 // }());
 
-function TopbarController() {
+function PageTitleController() {
+	var ctrl = this;
 }
 
 
-
-angular.module('app').component('topbar', {
-  templateUrl: '/scripts/templates/topbar.html',
-  controller: TopbarController
-   
+angular.module('app').component('pageTitle', {
+  templateUrl: '/scripts/templates/pageTitle.html',
+  controller: PageTitleController,
+  controllerAs: 'ctrl',
+  bindings: {
+  	title: '@'
+  }
 });

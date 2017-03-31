@@ -19,8 +19,5 @@ function MainNavController() {
 
 angular.module('app').component('mainNav', {
   templateUrl: '/scripts/templates/mainNav.html',
-  controller: MainNavController,
-  bindings: {
-    hero: '='
-  }
+  controller: MainNavController
 });
