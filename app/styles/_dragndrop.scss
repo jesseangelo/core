@@ -47,3 +47,9 @@ input[type="file"].box__file {
 		margin-top: 6px;
 	}
 }
+
+#treelist tbody tr.treelist-folder {
+	height: 44px;
+    background-color: #a2a2a2;
+    color: white;
+}

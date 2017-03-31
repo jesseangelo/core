@@ -69,6 +69,7 @@ $(document).ready(function () {
       }, selectedNode);
 
       createFolderMenu();
+      initDragNDrop();
   });
 
   $("#appendFolder").click(append);
@@ -83,7 +84,7 @@ $(document).ready(function () {
               id: "docId",
               fields: {
                 File: {},
-                FilePath: { editable: false },
+                FilePath: {},
                 Date: { editable: false }, 
                 Declaration: { editable: false },
                 Status: { editable: false },
@@ -94,8 +95,11 @@ $(document).ready(function () {
       editable: "inline",
       change: function (e) {
         var data = this.data();
-        //console.log(data.length);
-      }
+      },
+      sort: [
+        { field: "FilePath", dir: "asc"},
+        { field: "File", dir: "asc"}
+      ]
   });
 
   $("#treelist").kendoTreeList({
@@ -113,7 +117,27 @@ $(document).ready(function () {
           { field: "Encrypt", template: $("#file-encrypt-template").html(), width: 68 },
           { field: "Unzip", template: $("#file-unzip-template").html(), width: 55 },
           { field: "Remove", template: $("#file-remove-template").html(), width: 70 }
-      ]
+      ],
+      dataBound: function(e) {
+        var that = e.sender;
+        var rows = e.sender.table.find("tr");
+        rows.each(function(idx, row){
+          var dataItem = that.dataItem(row);
+          //is a row
+          if(dataItem != undefined) {
+
+            //are we at the data item?
+            
+            //does row exist?
+            var ya = $('#treelist:contains("' + dataItem.FilePath + '")')
+            //add folder
+            if (ya.length == 0) {
+              $("<tr class='treelist-folder'><td colspan='7'><i class='fa fa-folder-o'></i>&nbsp;&nbsp;" + dataItem.FilePath + "</td></tr>").insertBefore(row);
+            }
+            
+          } 
+        })
+      }
   });
   /* End File List */
 
@@ -181,12 +205,16 @@ $(document).ready(function () {
     });
   }
 
+  /*
+  * INIT
+  */
   createFolderMenu();
-
+  $('.global-progressbar .msg-complete').hide();
+  $('.global-progressbar .msg-progress').hide();
 
 
   /*
-  * PROTOTYP MENU STUFF
+  * PROTOTYPE MENU STUFF
   */
   $('#toggleFolderMenus').click(function() {
     $('.folder-menu').toggleClass('enabled');
@@ -202,6 +230,7 @@ $(document).ready(function () {
     } else {
       treeview.setDataSource(blankFolders);
     }
+    initDragNDrop();
   });
 
  
@@ -262,35 +291,78 @@ $(document).ready(function () {
   }
 
   //DRAG N DROP
-  $(".k-in").each(function(index) {
-    //console.log( index + ": " + $( this ).text() );
-     var droppedFiles = false;
-     var $form = $(this);
-    $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-    })
-    .on('dragover dragenter', function(e) {
-      $(e.currentTarget).addClass("k-state-focused");
-      $(".file-drop-zone").addClass('active');
-    })
-    .on('dragleave dragend drop', function(e) {
-      $(e.currentTarget).removeClass("k-state-focused");
-    })
-    .on('drop', function(e) {
-      droppedFiles = e.originalEvent.dataTransfer.files; // the files that were dropped
-      $(".file-drop-zone").removeClass('active');
-      //var node = $(e.dropTarget).closest("tr");
-      var folderName = $(e.currentTarget).text();
+  function initDragNDrop() {
+    $(".k-in").each(function(index) {
+      //console.log( index + ": " + $( this ).text() );
+       var droppedFiles = false;
+       var $form = $(this);
+      $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      })
+      .on('dragover dragenter', function(e) {
+        $(e.currentTarget).addClass("k-state-focused");
+        $(".file-drop-zone").addClass('active');
+      })
+      .on('dragleave dragend drop', function(e) {
+        $(e.currentTarget).removeClass("k-state-focused");
+      })
+      .on('drop', function(e) {
+        droppedFiles = e.originalEvent.dataTransfer.files; // the files that were dropped
+        $(".file-drop-zone").removeClass('active');
+        //var node = $(e.dropTarget).closest("tr");
+        var folderName = $(e.currentTarget).text();
 
-      addFiles(droppedFiles, folderName);
-      
+        addFiles(droppedFiles, folderName);
+        
+      });
     });
-  });
+  }
 
+
+  function globalUpload(add) {
+    
+    var globalPB = $(".global-progressbar .msg-progress").data("kendoProgressBar");
+    var val = globalPB.value();
+    val += add;
+    
+    globalPB.value(val);
+
+    if(val >= maxGlobal) {
+        $(".global-progressbar .msg-progress").fadeOut();
+        PEREZOSO.addTimed(350, function () {
+           $(".global-progressbar .msg-complete").fadeIn();
+        })
+        .then(1000, function() {
+          window.location.href = 'docs-upload-complete.html';
+        });
+      }
+  }
+
+
+  var initGlobal = true;
+  var maxGlobal;
   //UPLOAD
   $(".btn-upload").click(function () {
-    $("#treelist tbody tr").each(function(index) {
+    if(initGlobal) {
+      $(".global-progressbar .msg-progress").fadeIn();
+      var amtFiles = $("#treelist tbody tr:not('.treelist-folder')").length;
+      maxGlobal = 100 * amtFiles;
+
+      var globalPB = $(".global-progressbar .msg-progress").kendoProgressBar({
+            min: 0,
+            max: maxGlobal,
+            value: false,
+            type: "value",
+            animation: {
+              duration: 0
+            }
+          }).data("kendoProgressBar");
+
+      initGlobal = false;
+    }
+
+    $("#treelist tbody tr:not('.treelist-folder')").each(function(index) {
       var scope = this;
 
       $(".msg-queued").fadeOut();
@@ -306,22 +378,20 @@ $(document).ready(function () {
             
       PEREZOSO.addTimed(350, function () {
          $(".msg-progress", scope).fadeIn();
-      });
-      
+      });      
       
       PEREZOSO.addInfinite(500, function () {
-        var val = myPB.value();         
-        val += Math.floor(Math.random() * 6) + 0;
+        var val = myPB.value();
+        var step = Math.floor(Math.random() * 6) + 0;
+        val += step;
         if(myPB != undefined) {
           myPB.value(val)
+          globalUpload(step);
           if(val >= 100) {
             $(".msg-progress", scope).fadeOut();
             PEREZOSO.addTimed(350, function () {
                $(".msg-complete", scope).fadeIn();
             })
-            //.then(1000, function() {
-              //window.location.href = 'docs-upload-complete.html';
-            //});
           }
         }
       });
