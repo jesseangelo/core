@@ -11,25 +11,37 @@
       
       ctrl.firmFilter = "";
       ctrl.contactFilter = "";
-      ctrl.documentFilter = "";
+      ctrl.docFilter = "";
       ctrl.showDefaultSidebarContent = false;
+      ctrl.active = 0;
 
       //API
       ctrl.showFirmDetail = showFirmDetail;
       ctrl.clearFirmDetail = clearFirmDetail;
-      ctrl.showDocsAccessed = showDocsAccessed;
+
+      ctrl.showDocDetail = showDocDetail;
+      ctrl.clearDocDetail = clearDocDetail;
 
       function showFirmDetail() {
-        ctrl.firmFilter = ": BNP PARIBAS"
+        ctrl.active = 0;
+        ctrl.firmFilter = ": BNP PARIBAS";
+        clearDocDetail();
       }
 
       function clearFirmDetail() {
         ctrl.firmFilter = ""
       }
 
-      function showDocsAccessed() {
-        console.log('docs accessed');
+      function showDocDetail() {
+        ctrl.active = 2;
+        ctrl.docFilter = ": DOCUMENT 1";
+        clearFirmDetail();
       }
+
+      function clearDocDetail() {
+        ctrl.docFilter = "";
+      }
+
   }
 
 })();
