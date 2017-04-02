@@ -14,7 +14,7 @@ function SidebarController() {
 
 
 angular.module('dd-ui-core').component('sidebar', {
-  templateUrl: '/scripts/templates/sidebar.html',
+  templateUrl: '/scripts/dd-ui-core/templates/sidebar.html',
   controller: SidebarController,
   controllerAs: 'ctrl',
   transclude: true,

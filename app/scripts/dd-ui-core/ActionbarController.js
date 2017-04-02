@@ -12,13 +12,12 @@
 
 // }());
 
-function TopbarController() {
+function ActionbarController() {
 }
 
 
 
-angular.module('dd-ui-core').component('topbar', {
-  templateUrl: '/scripts/templates/topbar.html',
-  controller: TopbarController
-   
+angular.module('dd-ui-core').component('actionbar', {
+  templateUrl: '/scripts/dd-ui-core/templates/actionbar.html',
+  controller: ActionbarController
 });

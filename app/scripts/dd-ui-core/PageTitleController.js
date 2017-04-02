@@ -4,7 +4,7 @@ function PageTitleController() {
 
 
 angular.module('dd-ui-core').component('pageTitle', {
-  templateUrl: '/scripts/templates/pageTitle.html',
+  templateUrl: '/scripts/dd-ui-core/templates/pageTitle.html',
   controller: PageTitleController,
   controllerAs: 'ctrl',
   bindings: {
