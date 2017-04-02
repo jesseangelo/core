@@ -9,10 +9,26 @@
   
       var ctrl = this;
       
+      ctrl.firmFilter = "";
+      ctrl.contactFilter = "";
+      ctrl.documentFilter = "";
       ctrl.showDefaultSidebarContent = false;
 
+      //API
+      ctrl.showFirmDetail = showFirmDetail;
+      ctrl.clearFirmDetail = clearFirmDetail;
+      ctrl.showDocsAccessed = showDocsAccessed;
+
       function showFirmDetail() {
-        console.log('hello world')
+        ctrl.firmFilter = ": BNP PARIBAS"
+      }
+
+      function clearFirmDetail() {
+        ctrl.firmFilter = ""
+      }
+
+      function showDocsAccessed() {
+        console.log('docs accessed');
       }
   }
 

@@ -14,6 +14,7 @@
 <!-- endbuild -->
 <!-- build:css(.tmp) styles/main.css -->
 <link rel="stylesheet" href="styles/main.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <!-- endbuild -->
 <style>
 .dar-results-window {
@@ -47,7 +48,8 @@
         <page-title title='Document Access Report' subtitle='ACME Corp. - Aug 2016'></page-title>
 
         <uib-tabset active="active">
-          <uib-tab index="0" heading="By Firm">
+          <uib-tab index="0">
+            <uib-tab-heading>By Firm {{ctrl.firmFilter}} <i class="fa fa-times-circle-o" ng-show="ctrl.firmFilter != ''" ng-click="ctrl.clearFirmDetail()"></i></uib-tab-heading>
             <table class='table table-striped table-hover'>
               <thead>
                 <th>Institution</th>
@@ -60,11 +62,11 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><a ng-click="ctrl.showFirmDetail()">BNP Paribas</a></td>
+                  <td><a ng-click="ctrl.showFirmDetail()" href="javascript:void(0)">BNP Paribas</a></td>
                   <td>Investor</td>
                   <td>Reviewing</td>
                   <td>Y</td>
-                  <td>122</td>
+                  <td><a ng-click="ctrl.showDocsAccessed()" href="javascript:void(0)">122</a></td>
                   <td>10 Jun 2016 01:24</td>
                   <td>10 Jun 2016 01:24</td>
                 </tr>
@@ -136,10 +138,12 @@
             </table>
           </uib-tab>
 
-          <uib-tab heading="By Contact">
+          <uib-tab>
+            <uib-tab-heading>By Contact {{ctrl.contactFilter}}</uib-tab-heading>
           </uib-tab>
 
-          <uib-tab heading="By Document">
+          <uib-tab>
+            <uib-tab-heading>By Document {{ctrl.documentFilter}}</uib-tab-heading>
           </uib-tab>
           
           <uib-tab heading="Full Access History">
