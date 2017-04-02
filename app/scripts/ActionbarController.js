@@ -17,7 +17,7 @@ function ActionbarController() {
 
 
 
-angular.module('app').component('actionbar', {
+angular.module('dd-ui-core').component('actionbar', {
   templateUrl: '/scripts/templates/actionbar.html',
   controller: ActionbarController
 });

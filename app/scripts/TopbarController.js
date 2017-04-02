@@ -17,7 +17,7 @@ function TopbarController() {
 
 
 
-angular.module('app').component('topbar', {
+angular.module('dd-ui-core').component('topbar', {
   templateUrl: '/scripts/templates/topbar.html',
   controller: TopbarController
    

@@ -9,6 +9,34 @@
       <!-- Content goes here -->
       <div data-ng-transclude></div>
 
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Firm, Contact, or Document</label>
+          <input type="email" class="form-control" id="" placeholder="C" ng-click="ctrl.clickShow()">
+        </div>
+        <div class='dar-results-window' ng-show="ctrl.showExtendedSearch">
+          <h5>Firms</h5>
+          <ul>
+            <li>CBS</li>
+            <li>CSS</li>
+            <li>HSBC</li>
+          </ul>
+          <h5>Contacts</h5>
+          <ul>
+            <li>Carlo Abate</li>
+            <li>Clemente Biondetti</li>
+            <li>Gianfranco Brancatelli</li>
+          </ul>
+          <h5>Documents</h5>
+          <ul>
+            <li>2017 Financials</li>
+            <li>2016 Financials</li>
+            <li>2015 Financials</li>
+          </ul>
+        </div>
+        <button type="submit" class="btn btn-default">Filter</button>
+      </form>      
+
       <form ng-show={{ctrl.showDefaultContent}}>
         <div class="form-group">
           <label for="exampleInputEmail1">Filter 1</label>
@@ -25,6 +53,10 @@
         </div>
         <button type="submit" class="btn btn-default">Filter</button>
       </form>
+
+
+
+
       <div class='actions'>
         <h4><i class='fa fa-file-excel-o'></i>&nbsp;Export</h4>
       </div>

@@ -1,32 +1,19 @@
-// (function() {
-// 	var module = angular.module('app');
-
-// 	function controller() {
-// 		var model = this;
-// 	}
-
-// 	module.component("heroDetail", {
-// 		templateUrl: '/scripts/heroDetail.html',
-// 		transclude: true
-// 	})
-
-// }());
-
 function SidebarController() {
 	var ctrl = this;
 	//ctrl.showDefaultContent = false;
 
-	// ctrl.clickShow = clickShow;
+	ctrl.clickShow = clickShow;
+  ctrl.showExtendedSearch = false;
 
-	// function clickShow() {
-	// 	console.log("clickee")
-	// }
+	function clickShow() {
+		ctrl.showExtendedSearch = !ctrl.showExtendedSearch;
+	}
 
 }
 
 
 
-angular.module('app').component('sidebar', {
+angular.module('dd-ui-core').component('sidebar', {
   templateUrl: '/scripts/templates/sidebar.html',
   controller: SidebarController,
   controllerAs: 'ctrl',
