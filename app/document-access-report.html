@@ -37,16 +37,17 @@
 
 <div id="main" class="container-fluid">
   <div class="row">
-    <sidebar title="Search">
-      
+
+    <sidebar title="Search" isSideBarMaximized="ctrl.isSideBarMaximized">
+
     </sidebar>
 
     <topbar></topbar>
-    
+
     <section id="mainWindow" class='col-lg-10 col-md-9 col-sm-12 clearfix pull-right'>
       <div class='body-content'>
         <page-title title='Document Access Report' subtitle='ACME Corp. - Aug 2016'></page-title>
-
+          in html {{ctrl.isSideBarMaximized}}
         <uib-tabset active="ctrl.active">
           <uib-tab index="0">
             <uib-tab-heading>By Firm {{ctrl.firmFilter}} <i class="fa fa-times-circle-o" ng-show="ctrl.firmFilter != ''" ng-click="ctrl.clearFirmDetail()"></i></uib-tab-heading>
@@ -133,7 +134,7 @@
                   <td>10 Jun 2016 01:24</td>
                   <td>10 Jun 2016 01:24</td>
                 </tr>
-                
+
               </tbody>
             </table>
 
@@ -157,8 +158,8 @@
                   <td>10 Jun 2016 01:24</td>
                   <td>10 Jun 2016 01:24</td>
                 </tr>
-                
-                
+
+
               </tbody>
             </table>
 
@@ -220,7 +221,7 @@
                   <td>10 Jun 2016 01:24</td>
                   <td>10 Jun 2016 01:24</td>
                 </tr>
-                
+
               </tbody>
             </table>
 
@@ -307,19 +308,19 @@
                   <td>10 Jun 2016 01:24</td>
                   <td>10 Jun 2016 01:24</td>
                 </tr>
-                
+
               </tbody>
             </table>
           </uib-tab>
-          
+
           <uib-tab index="3">
             <uib-tab-heading>Full Access History {{ctrl.documentFilter}}</uib-tab-heading>
           </uib-tab>
-          
+
         </uib-tabset>
 
-       
-        
+
+
       </div>
   </div>
 
@@ -339,26 +340,27 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-    <!-- /.modal-content --> 
+    <!-- /.modal-content -->
   </div>
-  <!-- /.modal-dialog --> 
+  <!-- /.modal-dialog -->
 </div>
-<!-- /.modal --> 
+<!-- /.modal -->
 
-<!-- build:js scripts/vendor.js --> 
+<!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
 <script src="/bower_components/jquery/jquery.js"></script>
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<!-- endbower --> 
-<!-- endbuild --> 
+<!-- endbower -->
+<!-- endbuild -->
 
-<!-- build:js({app,.tmp}) scripts/main.js --> 
+<!-- build:js({app,.tmp}) scripts/main.js -->
 
 <script src="scripts/main.js"></script>
 
-<script src="scripts/app.documentAccessReport.js"></script> 
-<script src="scripts/dd-ui-core/dd-ui-core.js"></script> 
+<script src="scripts/app.documentAccessReport.js"></script>
+<script src="scripts/dd-ui-core/dd-ui-core-service.js"></script>
+<script src="scripts/dd-ui-core/dd-ui-core.js"></script>
 <script src="scripts/dd-ui-core/MainNavController.js"></script>
 <script src="scripts/dd-ui-core/ActionbarController.js"></script>
 <script src="scripts/dd-ui-core/SidebarController.js"></script>

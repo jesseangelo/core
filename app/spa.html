@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="styles/main.css">
 <!-- endbuild -->
 </head>
-<body ng-app='app' ng-controller='uiController as ctrl'>
+<body ng-app='dd-ui-core' ng-controller='ddUICoreController as ctrl'>
 
 <div class="mediaTest"></div>
 
@@ -24,13 +24,14 @@
 
 <div id="main" class="container-fluid">
   <div class="row">
-    <sidebar></sidebar>
+    <sidebar title="Hello" isSidebarMaximized="TEST"></sidebar>
     <topbar></topbar>
-    
+
     <section id="mainWindow" class='col-lg-10 col-md-9 col-sm-12 clearfix pull-right'>
       <div class='body-content'>
         <!--<hero-detail hero="ctrl.hero"></hero-detail>-->
-        <h1>Document Access Report</h1>
+        <h1>Document Access Report {{ctrl.ddUiCoreService.getSidebarState()}}</h1>
+        <page-title></page-title>
       </div>
   </div>
 <actionbar></actionbar>
@@ -51,30 +52,32 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-    <!-- /.modal-content --> 
+    <!-- /.modal-content -->
   </div>
-  <!-- /.modal-dialog --> 
+  <!-- /.modal-dialog -->
 </div>
-<!-- /.modal --> 
+<!-- /.modal -->
 
-<!-- build:js scripts/vendor.js --> 
+<!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
 <script src="/bower_components/jquery/jquery.js"></script>
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<!-- endbower --> 
-<!-- endbuild --> 
+<!-- endbower -->
+<!-- endbuild -->
 
-<!-- build:js({app,.tmp}) scripts/main.js --> 
+<!-- build:js({app,.tmp}) scripts/main.js -->
 
 <script src="scripts/main.js"></script>
 
-<script src="scripts/app.js"></script> 
-<script src="scripts/HeroDetailController.js"></script>
-<script src="scripts/MainNavController.js"></script>
-<script src="scripts/ActionbarController.js"></script>
-<script src="scripts/SidebarController.js"></script>
-<script src="scripts/TopbarController.js"></script>
+
+<script src="scripts/dd-ui-core/dd-ui-core-service.js"></script>
+<script src="scripts/dd-ui-core/dd-ui-core.js"></script>
+<script src="scripts/dd-ui-core/MainNavController.js"></script>
+<script src="scripts/dd-ui-core/ActionbarController.js"></script>
+<script src="scripts/dd-ui-core/SidebarController.js"></script>
+<script src="scripts/dd-ui-core/TopbarController.js"></script>
+<script src="scripts/dd-ui-core/PageTitleController.js"></script>
 
 <!-- endbuild -->
 </body>

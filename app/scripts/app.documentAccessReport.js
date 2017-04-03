@@ -1,14 +1,14 @@
 (function() {
   'use strict';
-  
+
   var app = angular.module('app.documentAccessReport', ['dd-ui-core']);
 
   app.controller('DocumentAccessReportController', DocumentAccessReportController);
 
   function DocumentAccessReportController() {
-  
+
       var ctrl = this;
-      
+
       ctrl.firmFilter = "";
       ctrl.contactFilter = "";
       ctrl.docFilter = "";

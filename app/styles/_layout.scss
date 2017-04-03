@@ -5,27 +5,27 @@ html, body, #main {
   background-color: white;
 }
 
-#mainWindow { 
-  background-color: #f9f9f9;
+#mainWindow {
+  /* background-color: #f9f9f9; */
   min-height: 100%;
-  color: #444;  
+  color: #444;
   padding-top: ($sidebar-margin-top);
   .row {
     margin-bottom: 15px;
   }
-  hr { 
-    border-color: #999; 
+  hr {
+    border-color: #999;
     border-style: dotted;
   }
-  &.maximized { 
+  &.maximized {
     width: 100%;
     z-index: 1000;
-    padding-left: ($sidebar-minimized + 15px) 
+    padding-left: ($sidebar-minimized + 15px)
   }
   @media screen and (max-width: 992px) {
     padding-top: 0;
     float: none;
-  }  
+  }
 
   .fab {
     background-color: orange;
@@ -39,8 +39,8 @@ html, body, #main {
     top: 67px;
     display: none;
 
-    .fa { 
-      color: white; 
+    .fa {
+      color: white;
       margin-left: .75em;
     }
   }
