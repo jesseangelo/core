@@ -1,17 +1,26 @@
 (function() {
   'use strict';
+  
+  angular.module('dd-ui-core')
 
-  var app = angular.module('dd-ui-core', []);
-
-  app.factory('ddUiCoreService', function() {
-    var isSideBarMaximized = false;
+  .factory('ddUiCoreService', function() {
+    var isSidebarMaximized = true;
 
     return {
       getSidebarState: function () {
-        return this.isSideBarMaximized;
+        return isSidebarMaximized;
+      },
+      maximizeSidebar: function () {
+        isSidebarMaximized = true;
+      },
+      minimizeSidebar: function () {
+        isSidebarMaximized = false;
+      },
+      toggleSidebar: function () {
+        isSidebarMaximized = !isSidebarMaximized;
       }
     }
 
-  })
+  });
 
 })();

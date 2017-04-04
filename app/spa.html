@@ -24,14 +24,12 @@
 
 <div id="main" class="container-fluid">
   <div class="row">
-    <sidebar title="Hello" isSidebarMaximized="TEST"></sidebar>
+    <sidebar title="Hello"></sidebar>
     <topbar></topbar>
 
     <section id="mainWindow" class='col-lg-10 col-md-9 col-sm-12 clearfix pull-right'>
       <div class='body-content'>
-        <!--<hero-detail hero="ctrl.hero"></hero-detail>-->
-        <h1>Document Access Report {{ctrl.ddUiCoreService.getSidebarState()}}</h1>
-        <page-title></page-title>
+        <page-title title="SPA"></page-title>
       </div>
   </div>
 <actionbar></actionbar>
@@ -71,9 +69,8 @@
 
 <script src="scripts/main.js"></script>
 
-
-<script src="scripts/dd-ui-core/dd-ui-core-service.js"></script>
 <script src="scripts/dd-ui-core/dd-ui-core.js"></script>
+<script src="scripts/dd-ui-core/dd-ui-core-service.js"></script>
 <script src="scripts/dd-ui-core/MainNavController.js"></script>
 <script src="scripts/dd-ui-core/ActionbarController.js"></script>
 <script src="scripts/dd-ui-core/SidebarController.js"></script>
