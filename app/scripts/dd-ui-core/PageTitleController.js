@@ -4,7 +4,7 @@ angular.module('dd-ui-core').component('pageTitle', {
   controller: ['ddUiCoreService', function PageTitleController(ddUiCoreService) {
 		var ctrl = this;
 		ctrl.ddUiCoreService = ddUiCoreService;
-		console.log(ddUiCoreService);
+		//console.log(ddUiCoreService);
 	}],
   controllerAs: 'ctrl',
   bindings: {

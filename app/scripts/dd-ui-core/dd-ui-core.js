@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var app = angular.module('dd-ui-core', ['ui.bootstrap']);
+  var app = angular.module('dd-ui-core', ['ui.bootstrap', 'kendo.directives']);
 
   app.controller('ddUICoreController', ddUICoreController);
 

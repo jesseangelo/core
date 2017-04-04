@@ -6,10 +6,9 @@
         <i class='fa fa-angle-double-right maximize-sidebar' ng-click="ctrl.maximizeSidebar()" ng-show="!ctrl.isMaximized"></i>
       </h2>
     </nav>
-    <button ng-click="ctrl.ddUiCoreService.toggle()"></button>
+    <!--<button ng-click="ctrl.ddUiCoreService.toggle()"></button>-->
     <div class='content-maximized row' ng-show="ctrl.isMaximized">
       <h4>{{ctrl.title}}</h4>
-      <h4>SB {{ctrl.isSidebarMaximized}}</h4>
 
       <!-- Content goes here -->
       <div data-ng-transclude></div>
@@ -22,7 +21,7 @@
         <div class='dar-results-window' ng-show="ctrl.showExtendedSearch">
           <h5>Firms</h5>
           <ul>
-            <li>CBS</li>
+            <li>BNP Paribas</li>
             <li>CSS</li>
             <li>HSBC</li>
           </ul>
@@ -40,6 +39,7 @@
           </ul>
         </div>
         <button type="submit" class="btn btn-default">Filter</button>
+        <button type="submit" class="btn btn-default">Clear</button>
       </form>
 
       <form ng-show={{ctrl.showDefaultContent}}>
