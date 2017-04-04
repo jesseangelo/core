@@ -9,6 +9,7 @@ html, body, #main {
   /* background-color: #f9f9f9; */
   min-height: 100%;
   color: #444;
+  position: fixed;
   padding-top: ($sidebar-margin-top);
   .row {
     margin-bottom: 15px;
@@ -20,6 +21,7 @@ html, body, #main {
   &.maximized {
     width: 100%;
     z-index: 1000;
+    margin-left: 0;
     padding-left: ($sidebar-minimized + 15px)
   }
   @media screen and (max-width: 992px) {
