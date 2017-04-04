@@ -8,7 +8,6 @@
   function ddUICoreController(ddUiCoreService) {
       var ctrl = this;
 
-      //ctrl.isSideBarMaximized = false;
       ctrl.getSidebarState = getSidebarState;
 
       function getSidebarState() {
@@ -18,7 +17,7 @@
   }
 
   app.factory('ddUiCoreService', function() {
-    var isSidebarMaximized = false;
+    var isSidebarMaximized = true;
 
     return {
       getSidebarState: function () {
@@ -27,10 +26,10 @@
       maximizeSidebar: function () {
         isSidebarMaximized = true;
       },
-      maximizeSidebar: function () {
+      minimizeSidebar: function () {
         isSidebarMaximized = false;
       },
-      toggle: function () {
+      toggleSidebar: function () {
         isSidebarMaximized = !isSidebarMaximized;
       }
     }
