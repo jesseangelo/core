@@ -5,11 +5,35 @@
 
   app.controller('ddUICoreController', ddUICoreController);
 
-  function ddUICoreController(ddUiCoreService) {
+  function ddUICoreController(ddUiCoreService, $uibModal) {
       var ctrl = this;
 
       ctrl.getSidebarState = getSidebarState;
       ctrl.getTopbarState = getTopbarState;
+      ctrl.openModal = openModal;
+
+      function openModal(size, parentSelector) {
+        console.log('modal');
+
+        var parentElem = parentSelector ?
+          angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+          animation: true,
+          ariaLabelledBy: 'modal-title',
+          ariaDescribedBy: 'modal-body',
+          template: '<div class=modal>modal</div>',
+          controller: 'ModalInstanceCtrl',
+          controllerAs: 'ctrl',
+          size: size,
+          appendTo: parentElem,
+          resolve: {
+            items: function () {
+              return ""
+            }
+          }
+        });
+
+      }
 
       function getSidebarState() {
         return ddUiCoreService.getSidebarState();

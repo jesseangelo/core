@@ -33,6 +33,7 @@
       toggleTopbar: function () {
         isTopBarMaximized = !isTopBarMaximized;
       }
+
     }
 
   });

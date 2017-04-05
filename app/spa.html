@@ -27,32 +27,15 @@
     <sidebar title="Hello"></sidebar>
     <topbar></topbar>
 
-    <content>Content</content>
-    
+    <content>
+      <button type="button" class="btn btn-default" ng-click="ctrl.openModal()">Open me!</button>
+
+    </content>
+
   </div>
 <actionbar></actionbar>
 
-
-<div id="myModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <p>Body content&hellip;</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
+<modal></modal>
 
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
@@ -65,8 +48,6 @@
 
 <!-- build:js({app,.tmp}) scripts/main.js -->
 
-<script src="scripts/main.js"></script>
-
 <script src="scripts/dd-ui-core/dd-ui-core.js"></script>
 <script src="scripts/dd-ui-core/dd-ui-core-service.js"></script>
 <script src="scripts/dd-ui-core/MainNavController.js"></script>
@@ -75,6 +56,7 @@
 <script src="scripts/dd-ui-core/TopbarController.js"></script>
 <script src="scripts/dd-ui-core/PageTitleController.js"></script>
 <script src="scripts/dd-ui-core/ContentController.js"></script>
+<script src="scripts/dd-ui-core/ModalController.js"></script>
 
 <!-- endbuild -->
 </body>
