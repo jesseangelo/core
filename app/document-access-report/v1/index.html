@@ -2,7 +2,7 @@
 <html class="no-js">
 <head>
 <meta charset="utf-8">
-<title>Document Access Report</title>
+<title>Doc Access Report - V1</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width">
 <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon">
@@ -13,7 +13,7 @@
 <!-- endbower -->
 <!-- endbuild -->
 <!-- build:css(.tmp) styles/main.css -->
-<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="../../styles/main.css">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <!-- endbuild -->
 <style>
@@ -43,7 +43,7 @@
 
     <sidebar title="Search">
       <form>
-          <div class="form-group">            
+          <div class="form-group">
             <input type="email" class="form-control" id="" placeholder="Firm, Contact, or Document" ng-click="ctrl.clickShow()">
           </div>
           <div class='dar-results-window' ng-show="ctrl.showExtendedSearch">
@@ -173,7 +173,7 @@
               <select class=form-control>
                 <option>Folder</option>
               </select>
-              within date range from: 
+              within date range from:
               <input kendo-date-picker />
               to
               <input kendo-date-picker />
@@ -276,7 +276,7 @@
                 <select class=form-control>
                   <option>Folder</option>
                 </select>
-                within date range from: 
+                within date range from:
                 <input kendo-date-picker />
                 to
                 <input kendo-date-picker />
@@ -303,7 +303,7 @@
                     <td>Y</td>
                     <td>10 Jun 2016 01:24</td>
                     <td>10 Jun 2016 01:24</td>
-                  </tr>                  
+                  </tr>
 
 
                 </tbody>
@@ -372,7 +372,7 @@
               <select class=form-control>
                 <option>Institution</option>
               </select>
-              within date range from: 
+              within date range from:
               <input kendo-date-picker />
               to
               <input kendo-date-picker />
@@ -412,7 +412,7 @@
 
                 </tbody>
               </table>
-     
+
           </uib-tab>
 
           <uib-tab index="3">
@@ -424,7 +424,7 @@
 
     </content>
 
-    
+
   </div>
 
 
@@ -451,26 +451,24 @@
 
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
-<script src="/bower_components/jquery/jquery.js"></script>
-<script src="/bower_components/angular/angular.js"></script>
-<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="/bower_components/kendo/js/kendo.all.min.js"></script>
+<script src="../../bower_components/jquery/jquery.js"></script>
+<script src="../../bower_components/angular/angular.js"></script>
+<script src="../../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="../../bower_components/kendo/js/kendo.all.min.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({app,.tmp}) scripts/main.js -->
 
-<script src="scripts/main.js"></script>
-
-<script src="scripts/dd-ui-core/dd-ui-core.js"></script>
-<script src="scripts/dd-ui-core/dd-ui-core-service.js"></script>
-<script src="scripts/app.documentAccessReport.js"></script>
-<script src="scripts/dd-ui-core/MainNavController.js"></script>
-<script src="scripts/dd-ui-core/ActionbarController.js"></script>
-<script src="scripts/dd-ui-core/SidebarController.js"></script>
-<script src="scripts/dd-ui-core/TopbarController.js"></script>
-<script src="scripts/dd-ui-core/PageTitleController.js"></script>
-<script src="scripts/dd-ui-core/ContentController.js"></script>
+<script src="../../scripts/dd-ui-core/dd-ui-core.js"></script>
+<script src="../../scripts/dd-ui-core/dd-ui-core-service.js"></script>
+<script src="app.documentAccessReport.js"></script>
+<script src="../../scripts/dd-ui-core/MainNavController.js"></script>
+<script src="../../scripts/dd-ui-core/ActionbarController.js"></script>
+<script src="../../scripts/dd-ui-core/SidebarController.js"></script>
+<script src="../../scripts/dd-ui-core/TopbarController.js"></script>
+<script src="../../scripts/dd-ui-core/PageTitleController.js"></script>
+<script src="../../scripts/dd-ui-core/ContentController.js"></script>
 
 <!-- endbuild -->
 </body>
