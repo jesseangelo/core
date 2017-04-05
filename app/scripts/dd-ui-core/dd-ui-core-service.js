@@ -1,10 +1,11 @@
 (function() {
   'use strict';
-  
+
   angular.module('dd-ui-core')
 
   .factory('ddUiCoreService', function() {
     var isSidebarMaximized = true;
+    var isTopBarMaximized = true;
 
     return {
       getSidebarState: function () {
@@ -18,6 +19,19 @@
       },
       toggleSidebar: function () {
         isSidebarMaximized = !isSidebarMaximized;
+      },
+
+      getTopbarState: function () {
+        return isTopBarMaximized;
+      },
+      maximizeTopbar: function () {
+        isTopBarMaximized = true;
+      },
+      minimizeTopbar: function () {
+        isTopBarMaximized = false;
+      },
+      toggleTopbar: function () {
+        isTopBarMaximized = !isTopBarMaximized;
       }
     }
 

@@ -1,11 +1,15 @@
-<section id="topbar" class='hidden-md hidden-lg minimized'>
+<section id="topbar" class='hidden-md hidden-lg' ng-class="ctrl.ddUiCoreService.getTopbarState() ? '' : 'minimized'">
   <div class='container-fluid'>
     <nav>
-      <h3 class='pull-right min-top'> <i class='fa fa-angle-double-up minimize-topbar'></i> </h3>
-      <h3 class=pull-right> <i class='fa fa-angle-double-down maximize-topbar'></i> </h3>
+      <h3 class='pull-right min-top'>
+        <i class='fa fa-angle-double-up minimize-topbar' ng-click="ctrl.ddUiCoreService.minimizeTopbar()" ng-show="ctrl.ddUiCoreService.getTopbarState()"></i>
+      </h3>
+      <h3 class='pull-right min-top'>
+        <i class='fa fa-angle-double-down maximize-topbar' ng-click="ctrl.ddUiCoreService.maximizeTopbar()" ng-show="!ctrl.ddUiCoreService.getTopbarState()"></i>
+      </h3>
     </nav>
-    <div class='content-maximized'>
-      <h4>Topbar Title</h4>
+    <div class='content-maximized' ng-show="ctrl.ddUiCoreService.getTopbarState()">
+      <h4>{{ctrl.title}}</h4>
       <form class="form-inline">
         <div class="form-group">
           <label for="exampleInputEmail1">Filter 1</label>
@@ -23,6 +27,9 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
     </div>
-    <div class='content-minimized'> <i class='fa fa-filter'></i> </div>
+
+    <div class='content-minimized' ng-show="!ctrl.ddUiCoreService.getTopbarState()">
+      <i class='fa fa-filter'></i>
+    </div>
   </div>
 </section>

@@ -9,9 +9,14 @@
       var ctrl = this;
 
       ctrl.getSidebarState = getSidebarState;
+      ctrl.getTopbarState = getTopbarState;
 
       function getSidebarState() {
         return ddUiCoreService.getSidebarState();
+      }
+
+      function getTopbarState() {
+        return ddUiCoreService.getTopbarState();
       }
 
   }

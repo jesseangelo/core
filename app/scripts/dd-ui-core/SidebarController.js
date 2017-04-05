@@ -8,14 +8,9 @@ angular.module('dd-ui-core').component('sidebar', {
 
 		//API
 		ctrl.clickShow = clickShow;
-		
+
 		function clickShow() {
 			ctrl.showExtendedSearch = !ctrl.showExtendedSearch;
-		}
-
-		//init()
-		function init() {
-			console.log(ddUiCoreService.getSidebarState());
 		}
 
 	}],
