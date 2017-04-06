@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var app = angular.module('dd-ui-core', ['ui.bootstrap', 'ui.router']);
+  var app = angular.module('dd-ui-core', ['ui.bootstrap', 'ui.router', 'kendo.directives', 'app.documentAccessReport']);
 
   app.controller('ddUICoreController', ddUICoreController);
   app.config(routeConfig);
@@ -17,9 +17,21 @@
       .state('docAccessReport', {
         url: 'docAccessReport',
         templateUrl: '/document-access-report/test-dar.html'
+      })
+      .state('docAccessReport-v1', {
+        url: 'docAccessReport/v1',
+        controller: 'DocumentAccessReportController',
+        controllerAs: 'ctrl',
+        templateUrl: '/document-access-report/v1/index.html'
+      })
+      .state('docAccessReport-v2', {
+        url: 'docAccessReport/v2',
+        templateUrl: '/document-access-report/v2/index.html'
+      })
+      .state('docAccessReport-v3', {
+        url: 'docAccessReport/v3',
+        templateUrl: '/document-access-report/v3/index.html'
       });
-
-	
   }
 
   function ddUICoreController(ddUiCoreService, $state, $uibModal) {

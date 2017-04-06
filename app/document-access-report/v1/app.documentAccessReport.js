@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var app = angular.module('app.documentAccessReport', ['dd-ui-core']);
+  var app = angular.module('app.documentAccessReport', []);
 
   app.controller('DocumentAccessReportController', DocumentAccessReportController);
 
