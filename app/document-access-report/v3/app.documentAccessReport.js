@@ -19,7 +19,7 @@
   
 
       //API
-      ctrl.showFirmDetail = showFirmDetail;
+      ctrl.showContactsInFirm = showContactsInFirm;
       ctrl.clearFirmDetail = clearFirmDetail;
       ctrl.showContactDetail = showContactDetail;
       ctrl.clearContactDetail = clearContactDetail;
@@ -28,10 +28,10 @@
 
       ctrl.clickShow = clickShow;
 
-      function showFirmDetail() {
-        ctrl.active = 0;
+      function showContactsInFirm() {
+        ctrl.active = 1;
         ctrl.firmFilter = ": BNP PARIBAS";
-        ctrl.searchString = "Firm Search" + ctrl.firmFilter;
+        ctrl.searchString = "Firm " + ctrl.firmFilter;
         clearDocDetail();
         clearContactDetail();
       }
@@ -43,7 +43,7 @@
       function showContactDetail() {
         ctrl.active = 1;
         ctrl.contactFilter = ": FERNANDO ALONSO";
-        ctrl.searchString = "Contact Search" + ctrl.contactFilter;
+        ctrl.searchString += " > Contact " + ctrl.contactFilter;
         clearDocDetail();
         clearFirmDetail();
       }

@@ -2,7 +2,7 @@
 <html class="no-js">
 <head>
 <meta charset="utf-8">
-<title>Doc Access Report - V2</title>
+<title>Doc Access Report - V3</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width">
 <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon">
@@ -30,6 +30,7 @@
 .dar-results-window a {
   cursor: pointer;
 }
+ul.nav-tabs { display: none; }
 </style>
 </head>
 <body ng-app='app.documentAccessReport' ng-controller='DocumentAccessReportController as ctrl'>
@@ -75,7 +76,7 @@
 
     <content>
 
-        <page-title title='Document Access Report - v2'></page-title>
+        <page-title title='Document Access Report - v3'></page-title>
         <h3>{{ctrl.searchString}}</h3>
 
         <uib-tabset active="ctrl.active">
@@ -93,7 +94,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><a ng-click="ctrl.showFirmDetail()" href="javascript:void(0)">BNP Paribas</a></td>
+                  <td><a ng-click="ctrl.showContactsInFirm()" href="javascript:void(0)">BNP Paribas</a></td>
                   <td>Investor</td>
                   <td>Reviewing</td>
                   <td>Y</td>
