@@ -1,13 +1,27 @@
 (function() {
   'use strict';
 
-  var app = angular.module('dd-ui-core', ['ui.bootstrap', 'kendo.directives']);
+  var app = angular.module('dd-ui-core', ['ui.bootstrap', 'ui.router']);
 
   app.controller('ddUICoreController', ddUICoreController);
+  app.config(routeConfig);
+
+
+  function routeConfig($stateProvider, $urlRouterProvider) {
+  	$stateProvider
+  		.state('index', {
+  			url: '/',
+  			template: '<span>WORKING!</span>'
+  			//templateUrl: '/scripts/dd-ui-core/templates/pageTitle.html'
+  		})
+
+	
+  }
 
   function ddUICoreController(ddUiCoreService, $uibModal) {
       var ctrl = this;
-
+      
+      
       ctrl.getSidebarState = getSidebarState;
       ctrl.getTopbarState = getTopbarState;
       ctrl.openModal = openModal;
