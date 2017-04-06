@@ -11,17 +11,21 @@
   	$stateProvider
   		.state('index', {
   			url: '/',
-  			template: '<span>WORKING!</span>'
-  			//templateUrl: '/scripts/dd-ui-core/templates/pageTitle.html'
+  			//template: '<span>WORKING!</span>'
+  			templateUrl: '/index-app.html'
   		})
+      .state('docAccessReport', {
+        url: 'docAccessReport',
+        templateUrl: '/document-access-report/test-dar.html'
+      });
 
 	
   }
 
-  function ddUICoreController(ddUiCoreService, $uibModal) {
+  function ddUICoreController(ddUiCoreService, $state, $uibModal) {
       var ctrl = this;
       
-      
+      $state.go('index');
       ctrl.getSidebarState = getSidebarState;
       ctrl.getTopbarState = getTopbarState;
       ctrl.openModal = openModal;

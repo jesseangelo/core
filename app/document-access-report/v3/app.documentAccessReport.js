@@ -55,7 +55,7 @@
       function showDocDetail() {
         ctrl.active = 2;
         ctrl.docFilter = ": 2017 Financials";
-        ctrl.searchString = "Document Search" + ctrl.docFilter;
+        ctrl.searchString += " > Document " + ctrl.docFilter;
         clearFirmDetail();
         clearContactDetail();
       }
