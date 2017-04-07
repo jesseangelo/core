@@ -9,59 +9,48 @@
 
       var ctrl = this;
 
-      ctrl.firmFilter = "";
-      ctrl.contactFilter = "";
-      ctrl.docFilter = "";
       ctrl.showDefaultSidebarContent = false;
       ctrl.active = 0;
       ctrl.showExtendedSearch = false;
       ctrl.searchString = "";
+      ctrl.firmSelected = "";
   
 
       //API
       ctrl.showContactsInFirm = showContactsInFirm;
-      ctrl.clearFirmDetail = clearFirmDetail;
-      ctrl.showContactDetail = showContactDetail;
-      ctrl.clearContactDetail = clearContactDetail;
+      ctrl.showUsersDocs = showUsersDocs;
+      ctrl.showDocsInFirm = showDocsInFirm;
       ctrl.showDocDetail = showDocDetail;
-      ctrl.clearDocDetail = clearDocDetail;
+      ctrl.showFirms = showFirms;
 
       ctrl.clickShow = clickShow;
 
+      function showFirms() {
+        ctrl.active = 0;
+        ctrl.firmSelected = "";
+        ctrl.searchString = "";
+      }
+
       function showContactsInFirm() {
         ctrl.active = 1;
-        ctrl.firmFilter = ": BNP PARIBAS";
-        ctrl.searchString = "Firm " + ctrl.firmFilter;
-        clearDocDetail();
-        clearContactDetail();
+        ctrl.firmSelected = "Firm: BNP PARIBAS";
+        ctrl.searchString = "";
       }
 
-      function clearFirmDetail() {
-        ctrl.firmFilter = ""
+      function showUsersDocs() {
+        ctrl.active = 3;
+        ctrl.searchString = " > Contact: FERNANDO ALONSO"; 
       }
 
-      function showContactDetail() {
-        ctrl.active = 1;
-        ctrl.contactFilter = ": FERNANDO ALONSO";
-        ctrl.searchString += " > Contact " + ctrl.contactFilter;
-        clearDocDetail();
-        clearFirmDetail();
-      }
-
-      function clearContactDetail() {
-        ctrl.contactFilter = "";
+      function showDocsInFirm() {
+        ctrl.firmSelected = "Firm: BNP PARIBAS";
+        ctrl.active = 3;
+        ctrl.searchString = " > All Documents";
       }
 
       function showDocDetail() {
-        ctrl.active = 2;
-        ctrl.docFilter = ": 2017 Financials";
-        ctrl.searchString += " > Document " + ctrl.docFilter;
-        clearFirmDetail();
-        clearContactDetail();
-      }
-
-      function clearDocDetail() {
-        ctrl.docFilter = "";
+        ctrl.active = 4;
+        ctrl.searchString = " > Document: 2017 Financials";
       }
 
       function clickShow() {
