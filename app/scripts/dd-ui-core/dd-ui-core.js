@@ -20,16 +20,20 @@
       })
       .state('docAccessReport-v1', {
         url: 'docAccessReport/v1',
-        controller: 'DocumentAccessReportController',
+        controller: 'DocumentAccessReportController1',
         controllerAs: 'ctrl',
         templateUrl: '/document-access-report/v1/index.html'
       })
       .state('docAccessReport-v2', {
         url: 'docAccessReport/v2',
+        controller: 'DocumentAccessReportController2',
+        controllerAs: 'ctrl',
         templateUrl: '/document-access-report/v2/index.html'
       })
       .state('docAccessReport-v3', {
         url: 'docAccessReport/v3',
+        controller: 'DocumentAccessReportController3',
+        controllerAs: 'ctrl',
         templateUrl: '/document-access-report/v3/index.html'
       });
   }

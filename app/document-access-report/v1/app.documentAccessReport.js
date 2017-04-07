@@ -3,9 +3,9 @@
 
   var app = angular.module('app.documentAccessReport', []);
 
-  app.controller('DocumentAccessReportController', DocumentAccessReportController);
+  app.controller('DocumentAccessReportController1', DocumentAccessReportController1);
 
-  function DocumentAccessReportController() {
+  function DocumentAccessReportController1() {
 
       var ctrl = this;
 
