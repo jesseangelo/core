@@ -17,52 +17,78 @@
       ctrl.lastActive = 0;
       ctrl.showExtendedSearch = false;
       ctrl.searchString = "";
+      ctrl.states = [];
     
 
       //API
       ctrl.showFirmDetail = showFirmDetail;
-      ctrl.clearFirmDetail = clearFirmDetail;
       ctrl.showContactDetail = showContactDetail;
-      ctrl.clearContactDetail = clearContactDetail;
       ctrl.showDocDetail = showDocDetail;
-      ctrl.clearDocDetail = clearDocDetail;
-
+      ctrl.backButton = backButton;
       ctrl.clickShow = clickShow;
+      ctrl.setState = setState;
 
-      function showFirmDetail() {
-        ctrl.active = 0;
-        ctrl.firmFilter = ": BNP PARIBAS";
-        ctrl.searchString = "Firm Search" + ctrl.firmFilter;
-        clearDocDetail();
-        clearContactDetail();
+      function setState(s, back) {
+        //ctrl.lastActive = ctrl.active;
+        //console.log('stating is now ' + s);
+
+        if (!back) {
+          console.log('get back ');
+          ctrl.states.push(s);
+        }
+        ctrl.searchString = "";
+        ctrl.firmFilter = ""
+        ctrl.contactFilter = "";
+        ctrl.docFilter = "";
+
+        switch(s) {
+          case 0:
+            ctrl.active = 0;
+            break;
+          case 1:
+            ctrl.active = 1;
+            break;
+          case 2:
+            ctrl.active = 2;
+            break;
+          case 3:
+            ctrl.active = 0;
+            ctrl.firmFilter = ": BNP PARIBAS";
+            ctrl.searchString = "Firm Search" + ctrl.firmFilter;
+            break;
+          case 4:
+            ctrl.active = 1;
+            ctrl.contactFilter = ": FERNANDO ALONSO";
+            ctrl.searchString = "Contact Search" + ctrl.contactFilter;
+            break;
+          case 5:
+            ctrl.active = 2;
+            ctrl.docFilter = ": 2017 Financials";
+            ctrl.searchString = "Document Search" + ctrl.docFilter;
+            break;
+        }
+
       }
 
-      function clearFirmDetail() {
-        ctrl.firmFilter = ""
+      function backButton() {
+        console.log("current is: " + ctrl.states)
+        if(ctrl.states.length >= 1) {
+          ctrl.states.pop();
+        }
+        console.log("now is: " + ctrl.states)
+        ctrl.setState(ctrl.states[ctrl.states.length-1], true);
+      }
+
+      function showFirmDetail() {
+        setState(3)
       }
 
       function showContactDetail() {
-        ctrl.active = 1;
-        ctrl.contactFilter = ": FERNANDO ALONSO";
-        ctrl.searchString = "Contact Search" + ctrl.contactFilter;
-        clearDocDetail();
-        clearFirmDetail();
-      }
-
-      function clearContactDetail() {
-        ctrl.contactFilter = "";
+        setState(4)
       }
 
       function showDocDetail() {
-        ctrl.active = 2;
-        ctrl.docFilter = ": 2017 Financials";
-        ctrl.searchString = "Document Search" + ctrl.docFilter;
-        clearFirmDetail();
-        clearContactDetail();
-      }
-
-      function clearDocDetail() {
-        ctrl.docFilter = "";
+        setState(5)
       }
 
       function clickShow() {
