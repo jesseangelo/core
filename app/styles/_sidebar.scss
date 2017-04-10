@@ -5,6 +5,13 @@
   height: 100vh;
   color: #eee;
   padding-top: ($sidebar-margin-top);
+
+  &:hover {
+    .minimize-sidebar, .maximize-sidebar {
+      opacity: 1;
+    }
+  }
+
   .maximize-sidebar {
     color: $color-muted-white;
     opacity: .75;
