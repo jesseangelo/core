@@ -11,13 +11,8 @@
   	$stateProvider
   		.state('index', {
   			url: '/',
-  			//template: '<span>WORKING!</span>'
   			templateUrl: '/index-app.html'
   		})
-      .state('docAccessReport', {
-        url: 'docAccessReport',
-        templateUrl: '/document-access-report/test-dar.html'
-      })
       .state('docAccessReport-v1', {
         url: 'docAccessReport/v1',
         controller: 'DocumentAccessReportController1',
@@ -40,7 +35,7 @@
 
   function ddUICoreController(ddUiCoreService, $state, $uibModal) {
       var ctrl = this;
-      
+
       $state.go('index');
       ctrl.getSidebarState = getSidebarState;
       ctrl.getTopbarState = getTopbarState;

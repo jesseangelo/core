@@ -7,12 +7,20 @@
   padding-top: ($sidebar-margin-top);
   .maximize-sidebar {
     color: $color-muted-white;
+    opacity: .75;
+    transition: all .5s;
+    &:hover { opacity: 1; }
   }
   .actions {
     margin-top: 2.4em;
     padding-top: 2.5em;
     border-top: 1px solid $color-muted-white;}
-  .minimize-sidebar { color: $color-muted-white; }
+  .minimize-sidebar {
+    color: $color-muted-white;
+    opacity: .75;
+    transition: all .5s;
+    &:hover { opacity: 1; }
+  }
   &.minimized {
     width: $sidebar-minimized;
     z-index: 1010;
