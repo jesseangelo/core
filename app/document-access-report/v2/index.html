@@ -51,8 +51,11 @@
     <content>
 
         <page-title title='Document Access Report - v2'></page-title>
+        <button class='btn pull-left' ng-show='ctrl.searchString !=""' style='margin-right: 1em;'>
+          <i class='fa fa-arrow-left'></i>
+        </button>
         <h3>{{ctrl.searchString}}</h3>
-
+        <br>
         <uib-tabset active="ctrl.active">
           <uib-tab index="0">
             <uib-tab-heading>By Firm {{ctrl.firmFilter}} <i class="fa fa-times-circle-o" ng-show="ctrl.firmFilter != ''" ng-click="ctrl.clearFirmDetail()"></i></uib-tab-heading>
