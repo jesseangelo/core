@@ -1,0 +1,36 @@
+
+.optionButton {
+  position: relative;
+  height: 2em;
+  margin-bottom: 2em;
+  width: 9em;
+  float: left;
+
+  label {
+    position: absolute;
+    padding: 1em 3em;
+    width: 9em;
+    text-align: center;
+    transition: all .4s;
+  }
+
+  input { display: none; }
+
+  input[type=checkbox] + label {
+    color: #ccc;
+    font-style: italic;
+  }
+  input[type=checkbox]:checked + label {
+    color: #f00;
+    font-style: normal;
+    background: lightblue;
+    &:hover { color: red; }
+  }
+
+  input[type=checkbox] + label {
+    &:hover {
+      background: lightblue;
+      color: gray;
+    }
+  }
+}

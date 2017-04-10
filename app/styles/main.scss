@@ -10,6 +10,7 @@
 @import "_header";
 @import "_layout";
 @import "_navs";
+@import "_optionButton";
 @import "_panel";
 @import "_search";
 @import "_sidebar";
@@ -48,8 +49,8 @@ code { color: #1960B0; }
     padding-top: 10px;
     padding-bottom: 10px;
     word-wrap: break-word;
-    background-color: $color-muted-white;   
+    background-color: $color-muted-white;
     border: 1px solid #ddd;
-  }  
+  }
 }
 /* end guide only */
