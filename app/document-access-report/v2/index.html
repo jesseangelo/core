@@ -58,7 +58,7 @@
         <br>
         <uib-tabset active="ctrl.active">
           <uib-tab index="0">
-            <uib-tab-heading>By Firm {{ctrl.firmFilter}} <i class="fa fa-times-circle-o" ng-show="ctrl.firmFilter != ''" ng-click="ctrl.clearFirmDetail()"></i></uib-tab-heading>
+            <uib-tab-heading>By Firm </uib-tab-heading>
             <table ng-show="ctrl.firmFilter == ''" class='table table-striped table-hover'>
               <thead>
                 <th>Institution</th>
@@ -198,7 +198,7 @@
           </uib-tab>
 
           <uib-tab index="1">
-            <uib-tab-heading>By Contact {{ctrl.contactFilter}} <i class="fa fa-times-circle-o" ng-show="ctrl.contactFilter != ''" ng-click="ctrl.clearContactDetail()"></i></uib-tab-heading>
+            <uib-tab-heading>By Contact</uib-tab-heading>
               <table ng-show="ctrl.contactFilter == ''" class='table table-striped table-hover'>
                 <thead>
                   <th>Name</th>
@@ -292,7 +292,7 @@
           </uib-tab>
 
           <uib-tab index="2">
-            <uib-tab-heading>By Document {{ctrl.docFilter}} <i class="fa fa-times-circle-o" ng-show="ctrl.docFilter != ''" ng-click="ctrl.clearDocDetail()"></i></uib-tab-heading>
+            <uib-tab-heading>By Document</uib-tab-heading>
 
             <table ng-show="ctrl.docFilter == ''" class='table table-striped table-hover'>
               <thead>
@@ -361,37 +361,37 @@
             <br>
 
             <table ng-show="ctrl.docFilter != ''" class='table table-striped table-hover'>
-                <thead>
-                  <th>Contact</th>
-                  <th>Institution</th>
-                  <th>Status</th>
-                  <th>Public / Private</th>
-                  <th>Firm has Current Access</th>
-                  <th>First Doc Access Date</th>
-                  <th>Last Doc Access Date</th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a ng-click="ctrl.showContactDetail()" href="javascript:void(0)">Fernando Alonso</a></td>
-                    <td>BNP Paribas</td>
-                    <td>Active</td>
-                    <td>Private</td>
-                    <td>Y</td>
-                    <td>10 Jun 2016 01:24</td>
-                    <td>10 Jun 2016 01:24</td>
-                  </tr>
-                  <tr>
-                    <td>Carlo Abate</td>
-                    <td>BNP Paribas</td>
-                    <td>Active</td>
-                    <td>Private</td>
-                    <td>Y</td>
-                    <td>10 Jun 2016 01:24</td>
-                    <td>10 Jun 2016 01:24</td>
-                  </tr>
+              <thead>
+                <th>Contact</th>
+                <th>Institution</th>
+                <th>Status</th>
+                <th>Public / Private</th>
+                <th>Firm has Current Access</th>
+                <th>First Doc Access Date</th>
+                <th>Last Doc Access Date</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a ng-click="ctrl.showContactDetail()" href="javascript:void(0)">Fernando Alonso</a></td>
+                  <td>BNP Paribas</td>
+                  <td>Active</td>
+                  <td>Private</td>
+                  <td>Y</td>
+                  <td>10 Jun 2016 01:24</td>
+                  <td>10 Jun 2016 01:24</td>
+                </tr>
+                <tr>
+                  <td>Carlo Abate</td>
+                  <td>BNP Paribas</td>
+                  <td>Active</td>
+                  <td>Private</td>
+                  <td>Y</td>
+                  <td>10 Jun 2016 01:24</td>
+                  <td>10 Jun 2016 01:24</td>
+                </tr>
 
-                </tbody>
-              </table>
+              </tbody>
+            </table>
 
           </uib-tab>
 
