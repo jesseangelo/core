@@ -14,9 +14,10 @@
       ctrl.docFilter = "";
       ctrl.showDefaultSidebarContent = false;
       ctrl.active = 0;
+      ctrl.lastActive = 0;
       ctrl.showExtendedSearch = false;
       ctrl.searchString = "";
-  
+    
 
       //API
       ctrl.showFirmDetail = showFirmDetail;

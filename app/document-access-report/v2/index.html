@@ -149,22 +149,26 @@
           </tbody>
         </table>
 
-        <!-- SEARCH BAR -->
-        <div class="form form-inline" ng-show="ctrl.firmFilter != ''" >
         <br>
-          <input type='text' class=form-control style='width: 193px;' value='Search for document in.. '>
-          <select class=form-control>
-            <option>Folder</option>
-          </select>
+        <input type='text' class=form-control value='Search' ng-show="ctrl.firmFilter != ''" >
+       
+        <br>
+
+          
+        <!-- SEARCH BAR -->
+
+        <div class="form form-inline" ng-show="ctrl.firmFilter != ''" >
+            <i class='fa fa-calendar'></i>
           within date range from:
           <input kendo-date-picker />
           to
           <input kendo-date-picker />
 
-          <span class=pull-right><button type=cancel class=btn>Clear</button></span>
-
+          &nbsp;&nbsp;
+          <i class='fa fa-key'></i>
           Has current Access?
-          <span class=pull-right>
+          <span>
+          &nbsp;&nbsp;
             <div class="optionButton">
               <input id="Yes" type="checkbox">
              <label for="Yes">Yes</label>
@@ -175,6 +179,7 @@
            </div>
          </span>
 
+         <span class=pull-right><button type=cancel class=btn>Clear</button></span>
         </div>
         <br>
 
@@ -277,7 +282,8 @@
             <input kendo-date-picker />
             to
             <input kendo-date-picker />
-            <span class=pull-right><button type=cancel class=btn>Clear</button></span>
+
+            <span class=pull-right><button type=cancel class=btn>Clear All Filters</button></span>
           </div>
           <br>
 
@@ -369,11 +375,13 @@
           <select class=form-control>
             <option>Institution</option>
           </select>
+
           within date range from:
           <input kendo-date-picker />
           to
           <input kendo-date-picker />
-          <span class=pull-right><button type=cancel class=btn>Clear</button></span>
+
+          <span class=pull-right><button type=cancel class=btn>Clear All Filters</button></span>
         </div>
         <br>
 
