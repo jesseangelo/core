@@ -33,13 +33,15 @@
         //console.log('stating is now ' + s);
 
         if (!back) {
-          console.log('get back ');
+          //console.log('get back ');
           ctrl.states.push(s);
         }
         ctrl.searchString = "";
         ctrl.firmFilter = ""
         ctrl.contactFilter = "";
         ctrl.docFilter = "";
+        ctrl.showExtendedSearch = false;
+        angular.element(document).find("#mainWindow").removeClass("fadeContent")
 
         switch(s) {
           case 0:
@@ -80,7 +82,7 @@
       }
 
       function showFirmDetail() {
-        setState(3)
+        setState(3)        
       }
 
       function showContactDetail() {
@@ -93,6 +95,11 @@
 
       function clickShow() {
         ctrl.showExtendedSearch = !ctrl.showExtendedSearch;
+        if(ctrl.showExtendedSearch) {
+          angular.element(document).find("#mainWindow").addClass("fadeContent")
+        } else {
+          angular.element(document).find("#mainWindow").removeClass("fadeContent")
+        }
       }
 
   }

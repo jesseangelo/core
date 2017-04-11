@@ -20,10 +20,17 @@
   padding: 1em;
   background-color: #eee;
 }
+#mainWindow {
+  transition: filter .5s;
+}
+.fadeContent {
+  filter: blur(2px);
+  opacity: .7;
+}
 </style>
 
 
-<sidebar title="Search">
+<sidebar title="Initiate New Search">
   <form>
       <div class="form-group">
         <input type="email" class="form-control" id="" placeholder="Firm, Contact, or Document" ng-click="ctrl.clickShow()">
@@ -48,7 +55,7 @@
           <li>2015 Financials</li>
         </ul>
       </div>
-      <button type="submit" class="btn btn-warning">Filter</button>
+      <button type="submit" class="btn btn-warning">Search</button>
       <button type="submit" class="btn btn-default">Clear</button>
     </form>
 </sidebar>
@@ -153,7 +160,7 @@
           </tbody>
         </table>
 
-        <div class='filters'>
+        <div class='filters' ng-show="ctrl.firmFilter != ''" >
          
           <input type='text' class=form-control value='Filter documents' ng-show="ctrl.firmFilter != ''" >
          
@@ -162,7 +169,7 @@
             
           <!-- SEARCH BAR -->
 
-          <div class="form form-inline" ng-show="ctrl.firmFilter != ''" >
+          <div class="form form-inline" >
               <i class='fa fa-calendar'></i>
             within date range from:
             <input kendo-date-picker />
@@ -295,9 +302,9 @@
             </tbody>
           </table>
 
-          <div class='filters'>
+          <div class='filters' ng-show="ctrl.contactFilter != ''">
             <!-- SEARCH BAR -->
-            <div class="form form-inline" ng-show="ctrl.contactFilter != ''" >
+            <div class="form form-inline">
             <br>
               <input type='text' class=form-control style='width: 193px;' value='Search for document in.. '>
               <select class=form-control>
@@ -394,9 +401,9 @@
           </tbody>
         </table>
 
-        <div class='filters'>
+        <div class='filters' ng-show="ctrl.docFilter != ''">
           <!-- SEARCH BAR -->
-          <div class="form form-inline" ng-show="ctrl.docFilter != ''" >
+          <div class="form form-inline">
           <br>
             <input type='text' class=form-control style='width: 193px;' value='Search for user in.. '>
             <select class=form-control>
