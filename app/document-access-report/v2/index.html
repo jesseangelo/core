@@ -16,6 +16,10 @@
 .k-datepicker {
   width: 8em;
 }
+.filters {
+  padding: 1em;
+  background-color: #eee;
+}
 </style>
 
 
@@ -149,37 +153,39 @@
           </tbody>
         </table>
 
-        <br>
-        <input type='text' class=form-control value='Search' ng-show="ctrl.firmFilter != ''" >
-       
-        <br>
+        <div class='filters'>
+         
+          <input type='text' class=form-control value='Filter documents' ng-show="ctrl.firmFilter != ''" >
+         
+          <br>
 
-          
-        <!-- SEARCH BAR -->
+            
+          <!-- SEARCH BAR -->
 
-        <div class="form form-inline" ng-show="ctrl.firmFilter != ''" >
-            <i class='fa fa-calendar'></i>
-          within date range from:
-          <input kendo-date-picker />
-          to
-          <input kendo-date-picker />
+          <div class="form form-inline" ng-show="ctrl.firmFilter != ''" >
+              <i class='fa fa-calendar'></i>
+            within date range from:
+            <input kendo-date-picker />
+            to
+            <input kendo-date-picker />
 
-          &nbsp;&nbsp;
-          <i class='fa fa-key'></i>
-          Has current Access?
-          <span>
-          &nbsp;&nbsp;
-            <div class="optionButton">
-              <input id="Yes" type="checkbox">
-             <label for="Yes">Yes</label>
-            </div>
-            <div class="optionButton">
-              <input id="No" type="checkbox">
-             <label for="No">No</label>
-           </div>
-         </span>
+            &nbsp;&nbsp;
+            <i class='fa fa-key'></i>
+            Has current Access?
+            <span>
+            &nbsp;&nbsp;
+              <div class="optionButton">
+                <input id="Yes" type="checkbox">
+               <label for="Yes">Yes</label>
+              </div>
+              <div class="optionButton">
+                <input id="No" type="checkbox">
+               <label for="No">No</label>
+             </div>
+           </span>
 
-         <span class=pull-right><button type=cancel class=btn>Clear</button></span>
+           <span class=pull-right><button type=cancel class=btn>Clear</button></span>
+          </div>
         </div>
         <br>
 
@@ -224,7 +230,7 @@
           <table ng-show="ctrl.contactFilter == ''" class='table table-striped table-hover'>
             <thead>
               <th>Name</th>
-              <th>Document</th>
+              <th>Firm</th>
               <th>Status</th>
               <th>Public / Private</th>
               <th>Firm has Current Access</th>
@@ -234,56 +240,76 @@
             <tbody>
               <tr>
                 <td><a ng-click="ctrl.showContactDetail()" href="javascript:void(0)">Fernando Alonso</a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>BNP Paribas</td>
+                <td>Active</td>
+                <td>Private</td>
+                <td>Y</td>
+                <td>10 Jun 2016 01:24</td>
+                <td>10 Jun 2016 01:24</td>
+              </tr>
+              <tr>
+                <td>Fernando Alonso</td>
+                <td>Renault</td>
+                <td>Active</td>
+                <td>Private</td>
+                <td>Y</td>
+                <td>10 Jun 2016 01:24</td>
+                <td>10 Jun 2016 01:24</td>
+              </tr>
+              <tr>
+                <td>Fernando Alonso</td>
+                <td>McLaren</td>
+                <td>Active</td>
+                <td>Private</td>
+                <td>Y</td>
+                <td>10 Jun 2016 01:24</td>
+                <td>10 Jun 2016 01:24</td>
               </tr>
               <tr>
                 <td>Carlo Abate</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>BNP Paribas</td>
+                <td>Active</td>
+                <td>Private</td>
+                <td>Y</td>
+                <td>10 Jun 2016 01:24</td>
+                <td>10 Jun 2016 01:24</td>
               </tr>
               <tr>
                 <td>Clemente Biondetti</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>CSS</td>
+                <td>Active</td>
+                <td>Private</td>
+                <td>Y</td>
+                <td>10 Jun 2016 01:24</td>
+                <td>10 Jun 2016 01:24</td>
               </tr>
               <tr>
                 <td>Gianfranco Brancatelli</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>HSBC</td>
+                <td>Active</td>
+                <td>Private</td>
+                <td>Y</td>
+                <td>10 Jun 2016 01:24</td>
+                <td>10 Jun 2016 01:24</td>
               </tr>
             </tbody>
           </table>
 
-          <!-- SEARCH BAR -->
-          <div class="form form-inline" ng-show="ctrl.contactFilter != ''" >
-          <br>
-            <input type='text' class=form-control style='width: 193px;' value='Search for document in.. '>
-            <select class=form-control>
-              <option>Folder</option>
-            </select>
-            within date range from:
-            <input kendo-date-picker />
-            to
-            <input kendo-date-picker />
+          <div class='filters'>
+            <!-- SEARCH BAR -->
+            <div class="form form-inline" ng-show="ctrl.contactFilter != ''" >
+            <br>
+              <input type='text' class=form-control style='width: 193px;' value='Search for document in.. '>
+              <select class=form-control>
+                <option>Folder</option>
+              </select>
+              within date range from:
+              <input kendo-date-picker />
+              to
+              <input kendo-date-picker />
 
-            <span class=pull-right><button type=cancel class=btn>Clear All Filters</button></span>
+              <span class=pull-right><button type=cancel class=btn>Clear All Filters</button></span>
+            </div>
           </div>
           <br>
 
@@ -368,20 +394,22 @@
           </tbody>
         </table>
 
-        <!-- SEARCH BAR -->
-        <div class="form form-inline" ng-show="ctrl.docFilter != ''" >
-        <br>
-          <input type='text' class=form-control style='width: 193px;' value='Search for user in.. '>
-          <select class=form-control>
-            <option>Institution</option>
-          </select>
+        <div class='filters'>
+          <!-- SEARCH BAR -->
+          <div class="form form-inline" ng-show="ctrl.docFilter != ''" >
+          <br>
+            <input type='text' class=form-control style='width: 193px;' value='Search for user in.. '>
+            <select class=form-control>
+              <option>Institution</option>
+            </select>
 
-          within date range from:
-          <input kendo-date-picker />
-          to
-          <input kendo-date-picker />
+            within date range from:
+            <input kendo-date-picker />
+            to
+            <input kendo-date-picker />
 
-          <span class=pull-right><button type=cancel class=btn>Clear All Filters</button></span>
+            <span class=pull-right><button type=cancel class=btn>Clear All Filters</button></span>
+          </div>
         </div>
         <br>
 

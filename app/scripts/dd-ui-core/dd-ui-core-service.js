@@ -5,7 +5,7 @@
 
   .factory('ddUiCoreService', function() {
     var isSidebarMaximized = true;
-    var isTopBarMaximized = true;
+    var isTopBarMaximized = false;
 
     return {
       getSidebarState: function () {
