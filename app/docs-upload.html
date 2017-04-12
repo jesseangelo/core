@@ -35,12 +35,12 @@
         <ul class="nav nav-pills">
           <li>&nbsp;&nbsp;</li>
           <li class="dropdown"> <a class="dropdown-toggle btn " id="" data-toggle="dropdown" aria-haspopup="true"><i class="fa fa-industry"></i><span class=''>&nbsp;Deals</span></a>
-            
+
           </li>
           <li><a><i class='fa fa-list'></i><span class=''>&nbsp;Notes</span></a></li>
           <li><a><i class='fa fa-calendar-o'></i><span class=''>&nbsp;Calendar</span></a></li>
           <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-line-chart'></i><span class=''>&nbsp;Reports</span> </a>
-            
+
           </li>
           <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-leaf'></i><span class=''>&nbsp;Resources</span> </a>
             <ul class="dropdown-menu" aria-labelledby="menu-Resources">
@@ -55,10 +55,10 @@
         <ul class="nav nav-pills">
           <li><a><i class='fa fa-bell'></i><span class='show-mobile'>&nbsp;Notifications</span></a></li>
           <li class="dropdown"> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-user'></i><span class='hidden-sm'>&nbsp; Lewis Hamilton</span> </a>
-            
+
           </li>
           <li> <a class="dropdown-toggle btn" id="" data-toggle="dropdown" aria-haspopup="true"> <i class='fa fa-gear'></i><span class='show-mobile'>&nbsp;Settings</span> </a>
-            
+
           </li>
           <li><a><i class='fa fa-question'></i><span class='show-mobile'>&nbsp;Help</span></a></li>
           <li><a class='menu-prototype'><i class='fa fa-bolt'></i>&nbsp;</a></li>
@@ -100,14 +100,14 @@
           <h2 class=text-center> <i class='fa fa-angle-double-right maximize-sidebar hide'></i> </h2>
         </nav>
         <div class='content-maximized row'>
-          
+
           <!-- Content goes here -->
-         
-          <!-- End Content --> 
+
+          <!-- End Content -->
         </div>
           <!-- Content goes here -->
-         
-          <!-- End Content --> 
+
+          <!-- End Content -->
       </div>
     </section>
 
@@ -148,19 +148,19 @@
           <h5>To upload, drag and drop documents on to folders</h5>
           <input type="file" class="box__file">
           <hr>
-          
+
          <!-- LEFT AND RIGHT COLUMNS FOR UPLOAD -->
           <form>
             <div class="col-md-3 ">
-              
+
               <div class="file-drop-zone">
               <span class="file-drop-message text-center">Drop files onto folders</span>
               <br>
               <form>
-                
+
                 <input class='form-control folder-search' type="text" placeholder="Folder search" />
               </form>
-                <!-- <div id="folder-list" kendo-tree-view="tree" k-data-source="ctrl.treeData" data-role="treeview"></div> -->               
+                <!-- <div id="folder-list" kendo-tree-view="tree" k-data-source="ctrl.treeData" data-role="treeview"></div> -->
                 <div id="folder-list"></div>
               </div>
             </div>
@@ -175,13 +175,13 @@
                     <div class="text-center"><a>Cancel All</a></div>
                   </div>
                   <div class="text-center msg-complete">Upload(s) Complete</div>
-                </div>  
+                </div>
               </div>
               <div class="row">
                 <!--<kendo-tree-list k-options="ctrl.treelistData" ></kendo-tree-list>-->
                 <div id="treelist"></div>
-              </div>            
-              
+              </div>
+
             </div>
           </form>
 
@@ -200,7 +200,7 @@
       <div class='top'>
 
         <div class=doc-icon><i class="fa fa-file"></i></div>
-        
+
         <div class='doc-name' title='#: File #'>
           <!--<input type=text class='input-borderless hide' value="#: File #">-->
           #: File #
@@ -211,7 +211,7 @@
           <a title=View><i class='fa fa-eye'></i></a>
         </div>
 
-      </div>       
+      </div>
       <input type=text class='upload-queue-form-group-description form-control' placeholder="Description" />
       <!--<i class="fa fa-folder-o"></i>&nbsp;<em>#: FilePath #</em>-->
     </div>
@@ -279,28 +279,29 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-    <!-- /.modal-content --> 
+    <!-- /.modal-content -->
   </div>
-  <!-- /.modal-dialog --> 
+  <!-- /.modal-dialog -->
 </div>
-<!-- /.modal --> 
+<!-- /.modal -->
 
 
-<!-- build:js scripts/vendor.js --> 
+<!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
 <script src="/bower_components/jquery/jquery.js"></script>
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="/bower_components/angular-route/angular-route.js"></script>
-<!-- endbower --> 
-<!-- endbuild --> 
+<script src="/bower_components/kendo/js/kendo.all.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
 
-<!-- build:js({app,.tmp}) scripts/main.js --> 
+<!-- build:js({app,.tmp}) scripts/main.js -->
 
 <script src="scripts/main.js"></script>
 <script src="scripts/Perezoso.js"></script>
-<script src="scripts/app.js"></script> 
+<script src="scripts/app.js"></script>
 <script src="scripts/docs.js"></script>
 
 <!-- endbuild -->
