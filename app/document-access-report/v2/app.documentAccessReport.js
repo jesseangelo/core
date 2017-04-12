@@ -18,7 +18,8 @@
       ctrl.showExtendedSearch = false;
       ctrl.searchString = "";
       ctrl.states = [];
-    
+      ctrl.calendarChecked = false;
+      ctrl.calendarLabelOn = false;
 
       //API
       ctrl.showFirmDetail = showFirmDetail;
@@ -26,7 +27,12 @@
       ctrl.showDocDetail = showDocDetail;
       ctrl.backButton = backButton;
       ctrl.clickShow = clickShow;
+      ctrl.calendarHandler = ctrl.calendarHandler;
       ctrl.setState = setState;
+
+      function calendarHandler() {
+        ctrl.calendarChecked = true;
+      }
 
       function setState(s, back) {
         //ctrl.lastActive = ctrl.active;
