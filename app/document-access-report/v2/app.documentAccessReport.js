@@ -20,6 +20,7 @@
       ctrl.states = [];
       ctrl.calendarChecked = false;
       ctrl.calendarLabelOn = false;
+      ctrl.showAdvanedFirmFilters = false;
 
       //API
       ctrl.showFirmDetail = showFirmDetail;
@@ -29,6 +30,11 @@
       ctrl.clickShow = clickShow;
       ctrl.calendarHandler = ctrl.calendarHandler;
       ctrl.setState = setState;
+      ctrl.toggleAdvancedFirmFilters = toggleAdvancedFirmFilters;
+
+      function toggleAdvancedFirmFilters() {
+        ctrl.showAdvancedFirmFilters = !ctrl.showAdvancedFirmFilters;
+      }
 
       function calendarHandler() {
         ctrl.calendarChecked = true;
@@ -88,7 +94,7 @@
       }
 
       function showFirmDetail() {
-        setState(3)        
+        setState(3)
       }
 
       function showContactDetail() {

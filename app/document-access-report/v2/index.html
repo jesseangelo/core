@@ -167,15 +167,16 @@
         </table>
 
         <div class='filters' ng-show="ctrl.firmFilter != ''" >
-         
-          <input type='text' class=form-control value='Filter documents' ng-show="ctrl.firmFilter != ''" >
-         
+          <div class=clearfix>
+            <input type='text' class='form-control pull-left' style="width: 90%;" value='Filter documents' ng-show="ctrl.firmFilter != ''" >
+            <button class='btn btn-default pull-right' ng-click='ctrl.toggleAdvancedFirmFilters()'><i class='fa fa-ellipsis-h'></i></button>
+          </div>
           <br>
 
-            
+
           <!-- SEARCH BAR -->
 
-          <div class="form form-inline" >
+          <div class="form form-inline" ng-show="ctrl.showAdvancedFirmFilters" >
               <i class='fa fa-calendar'></i>
             within date range from:
             <input kendo-date-picker />
@@ -245,7 +246,7 @@
 
       <uib-tab index="1" ng-click="ctrl.setState(1)">
         <uib-tab-heading>By Contact</uib-tab-heading>
-          
+
         <!-- Unfiltered -->
 
           <table ng-show="ctrl.contactFilter == ''" class='table table-striped table-hover'>
@@ -316,7 +317,7 @@
             </tbody>
           </table>
 
-          <!-- FILTERS --> 
+          <!-- FILTERS -->
 
           <div class='filters' ng-show="ctrl.contactFilter != ''">
             <!-- SEARCH BAR -->
@@ -326,7 +327,7 @@
               <select class=form-control>
                 <option>Folder</option>
               </select>
-      
+
               <div class="optionButton" style="margin-left: 4.5em;">
                 <input type='checkbox' id='calendar' ng-model='ctrl.calendarChecked' ng-click='ctrl.calendarHandler();'>
                <label for="calendar">
