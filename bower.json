@@ -9,7 +9,8 @@
     "angular": "bower-angular#1.5.0",
     "angular-ui-router": "0.3.2",
     "angular-route": "1.5.0",
-    "kendo": "*"
+    "kendo": "*",
+    "lightbox2": "^2.9.0"
   },
   "main": [
     "dist/styles/main.css",
