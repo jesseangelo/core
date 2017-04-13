@@ -1,36 +1,54 @@
 (function() {
   'use strict';
   
-  var app = angular.module('app', ['ui.bootstrap']);
+  var app = angular.module('app', ['dd-ui-core', 'ui.router', 'kendo.directives', 'app.documentAccessReport', 'app.complianceReport']);
+  app.config(routeConfig);
 
-  app.controller('uiController', uiController);
+  //shouldn't be in the core...
+  function routeConfig($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('index', {
+        url: '/',
+        templateUrl: '/index-app.html'
+      })
+      .state('docAccessReport-v1', {
+        url: 'docAccessReport/v1',
+        controller: 'DocumentAccessReportController1',
+        controllerAs: 'ctrl',
+        templateUrl: '/document-access-report/v1/index.html'
+      })
+      .state('docAccessReport-v2', {
+        url: 'docAccessReport/v2',
+        controller: 'DocumentAccessReportController2',
+        controllerAs: 'ctrl',
+        templateUrl: '/document-access-report/v2/index.html'
+      })
+      .state('docAccessReport-v3', {
+        url: 'docAccessReport/v3',
+        controller: 'DocumentAccessReportController3',
+        controllerAs: 'ctrl',
+        templateUrl: '/document-access-report/v3/index.html'
+      })
+      .state('complianceReport', {
+        url: 'complianceReport',
+        controller: 'ComplianceReportController',
+        controllerAs: 'ctrl',
+        templateUrl: '/compliance-report/v1/index.html'
+      });
+  }
 
-  function uiController() {
+
+  app.controller('prototypeController', prototypeController);
+
+  function prototypeController() {
       var ctrl = this;
-      ctrl.addAlert = addAlert;
-      ctrl.closeAlert = closeAlert;
-      ctrl.alerts = [];
-      ctrl.hero = {
-        name: 'Iron Man'
-      };
-      ctrl.showDefaultSidebarContent = false;
+      
+      init();
 
-      function addAlert(type) {
-          switch(type) {
-              case 0:
-                ctrl.alerts.push({ type: 'danger', msg: 'There is an error! Change a few things up and try submitting again.' });
-                break;
-              case 1:
-                ctrl.alerts.push({ type: 'success', msg: 'Well done! You successfully read this important alert message.' });
-                break;
-              default:
-                break;
-          }
+      function init() {
+        console.log('hello world app')
       }
-
-      function closeAlert(index) {
-          ctrl.alerts.splice(index, 1);
-      }
+      
   }
 
 })();
