@@ -19,7 +19,10 @@
 .filters {
   padding: 1em;
   background-color: #eee;
+  transition: all .5s;
+  height: 4.5em;
 }
+#firmFilters.open { height: 8em; }
 #mainWindow {
   transition: filter .5s;
 }
@@ -35,8 +38,14 @@
 }
 </style>
 
-
-<sidebar title="Initiate New Search">
+<script>
+  $(document).ready(function () {
+    $('.animation-continer-1').fadeOut();
+    $('.animation-continer-2').fadeOut();
+    $('.animation-continer-3').fadeOut();
+  })
+</script>
+<sidebar title="Start New Search">
   <form>
       <div class="form-group">
         <input type="email" class="form-control" id="" placeholder="Firm, Contact, or Document" ng-click="ctrl.clickShow()">
@@ -64,6 +73,12 @@
       <button type="submit" class="btn btn-warning">Search</button>
       <button type="submit" class="btn btn-default">Clear</button>
     </form>
+    <br>
+    <hr>
+    <br>
+    <h4>
+      <i class='fa fa-file-excel-o'></i> Export to Excel
+    </h4>
 </sidebar>
 
 <topbar></topbar>
@@ -166,7 +181,7 @@
           </tbody>
         </table>
 
-        <div class='filters' ng-show="ctrl.firmFilter != ''" >
+        <div class='filters' id='firmFilters' ng-show="ctrl.firmFilter != ''" >
           <div class=clearfix>
             <input type='text' class='form-control pull-left' style="width: 90%;" value='Filter documents' ng-show="ctrl.firmFilter != ''" >
             <button class='btn btn-default pull-right' ng-click='ctrl.toggleAdvancedFirmFilters()'><i class='fa fa-ellipsis-h'></i></button>
@@ -176,29 +191,34 @@
 
           <!-- SEARCH BAR -->
 
-          <div class="form form-inline" ng-show="ctrl.showAdvancedFirmFilters" >
+          <div class="form form-inline">
+            <span class='animation-continer-1'>
               <i class='fa fa-calendar'></i>
-            within date range from:
-            <input kendo-date-picker />
-            to
-            <input kendo-date-picker />
-
+                within date range from:
+                <input kendo-date-picker />
+                to
+                <input kendo-date-picker />
+            </span>
             &nbsp;&nbsp;
-            <i class='fa fa-key'></i>
-            Has current Access?
-            <span>
-            &nbsp;&nbsp;
-              <div class="optionButton">
-                <input id="Yes" type="checkbox">
-               <label for="Yes">Yes</label>
-              </div>
-              <div class="optionButton">
-                <input id="No" type="checkbox">
-               <label for="No">No</label>
-             </div>
-           </span>
+            <span class='animation-continer-2'>
+              <i class='fa fa-key'></i>
+              Has current Access?
+              <span>
+              &nbsp;&nbsp;
+                <div class="optionButton">
+                  <input id="Yes" type="checkbox">
+                 <label for="Yes">Yes</label>
+                </div>
+                <div class="optionButton">
+                  <input id="No" type="checkbox">
+                 <label for="No">No</label>
+               </div>
+             </span>
+            </span>
 
-           <span class=pull-right><button type=cancel class=btn>Clear</button></span>
+            <span class='animation-continer-3'>
+              <span class=pull-right><button type=cancel class=btn>Clear</button></span>
+            </span>
           </div>
         </div>
         <br>

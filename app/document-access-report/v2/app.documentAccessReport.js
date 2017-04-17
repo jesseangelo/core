@@ -34,6 +34,36 @@
 
       function toggleAdvancedFirmFilters() {
         ctrl.showAdvancedFirmFilters = !ctrl.showAdvancedFirmFilters;
+        if(ctrl.showAdvancedFirmFilters) {
+          F('#firmFilters').addClass('open');
+          //$('#firmFilters .form').removeClass('hide');
+          FLOJO.timed(250, function() {
+            $('.animation-continer-1').fadeIn();
+          });
+          FLOJO.timed(350, function() {
+            $('.animation-continer-2').fadeIn();
+          });
+          FLOJO.timed(450, function() {
+            $('.animation-continer-3').fadeIn();
+          });
+
+        } else {
+
+          FLOJO.timed(0, function() {
+            $('.animation-continer-3').fadeOut();
+          });
+          FLOJO.timed(100, function() {
+            $('.animation-continer-2').fadeOut();
+          });
+          FLOJO.timed(200, function() {
+            $('.animation-continer-1').fadeOut();
+          });
+
+          FLOJO.timed(400, function() {
+            F('#firmFilters').removeClass('open');
+          });
+
+        }
       }
 
       function calendarHandler() {
@@ -69,6 +99,7 @@
             ctrl.active = 0;
             ctrl.firmFilter = ": BNP PARIBAS";
             ctrl.searchString = "Firm Search" + ctrl.firmFilter;
+            angular.element(document).find()
             break;
           case 4:
             ctrl.active = 1;
