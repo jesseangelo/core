@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  
+
   var app = angular.module('app', ['dd-ui-core', 'ui.router', 'kendo.directives', 'app.documentAccessReport', 'app.complianceReport']);
   app.config(routeConfig);
 
@@ -40,15 +40,16 @@
 
   app.controller('prototypeController', prototypeController);
 
-  function prototypeController() {
+  function prototypeController($state) {
       var ctrl = this;
-      
+
       init();
 
       function init() {
-        console.log('hello world app')
+        $state.go('index');
+
       }
-      
+
   }
 
 })();
