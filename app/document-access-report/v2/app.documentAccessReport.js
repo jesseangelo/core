@@ -19,8 +19,12 @@
       ctrl.searchString = "";
       ctrl.states = [];
       ctrl.calendarChecked = false;
+      ctrl.accessChecked = false;
       ctrl.calendarLabelOn = false;
       ctrl.showAdvanedFirmFilters = false;
+
+      ctrl.contact_accessFilter_yes = false;
+      ctrl.contact_accessFilter_no = false;
 
       //API
       ctrl.showFirmDetail = showFirmDetail;
@@ -29,6 +33,7 @@
       ctrl.backButton = backButton;
       ctrl.clickShow = clickShow;
       ctrl.calendarHandler = ctrl.calendarHandler;
+      ctrl.accessHandler = ctrl.accessHandler;
       ctrl.setState = setState;
       ctrl.toggleAdvancedFirmFilters = toggleAdvancedFirmFilters;
 
@@ -116,11 +121,11 @@
       }
 
       function backButton() {
-        console.log("current is: " + ctrl.states)
+        //console.log("current is: " + ctrl.states)
         if(ctrl.states.length >= 1) {
           ctrl.states.pop();
         }
-        console.log("now is: " + ctrl.states)
+        //console.log("now is: " + ctrl.states)
         ctrl.setState(ctrl.states[ctrl.states.length-1], true);
       }
 

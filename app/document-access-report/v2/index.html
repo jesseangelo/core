@@ -29,12 +29,18 @@
 .fadeContent {
   opacity: .7;
 }
-#calendarToggle {
-  position: absolute;
-  left: 383px;
+#calendarToggle, #accessToggle, #folderToggle {
   background-color: white;
   padding: 1em;
   border: 1px solid;
+  position: absolute;
+}
+#folderToggle { left: 368px; }
+#calendarToggle { left: 476px; }
+#accessToggle { left: 585px; }
+.contact_folderList li {
+  list-style: none;
+  padding: .5em;
 }
 </style>
 
@@ -205,12 +211,12 @@
               <span>
               &nbsp;&nbsp;
                 <div class="optionButton">
-                  <input id="Yes" type="checkbox">
-                 <label for="Yes">Yes</label>
+                  <input id="firm_Yes" type="checkbox">
+                 <label for="firm_Yes">Yes</label>
                 </div>
                 <div class="optionButton">
-                  <input id="No" type="checkbox">
-                 <label for="No">No</label>
+                  <input id="firm_No" type="checkbox">
+                 <label for="firm_No">No</label>
                </div>
              </span>
             </span>
@@ -341,12 +347,30 @@
           <div class='filters' ng-show="ctrl.contactFilter != ''">
             <!-- SEARCH BAR -->
             <div class="form form-inline">
-              <input type='text' class=form-control style='width: 193px;' value='Search for document in.. '>
-              <select class=form-control>
-                <option>Folder</option>
-              </select>
+              <input type='text' class=form-control style='width: 300px;' value='Search for document'>
+              
 
-              <div class="optionButton" style="margin-left: 4.5em;">
+
+              <div class="optionButton" style="margin-left: 2.5em;">
+                <input type='checkbox' id='folder' ng-model='ctrl.folderChecked' ng-click='ctrl.folderHandler();'>
+               <label for="folder">
+                <i class='fa fa-folder'></i>
+               </label>
+              </div>
+              <div id="folderToggle" ng-show='ctrl.folderChecked'>
+                Folder: <input type=text placeholder="Search">
+                <br><br>
+                <ul class=contact_folderList>
+                  <li><input type=checkbox> Folder 1</li>
+                  <li><input type=checkbox> Folder 2</li>
+                  <li><input type=checkbox> Folder 3</li>
+                  <li><input type=checkbox> Folder 4</li>
+                </ul>
+              </div>
+
+
+
+              <div class="optionButton" style="margin-left: 2.5em;">
                 <input type='checkbox' id='calendar' ng-model='ctrl.calendarChecked' ng-click='ctrl.calendarHandler();'>
                <label for="calendar">
                 <i class='fa fa-calendar'></i>
@@ -360,6 +384,27 @@
                 <input kendo-date-picker />
                 <br><br>
                 <button class="btn btn btn-default" ng-click="ctrl.calendarChecked = false">Clear Dates</button>
+                <br>
+              </div>
+
+
+              <div class="optionButton" style="margin-left: 2.5em;">
+                <input type='checkbox' id='access' ng-model='ctrl.accessChecked' ng-click='ctrl.accessHandler();'>
+               <label for="access" ng-class="{on: ctrl.contact_accessFilter_yes || ctrl.contact_accessFilter_no}">
+                <i class='fa fa-lock'></i>
+               </label>
+              </div>
+              <div id="accessToggle" ng-show='ctrl.accessChecked'>
+                Firm has access:
+                <br>
+                <div class="optionButton">
+                  <input id="contact_Yes" type="checkbox" ng-model="ctrl.contact_accessFilter_yes">
+                 <label for="contact_Yes">Yes</label>
+                </div>
+                <div class="optionButton">
+                  <input id="contact_No" type="checkbox" ng-model="ctrl.contact_accessFilter_no">
+                 <label for="contact_No">No</label>
+               </div>
                 <br>
               </div>
 

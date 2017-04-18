@@ -29,8 +29,11 @@
   input[type=checkbox]:checked + label {
     color: white;
     font-style: normal;
-    background: #333;
-    &:hover { color: white; }
+    background-color: #333;
+    &:hover { 
+      background-color: #333 !important;
+      color: white;
+   }
   }
 
  
