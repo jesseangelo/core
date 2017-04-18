@@ -38,25 +38,25 @@
           F('#firmFilters').addClass('open');
           //$('#firmFilters .form').removeClass('hide');
           FLOJO.timed(250, function() {
-            $('.animation-continer-1').fadeIn();
+            $('.animation-container-1').fadeIn();
           });
           FLOJO.timed(350, function() {
-            $('.animation-continer-2').fadeIn();
+            $('.animation-container-2').fadeIn();
           });
           FLOJO.timed(450, function() {
-            $('.animation-continer-3').fadeIn();
+            $('.animation-container-3').fadeIn();
           });
 
         } else {
 
           FLOJO.timed(0, function() {
-            $('.animation-continer-3').fadeOut();
+            $('.animation-container-3').fadeOut();
           });
           FLOJO.timed(100, function() {
-            $('.animation-continer-2').fadeOut();
+            $('.animation-container-2').fadeOut();
           });
           FLOJO.timed(200, function() {
-            $('.animation-continer-1').fadeOut();
+            $('.animation-container-1').fadeOut();
           });
 
           FLOJO.timed(400, function() {

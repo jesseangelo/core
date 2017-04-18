@@ -38,13 +38,7 @@
 }
 </style>
 
-<script>
-  $(document).ready(function () {
-    $('.animation-continer-1').fadeOut();
-    $('.animation-continer-2').fadeOut();
-    $('.animation-continer-3').fadeOut();
-  })
-</script>
+
 <sidebar title="Start New Search">
   <form>
       <div class="form-group">
@@ -197,7 +191,7 @@
           <!-- SEARCH BAR -->
 
           <div class="form form-inline">
-            <span class='animation-continer-1'>
+            <span class='animation-container-1' style='display: none;'>
               <i class='fa fa-calendar'></i>
                 within date range from:
                 <input kendo-date-picker />
@@ -205,7 +199,7 @@
                 <input kendo-date-picker />
             </span>
             &nbsp;&nbsp;
-            <span class='animation-continer-2'>
+            <span class='animation-container-2' style='display: none;'>
               <i class='fa fa-key'></i>
               Has current Access?
               <span>
@@ -221,7 +215,7 @@
              </span>
             </span>
 
-            <span class='animation-continer-3'>
+            <span class='animation-container-3' style='display: none;'>
               <span class=pull-right><button type=cancel class=btn>Clear</button></span>
             </span>
           </div>
